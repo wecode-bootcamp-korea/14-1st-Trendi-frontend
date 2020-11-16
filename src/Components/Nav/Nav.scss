@@ -1,0 +1,89 @@
+.Nav {
+  width: 100%;
+  .benerImg {
+    width: 100%;
+  }
+  .none{
+    width: 1300px;
+    margin:0 246px 0 246px;
+  }
+  .NavBottom {
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .logoBox{
+      .logoImg {
+        width: 150px;
+        height: 25.25px;
+      } 
+    }
+   
+    .navList {
+      display: flex;
+      .liElement {
+        padding: 0 10px;
+        float: left;
+        border-right: 1px solid black;
+        font-size: 14px;
+      }
+    }
+    .textField {
+      width: 446px;
+      background-color: #eeeeee;
+      border-radius: 20px;
+      border-bottom: none;
+    }
+    form{
+      display: flex;
+      align-items: center;
+      width: 504px;
+      height: 40px;
+      input{
+        width: 100%;
+        height: 100%;
+        border:#eeeeee;
+        border-radius: 15px;
+        background-color:#eeeeee ;
+      }
+      .magnifierBox{
+        position: relative;
+
+        .magnifier{
+          position: absolute;
+          right: 470px;
+          top:-10px;
+          width: 24px;
+          height: 24px;
+          background-color:#eeeeee
+          }
+      }
+     
+    }
+  }
+  .navBottomList {
+    display: flex;
+    height: 62px;
+    border-top::1px solid #dddddd;
+    border-bottom::1px solid #dddddd;
+    .none1{
+      display: flex;
+      width: 1300px;
+      margin:0 246px 0 246px;
+
+      justify-content: space-between;
+    }
+    .navListLi {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      width:137px;
+      height: 100%;
+      float: left;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}
