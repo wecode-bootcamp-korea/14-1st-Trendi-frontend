@@ -1,5 +1,6 @@
 .Nav {
   width: 100%;
+  
   .benerImg {
     width: 100%;
   }
@@ -12,14 +13,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     .logoBox{
       .logoImg {
         width: 150px;
         height: 25.25px;
       } 
     }
-   
     .navList {
       display: flex;
       .liElement {
@@ -49,7 +48,6 @@
       }
       .magnifierBox{
         position: relative;
-
         .magnifier{
           position: absolute;
           right: 470px;
@@ -59,7 +57,6 @@
           background-color:#eeeeee
           }
       }
-     
     }
   }
   .navBottomList {
@@ -71,7 +68,6 @@
       display: flex;
       width: 1300px;
       margin:0 246px 0 246px;
-
       justify-content: space-between;
     }
     .navListLi {
