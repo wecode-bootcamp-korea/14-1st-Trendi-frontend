@@ -10,17 +10,17 @@ const FOOTER_BOTTOM = [
   {
     id: 2,
     comment: '카톡 플러스 친구',
-    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_01.png',
+    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_02.png',
   },
   {
     id: 3,
     comment: '페이스북',
-    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_01.png',
+    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_03.png',
   },
   {
     id: 4,
     comment: '인스타그램',
-    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_01.png',
+    img: 'https://www.brandi.co.kr/static/20.08.01/images/icon_footer_04.png',
   },
 ];
 
