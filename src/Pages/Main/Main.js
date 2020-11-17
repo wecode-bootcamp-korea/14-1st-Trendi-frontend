@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
+import Body from './Body';
+
+const API = 'http://localhost:3000/data/MOCK_DATA.json';
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: [],
+    };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/MOCK_DATA.json', {
-      method: 'get',
-    }).then((res) => console.log(res.json()));
+    fetch(API)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ data: res });
+      });
   }
 
   render() {
-    return <div>재원님 짱짱맨</div>;
+    return (
+      <div>
+        <Body MainAPI={this.state.data} />
+      </div>
+    );
   }
 }
 
