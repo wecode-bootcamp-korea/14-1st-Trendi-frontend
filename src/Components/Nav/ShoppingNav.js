@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ShoppingNav.scss';
 
 class ShoppingNav extends Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class ShoppingNav extends Component {
     this.setState({ navListTest: true });
   };
   render() {
-    console.log(this.props.handleHover);
     return (
       <div
         className="shoppingContainerBox"

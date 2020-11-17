@@ -13,7 +13,6 @@ class Nav extends Component {
 
   handleLeave = (e) => {
     this.setState({ navLists: false });
-    console.log('leave');
   };
   handleHover = (e) => {
     const { navLists } = this.state;
@@ -21,9 +20,7 @@ class Nav extends Component {
   };
 
   handleEnter = (e) => {
-    const { navListTest } = this.state;
     this.setState({ navLists: true });
-    console.log('enter');
   };
 
   render() {
