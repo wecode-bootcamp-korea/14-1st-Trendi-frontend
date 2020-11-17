@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StatusView from './StatusView';
 import Agreement from './Agreement'
 import './SignUp.scss'
 
@@ -53,23 +54,24 @@ class SignUp extends Component{
     });
     if(comparison) this.props.history.push('/SignUpInfo');
   }
+
+  cancelBtn = (e) => {
+    this.props.history.push('/');
+  }
  
   render(){
     const {agreement, allCheckd} = this.state;
     return(
       <div className="SignUp">
-        <div className="SignUpTitle">회원가입</div>
-        <div className="nowState">
-          <div>정보수집동의</div>
-          <div>정보입력</div>
-          <div>가입완료</div>
-        </div>
+        <StatusView status="agreement"/>
         <form onSubmit={this.nextSignUp}>
-          <label><input type="checkbox" checked={allCheckd}  name="all" onChange={this.isCheck}/>모두 동의</label>
-            <div className="checkboxForm">
-              {agreement.map((el, index)=> <Agreement data={el} index={index} isCheck={this.isCheck} key={index}/>)}
-            </div>
-          <input type="submit" value="다음"/>
+          <label><input type="checkbox" checked={allCheckd}  name="all" onChange={this.isCheck}/>이용약관 모두 동의</label>
+          <div className="checkboxForm">
+            {agreement.map((el, index)=> <Agreement data={el} index={index} isCheck={this.isCheck} key={index}/>)}
+          </div>
+          <div className="boundaryLine"></div>
+          <input className="cancelInfoBtn" type="button" onClick={this.cancelBtn} value="취소"/>
+          <input className="SignUpInfoBtn" type="submit" value="다음"/>
         </form>
       </div>
     );
