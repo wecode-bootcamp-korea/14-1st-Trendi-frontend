@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './Body.scss';
 
-let INDEX = 0;
-
 class Body extends Component {
   constructor(props) {
     super(props);
-
+    this.myRef = React.createRef();
     this.state = {
       MainApi: [],
       count: 15,
+      toggle: false,
     };
   }
 
@@ -17,14 +16,20 @@ class Body extends Component {
     this.setState({ MainApi: this.props.MainAPI });
   }
 
-  handlePlus = (e) => {
-    this.setState({ count: this.state.count + 15 });
+  handleKeyUp = () => {
+    this.setState({ toggle: false });
+    window.scrollTo(0, 3000);
+    console.log('Keyup :' + this.state.toggle);
+  };
+  handlePlus = () => {
+    const { count } = this.state;
+    this.setState({ toggle: true, count: count + 15 });
   };
 
   render() {
-    const { MainApi, count } = this.state;
+    const { MainApi, count, toggle } = this.state;
     let MainApiCut = MainApi.slice(0, count);
-    // console.log(MainApiCut);
+    let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
     return (
       <div className="Body">
         <div className="noneBody">
@@ -64,7 +69,14 @@ class Body extends Component {
                 );
               })}
               <div className="buttonBox">
-                <button onClick={this.handlePlus}>더 보기</button>
+                <button
+                  className={clickBox}
+                  onMouseDown={this.handlePlus}
+                  onMouseUp={this.handleKeyUp}
+                  // onClick={this.handleOnClick}
+                >
+                  더 보기
+                </button>
               </div>
             </div>
           </div>
