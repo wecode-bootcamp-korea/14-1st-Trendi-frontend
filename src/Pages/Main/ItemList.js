@@ -12,7 +12,7 @@ class ItemList extends Component {
 
   handleKeyUp = () => {
     this.setState({ toggle: false });
-    window.scrollTo(0, 3000);
+    window.scrollBy(0, -500);
   };
 
   handlePlus = () => {
