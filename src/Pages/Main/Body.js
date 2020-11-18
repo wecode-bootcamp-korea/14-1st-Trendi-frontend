@@ -4,16 +4,11 @@ import './Body.scss';
 class Body extends Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
     this.state = {
-      MainApi: [],
+      // MainApi: [],
       count: 15,
       toggle: false,
     };
-  }
-
-  componentDidMount() {
-    this.setState({ MainApi: this.props.MainAPI });
   }
 
   handleKeyUp = () => {
@@ -21,15 +16,22 @@ class Body extends Component {
     window.scrollTo(0, 3000);
     console.log('Keyup :' + this.state.toggle);
   };
+
   handlePlus = () => {
     const { count } = this.state;
     this.setState({ toggle: true, count: count + 15 });
   };
 
   render() {
-    const { MainApi, count, toggle } = this.state;
-    let MainApiCut = MainApi.slice(0, count);
+    console.log('자식 render');
+    console.log(this.props.MainAPI);
+    const { count, toggle } = this.state;
+    const { MainAPI } = this.props;
+
+    let MainApiCut = MainAPI.slice(0, count);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
+    console.log('안녕:' + MainApiCut);
+
     return (
       <div className="Body">
         <div className="noneBody">
@@ -43,20 +45,12 @@ class Body extends Component {
                   <article className="itemContainer" key={api.item_id}>
                     <div className="itemBox">
                       <div className="itemImgBox">
-                        <img
-                          className="itemImg"
-                          src="./images/test1.jpg"
-                          alt="사진"
-                        />
+                        <img className="itemImg" src="./images/test1.jpg" alt="사진" />
                       </div>
                       <div className="sellerBox">
                         <div className="seller">{api.item_seller}</div>
                         <div className="haru">
-                          <img
-                            className="haruPicture"
-                            src="./images/likeheart.png"
-                            alt="하루"
-                          />
+                          <img className="haruPicture" src="./images/likeheart.png" alt="하루" />
                         </div>
                       </div>
                       <div className="itemName">[반값특가]{api.item_name}</div>
@@ -73,7 +67,6 @@ class Body extends Component {
                   className={clickBox}
                   onMouseDown={this.handlePlus}
                   onMouseUp={this.handleKeyUp}
-                  // onClick={this.handleOnClick}
                 >
                   더 보기
                 </button>

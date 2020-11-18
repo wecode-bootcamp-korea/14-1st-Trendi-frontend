@@ -5,6 +5,7 @@ const API = 'http://localhost:3000/data/MOCK_DATA.json';
 
 class Main extends Component {
   constructor(props) {
+    console.log('부모 constructor');
     super(props);
     this.state = {
       data: [],
@@ -12,6 +13,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
+    console.log('부모 componentDidMount');
     fetch(API)
       .then((res) => res.json())
       .then((res) => {
@@ -20,10 +22,9 @@ class Main extends Component {
   }
 
   render() {
+    console.log('부모 render');
     return (
-      <div>
-        <Body MainAPI={this.state.data} />
-      </div>
+      <div>{this.state.data.length && <Body MainAPI={this.state.data} />}</div>
     );
   }
 }
