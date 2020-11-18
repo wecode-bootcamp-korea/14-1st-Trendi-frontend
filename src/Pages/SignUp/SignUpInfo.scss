@@ -2,36 +2,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px 0;
 
-  form{
+  form {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    width : 300px;
-    div{
+    width: 330px;
+    div {
       display: flex;
       flex-direction: column;
-      margin: 5px 0;
+      margin: 3px 0;
 
       input {
-        width : 100%;
+        width: 100%;
         height: 40px;
         margin: 5px 0;
       }
 
-      label{
+      label {
         font-size: 14px;
         font-weight: bold;
         margin-top: 10px;
       }
-      div{
+      div {
         position: relative;
-        img{
+        img {
           display: none;
           position: absolute;
-          top : 40px;
-          right : 0;
-          width : 22px;
+          top: 40px;
+          right: 0;
+          width: 22px;
           height: 22px;
           transition: all 1s;
 
@@ -40,22 +41,20 @@
           }
         }
 
-        .errorMsg{
+        .errorMsg {
           font-size: 12px;
           color: red;
         }
       }
-
-
     }
-    .boundaryLine{
+    .boundaryLine {
       margin-top: 10px;
       border-bottom: 1px solid black;
     }
 
-    .SignUpInfoBtn{
+    .SignUpInfoBtn {
       background-color: black;
-      color : white;
+      color: white;
       border: none;
       border-radius: 5px;
       height: 40px;
