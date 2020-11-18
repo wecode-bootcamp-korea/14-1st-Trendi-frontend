@@ -11,6 +11,12 @@ class Nav extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch('http://10.58.3.61:8000/products/categories/2')
+      .then((res) => res.json())
+      .then((res) => res.data);
+  }
+
   handleLeave = (e) => {
     this.setState({ navLists: false });
   };
@@ -77,12 +83,7 @@ class Nav extends Component {
             })}
           </div>
         </div>
-        {navLists && (
-          <ShoppingNav
-            handleEnter={this.handleEnter}
-            handleLeave={this.handleLeave}
-          />
-        )}
+        {navLists && <ShoppingNav handleEnter={this.handleEnter} handleLeave={this.handleLeave} />}
       </div>
     );
   }
