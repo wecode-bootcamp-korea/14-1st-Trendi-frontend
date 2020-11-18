@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './DetailItem.scss';
+import { Dropdown } from 'react-bootstrap';
 
 class DetailItem extends Component {
   render() {
@@ -75,16 +76,40 @@ class DetailItem extends Component {
                   <div className="review">26개 리뷰보기</div>
                 </div>
                 <div className="shippingBox">
-                  <div className="shippingInfo"></div>
+                  <div className="shippingInfo">배송정보</div>
                   <div className="arriveBox">
                     <div className="haruBox">
-                      <div>11/20(금)도착예정</div>
-                      <div>
-                        <img src="" alt="하루배송" />
+                      <div className="arriveComment">11/20(금)도착예정</div>
+                      <div className="haruImg">
+                        <img src="./images/haru.png" alt="하루배송" />
                       </div>
                     </div>
                     <div className="comment">하루배송 상품 내일 오후 2시 전 결제 시 적용</div>
                   </div>
+                </div>
+                <div className="dropDownContainer">
+                  <Dropdown className="dropDown">
+                    <Dropdown.Toggle className="dropDown1" variant="success" id="dropdown-basic">
+                      [색상]를 선택하세요.
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      [사이즈]를 선택하세요.
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </div>
               </article>
               <footer></footer>
