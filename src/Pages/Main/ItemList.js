@@ -21,9 +21,9 @@ class ItemList extends Component {
   };
 
   render() {
+    console.log('MainAPI ', this.props.MainAPI);
     const { count, toggle } = this.state;
     const { MainAPI } = this.props;
-
     let MainApiCut = MainAPI.slice(0, count);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
@@ -37,21 +37,22 @@ class ItemList extends Component {
             <div className="Box">
               {MainApiCut.map((api) => {
                 return (
-                  <article className="itemContainer" key={api.item_id}>
+                  <article className="itemContainer" key={api.image_url}>
                     <div className="itemBox">
                       <div className="itemImgBox">
-                        <img className="itemImg" src="./images/test1.jpg" alt="사진" />
+                        <img className="itemImg" src={api.image_url} alt="사진" />
                       </div>
                       <div className="sellerBox">
-                        <div className="seller">{api.item_seller}</div>
+                        <div className="seller">{api.seller_name}</div>
                         <div className="haru">
-                          <img className="haruPicture" src="./images/likeheart.png" alt="하루" />
+                          <img className="haruPicture" src="./images/likeheart.png" alt="하루" />{' '}
+                          {/*api.delivery*/}
                         </div>
                       </div>
-                      <div className="itemName">[반값특가]{api.item_name}</div>
+                      <div className="itemName">{api.description}</div>
                       <div className="priceBox">
-                        <div className="discount">{api.item_discount}</div>
-                        <div className="price">{api.item_price}</div>
+                        <div className="discount">{api.discounted_price}</div>
+                        <div className="price">{api.price}</div>
                       </div>
                     </div>
                   </article>
