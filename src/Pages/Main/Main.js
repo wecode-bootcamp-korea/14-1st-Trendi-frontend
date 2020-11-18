@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Body from './Body';
+import ItemList from './ItemList';
 
 const API = 'http://localhost:3000/data/MOCK_DATA.json';
 
@@ -23,9 +23,7 @@ class Main extends Component {
 
   render() {
     console.log('부모 render');
-    return (
-      <div>{this.state.data.length && <Body MainAPI={this.state.data} />}</div>
-    );
+    return <div>{this.state.data.length && <ItemList MainAPI={this.state.data} />}</div>;
   }
 }
 

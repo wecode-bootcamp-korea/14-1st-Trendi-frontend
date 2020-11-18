@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './Body.scss';
+import './ItemList.scss';
 
-class Body extends Component {
+class ItemList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // MainApi: [],
       count: 15,
       toggle: false,
     };
@@ -14,7 +13,6 @@ class Body extends Component {
   handleKeyUp = () => {
     this.setState({ toggle: false });
     window.scrollTo(0, 3000);
-    console.log('Keyup :' + this.state.toggle);
   };
 
   handlePlus = () => {
@@ -23,17 +21,14 @@ class Body extends Component {
   };
 
   render() {
-    console.log('자식 render');
-    console.log(this.props.MainAPI);
     const { count, toggle } = this.state;
     const { MainAPI } = this.props;
 
     let MainApiCut = MainAPI.slice(0, count);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
-    console.log('안녕:' + MainApiCut);
 
     return (
-      <div className="Body">
+      <div className="ItemList">
         <div className="noneBody">
           <div className="bodyContainer">
             <div className="comment"></div>
@@ -79,4 +74,4 @@ class Body extends Component {
   }
 }
 
-export default Body;
+export default ItemList;
