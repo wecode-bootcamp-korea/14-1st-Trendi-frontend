@@ -13,7 +13,7 @@ class Main extends Component {
   }
 
   render() {
-    return <div>재원님 짱짱맨</div>;
+    return <div></div>;
   }
 }
 
