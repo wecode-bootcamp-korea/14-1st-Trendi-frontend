@@ -6,7 +6,6 @@ import "./SignUp.scss";
 class SignUp extends Component {
   constructor() {
     super();
-
     this.state = {
       allCheckd: false,
       agreement: [],
