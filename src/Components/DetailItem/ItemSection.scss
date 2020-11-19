@@ -1,52 +1,6 @@
-.DetailItem {
-  .noneDetailItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1300px;
-    margin: 0 310px 0 310px;
-    border: 3px solid red;
-    .itemBox {
-      display: flex;
-
-      width: 95%;
-    }
-  }
-}
-
-.aside {
-  width: 615px;
-  border: 2px solid chartreuse;
-  .pictureBox {
-    width: 560px;
-    height: 725px;
-    // border: 3px solid green;
-    .bigPictureBox {
-      width: 100%;
-      height: 605px;
-      // border: 2px solid brown;
-      .bigPicture {
-        width: 100%;
-      }
-    }
-    .pictureListBox {
-      display: flex;
-      height: 85px;
-      // border: 2px solid black;
-      .pictureList {
-        img {
-          width: 82px;
-          height: 100%;
-          margin-right: 13.6px;
-        }
-      }
-    }
-  }
-}
-
 .section {
   width: 100%;
-  border: 5px solid brown;
+
   margin-left: 20px;
   .header {
     display: flex;
@@ -80,14 +34,14 @@
 
     .priceBox {
       display: flex;
-      // align-content: flex-end;
       align-items: flex-end;
+      padding-top: 20px;
       font-size: 34px;
       .discount {
         display: flex;
         align-items: center;
         color: #ff204b;
-        padding: 0;
+        padding-top: 10px;
       }
       .discountPrice {
         position: relative;
@@ -116,26 +70,23 @@
     }
     .reviewBox {
       display: flex;
-      justify-items: center;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
-      top: 10px;
+      top: 25px;
       width: 100%;
-      height: 24px;
+      height: 30px;
+
       .starBox {
-        width: 24px;
-        height: 100%;
-        margin: 0 3px;
+        display: flex;
+        width: 22px;
+        height: 22px;
+
         .star {
           width: 100%;
-          height: 100%;
         }
       }
       .review {
-        position: relative;
-        font-size: 24px;
-        top: 3px;
-        left: 3px;
+        padding-left: 10px;
       }
     }
 
@@ -145,7 +96,6 @@
       position: relative;
       top: 20px;
       height: 100px;
-      border: 1px solid red;
 
       .shippingInfo {
         width: 20%;
@@ -158,12 +108,12 @@
         top: 10px;
         width: 100%;
         height: 47px;
-        // border: 1px solid brown;
+
         .haruBox {
           display: flex;
           align-items: center;
           justify-content: flex-start;
-          // border: 1px solid red;
+
           .arriveComment {
             color: #1e88e5;
             font-size: 18px;
