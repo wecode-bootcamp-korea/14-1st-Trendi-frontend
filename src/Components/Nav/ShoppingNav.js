@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import './ShoppingNav.scss';
+import { withRouter } from 'react-router-dom';
 
 class ShoppingNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navListTest: true,
+      click: false,
     };
   }
 
-  handleLeave = (e) => {
-    this.setState({ navListTest: false });
+  handleChangePage = () => {
+    const { click } = this.state;
+    if (!click) {
+      this.props.history.push('/test');
+    }
   };
-  handleEnter1 = (e) => {
-    this.setState({ navListTest: true });
-  };
+
   render() {
     return (
       <div
@@ -26,7 +28,9 @@ class ShoppingNav extends Component {
           {SHOPPING_LIST.map((el) => {
             return (
               <div className="shoppingContainer">
-                <div className="mainTitle">{el.main}</div>
+                <div className="mainTitle" onClick={this.handleChangePage}>
+                  {el.main}
+                </div>
                 <div className="content">{el.item1}</div>
                 <div className="content">{el.item2}</div>
                 <div className="content">{el.item3}</div>
@@ -51,7 +55,7 @@ class ShoppingNav extends Component {
   }
 }
 
-export default ShoppingNav;
+export default withRouter(ShoppingNav);
 
 const SHOPPING_LIST = [
   {
