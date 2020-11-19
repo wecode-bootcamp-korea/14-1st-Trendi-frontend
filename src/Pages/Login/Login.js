@@ -23,37 +23,16 @@ class Login extends Component {
         nick_name: id,
         password: password,
       }),
-    }).then((res) => res.json());
-    // .then((res) => {
-    //   if (res.TOKEN) {
-    //     document.cookie = "token_id" + "=" + res.TOKEN;
-    //   } else {
-    //     console.log("!11");
-    //   }
-    // });
-  };
-
-  kakaoSigin = (e) => {
-    fetch(
-      "https://kauth.kakao.com/oauth/authorize?client_id=0293d652aa9ceeae7cafb055c7a3bbb2&redirect_uri=http://10.58.7.185:3000&response_type=code",
-      { credentials: "include" }
-    )
+    })
+      .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        // if (res.redirected) {
-        //   window.location.href = res.url;
-        // }
-      })
-      .catch(function (err) {
-        console.info(err);
+        if (res.TOKEN) {
+          document.cookie = `user_name=${res.user_name}`;
+          document.cookie = `token_id=${res.TOKEN}`;
+        } else {
+          alert("ID , pasword를 확인해 주세요");
+        }
       });
-    // .then((res) => {
-    //   if (res.TOKEN) {
-    //     document.cookie = "token_id" + "=" + res.TOKEN;
-    //   } else {
-    //     console.log("!11");
-    //   }
-    // })
   };
 
   render() {
