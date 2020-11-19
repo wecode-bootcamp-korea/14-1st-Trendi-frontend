@@ -1,0 +1,9 @@
+{
+  "SignUp": {
+      "uri": "http://10.58.6.55:8000/user/",
+      "signup" : "signup",
+      "email" : "email",
+      "checkid" : "signupid"
+      
+  }
+}

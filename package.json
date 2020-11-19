@@ -37,5 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "proxy" : {
+    "/signup/" : {
+      "target" : "http://10.58.6.55:8000/user/"
+    },
+    "/login/" : {
+      "target" : "http://10.58.6.245"
+    }
   }
 }
