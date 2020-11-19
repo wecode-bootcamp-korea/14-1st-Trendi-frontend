@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ItemList from './ItemList';
 
 // const API = 'http://localhost:3000/data/MOCK_DATA.json';
-const API = ' http://10.58.3.61:8000/products/categories/2';
+const API = ' http://10.58.7.212:8000/';
 
 class Main extends Component {
   constructor(props) {
