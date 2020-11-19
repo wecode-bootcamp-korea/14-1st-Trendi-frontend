@@ -49,7 +49,7 @@ class SignUpInfo extends Component {
     const isValidation = this.state[name].check(value);
 
     if (name === "id" || name === "email") {
-      fetch(configData.Login, {
+      fetch("", {
         method: "post",
         body: JSON.stringify({
           nick_name: value,
