@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 import './DetailItem.scss';
-import { Dropdown } from 'react-bootstrap';
 
 class DetailItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'start',
+      options: [
+        { value: 'apple', label: 'Apple' },
+        { value: 'banana', label: 'Banana' },
+        { value: 'orange', label: 'Orange' },
+        { value: 'berry', label: 'Berry' },
+      ],
+    };
+  }
+
   render() {
+    const { options } = this.state;
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">
@@ -16,19 +30,19 @@ class DetailItem extends Component {
                 </div>
                 <div className="pictureListBox">
                   <div className="pictureList">
-                    <img src="./images/clothes2.png" alt="사진 리스트" />
+                    <img src="./images/clothes1.png" alt="사진 리스트" />
                   </div>
                   <div className="pictureList">
                     <img src="./images/clothes2.png" alt="사진 리스트" />
                   </div>
                   <div className="pictureList">
-                    <img src="./images/clothes2.png" alt="사진 리스트" />
+                    <img src="./images/clothes3.png" alt="사진 리스트" />
                   </div>
                   <div className="pictureList">
-                    <img src="./images/clothes2.png" alt="사진 리스트" />
+                    <img src="./images/clothes4.png" alt="사진 리스트" />
                   </div>
                   <div className="pictureList">
-                    <img src="./images/clothes2.png" alt="사진 리스트" />
+                    <img src="./images/clothes5.png" alt="사진 리스트" />
                   </div>
                 </div>
               </div>
@@ -42,7 +56,6 @@ class DetailItem extends Component {
                     <img src="./images/home.png" alt="가게이름" />
                   </div>
                   <div className="storeComment">프린세스 스토어</div>
-                  <button>></button>
                 </div>
                 <div className="title">
                   [후기극찬!기모버전>] XL까지, 착붙 스판 하이웨스트 쫀득 스키니 레깅스 팬츠
@@ -87,32 +100,48 @@ class DetailItem extends Component {
                     <div className="comment">하루배송 상품 내일 오후 2시 전 결제 시 적용</div>
                   </div>
                 </div>
-                <div className="dropDownContainer">
-                  <Dropdown className="dropDown">
-                    <Dropdown.Toggle className="dropDown1" variant="success" id="dropdown-basic">
-                      [색상]를 선택하세요.
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      [사이즈]를 선택하세요.
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
+                {/*<!-- 드롭다운 컴포넌트 만들것 1 -->*/}
+                <form className="dropDownContainer">
+                  <Select className="select1" options={options} defaultValue={options[0]} />
+                  <Select className="select2" options={options} defaultValue={options[1]} />
+                </form>
               </article>
-              <footer></footer>
+              <footer className="footer">
+                <div className="orderContainer">
+                  <div className="orderWrap">
+                    <div className="orderBox">
+                      <div className="orderBox2">
+                        <div className="order">
+                          <div className="order1">블랙</div>
+                          <div className="delivery">일반배송</div>
+                        </div>
+                        <div className="buttonBox">
+                          <button>X</button>
+                        </div>
+                      </div>
+                      <div className="orderBottomBox">
+                        <div className="orderBottom">
+                          <button className="minus">-</button>
+                          <div className="number">1</div>
+                          <button className="plus">+</button>
+                        </div>
+                        <div className="orderPriceBox">
+                          <div className="orderPrice1">19,200</div>
+                          <div className="orderPrice2">원</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+                <div className="wrapPrice">
+                  <div className="priceBox">
+                    <div className="priceComent">총 상품금액</div>
+                    <div className="price">1000원</div>
+                  </div>
+                </div>
+              </footer>
+              {/*<!-- 드롭다운 컴포넌트 만들것 1 -->*/}
             </section>
             {/*<!-- 섹션 컴포넌트 만들것 2 -->*/}
           </div>

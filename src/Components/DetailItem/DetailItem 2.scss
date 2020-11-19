@@ -1,0 +1,188 @@
+.DetailItem {
+  .noneDetailItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1300px;
+    margin: 0 310px 0 310px;
+    border: 3px solid red;
+    .itemBox {
+      display: flex;
+
+      width: 95%;
+    }
+  }
+}
+
+.aside {
+  width: 615px;
+  border: 2px solid chartreuse;
+  .pictureBox {
+    width: 560px;
+    height: 725px;
+    // border: 3px solid green;
+    .bigPictureBox {
+      width: 100%;
+      height: 605px;
+      // border: 2px solid brown;
+      .bigPicture {
+        width: 100%;
+      }
+    }
+    .pictureListBox {
+      display: flex;
+      height: 85px;
+      // border: 2px solid black;
+      .pictureList {
+        img {
+          width: 82px;
+          height: 100%;
+          margin-right: 13.6px;
+        }
+      }
+    }
+  }
+}
+
+.section {
+  width: 100%;
+  border: 5px solid brown;
+  margin-left: 20px;
+  .header {
+    display: flex;
+    flex-direction: column;
+    .storeBox {
+      display: flex;
+      margin-bottom: 10px;
+      .store {
+        width: 22px;
+        height: 22px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .storeComment {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        font-size: 22px;
+      }
+    }
+    .title {
+      height: 80px;
+      font-size: 28px;
+    }
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+
+    .priceBox {
+      display: flex;
+      // align-content: flex-end;
+      align-items: flex-end;
+      font-size: 34px;
+      .discount {
+        display: flex;
+        align-items: center;
+        color: #ff204b;
+        padding: 0;
+      }
+      .discountPrice {
+        position: relative;
+        left: 5px;
+      }
+      .discountPriceWon {
+        position: relative;
+        left: 7px;
+        bottom: 5px;
+        font-size: 20px;
+      }
+      .price {
+        position: relative;
+        left: 15px;
+        bottom: 5px;
+        font-size: 20px;
+        color: #c5c5c5;
+      }
+      .priceWon {
+        position: relative;
+        left: 17px;
+        bottom: 7px;
+        font-size: 12px;
+        color: #c5c5c5;
+      }
+    }
+    .reviewBox {
+      display: flex;
+      justify-items: center;
+      align-items: flex-end;
+      position: relative;
+      top: 10px;
+      width: 100%;
+      height: 24px;
+      .starBox {
+        width: 24px;
+        height: 100%;
+        margin: 0 3px;
+        .star {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .review {
+        position: relative;
+        font-size: 24px;
+        top: 3px;
+        left: 3px;
+      }
+    }
+
+    .shippingBox {
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: 20px;
+      height: 100px;
+      border: 1px solid red;
+
+      .shippingInfo {
+        width: 20%;
+      }
+      .arriveBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        top: 10px;
+        width: 100%;
+        height: 47px;
+        // border: 1px solid brown;
+        .haruBox {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          // border: 1px solid red;
+          .arriveComment {
+            color: #1e88e5;
+            font-size: 18px;
+          }
+          .haruImg {
+            width: 74px;
+            height: 18px;
+            padding-left: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        .comment {
+          font-size: 18px;
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+}

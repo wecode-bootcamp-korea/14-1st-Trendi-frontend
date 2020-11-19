@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: center;
     width: 1300px;
+    padding-top: 70px;
     margin: 0 310px 0 310px;
-    border: 3px solid red;
+    // border: 3px solid red;
     .itemBox {
       display: flex;
 
@@ -16,7 +17,7 @@
 
 .aside {
   width: 615px;
-  border: 2px solid chartreuse;
+  // border: 2px solid chartreuse;
   .pictureBox {
     width: 560px;
     height: 725px;
@@ -46,7 +47,7 @@
 
 .section {
   width: 100%;
-  border: 5px solid brown;
+  // border: 5px solid brown;
   margin-left: 20px;
   .header {
     display: flex;
@@ -80,14 +81,14 @@
 
     .priceBox {
       display: flex;
-      // align-content: flex-end;
       align-items: flex-end;
+      padding-top: 20px;
       font-size: 34px;
       .discount {
         display: flex;
         align-items: center;
         color: #ff204b;
-        padding: 0;
+        padding-top: 10px;
       }
       .discountPrice {
         position: relative;
@@ -117,25 +118,23 @@
     .reviewBox {
       display: flex;
       justify-items: center;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
-      top: 10px;
+      top: 25px;
       width: 100%;
-      height: 24px;
+      height: 30px;
+      // border: 1px solid pink;
       .starBox {
-        width: 24px;
-        height: 100%;
-        margin: 0 3px;
+        display: flex;
+        width: 22px;
+        height: 22px;
+
         .star {
           width: 100%;
-          height: 100%;
         }
       }
       .review {
-        position: relative;
-        font-size: 24px;
-        top: 3px;
-        left: 3px;
+        padding-left: 10px;
       }
     }
 
@@ -145,7 +144,7 @@
       position: relative;
       top: 20px;
       height: 100px;
-      border: 1px solid red;
+      // border: 1px solid red;
 
       .shippingInfo {
         width: 20%;
@@ -186,11 +185,126 @@
     }
   }
   .dropDownContainer {
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: 40px;
-    border: 3px solid forestgreen;
-    .dropDown1 {
-      width: 100%;
+    // border: 3px solid forestgreen;
+
+    .select2,
+    .select1 {
+      height: 50px;
+      margin-top: 3px;
+    }
+    .select1 {
+      position: relative;
+      top: 5px;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  top: 50px;
+  // border: 2px solid red;
+  .orderContainer {
+    border: 1px solid #f5f6f6;
+    border-radius: 8px;
+    background-color: #f5f6f6;
+    // border: 2px solid blue;
+    .orderWrap {
+      display: flex;
+      flex-direction: column;
+      // border: 2px solid red;
+      .orderBox {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 142px;
+        .orderBox2 {
+          display: flex;
+          justify-content: space-between;
+          // border: 2px solid pink;
+          padding: 10px 15px 20px 15px;
+          .order {
+            .order1 {
+              font-size: 18px;
+              color: #1e1e1e;
+            }
+            .delivery {
+              font-size: 16px;
+              color: #868796;
+            }
+          }
+          button {
+            width: 18px;
+            height: 18px;
+            color: #000000;
+            background-color: #f5f6f6;
+            border: none;
+          }
+        }
+        .orderBottomBox {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 15px;
+          // border: #1e88e5 solid 2px;
+          .orderBottom {
+            display: flex;
+            .minus,
+            .plus,
+            .number {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 30px;
+              height: 32px;
+              background-color: #ffffff;
+              border: solid 0.1px #000000;
+            }
+          }
+          .orderPriceBox {
+            display: flex;
+            align-items: flex-end;
+            // border: 1px solid pink;
+            .orderPrice1 {
+              font-size: 22px;
+            }
+            .orderPrice2 {
+              position: relative;
+              top: -5px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .wrapPrice {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        height: 60px;
+        // border: 1px solid red;
+        // background-color: black;
+        z-index: 9;
+        .priceBox {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding: 0 30px;
+          width: 100%;
+          height: 44px;
+
+          // border: 1px solid green;
+          .priceComment {
+            font-size: 20px;
+          }
+          .price {
+            font-weight: 700;
+            font-size: 30px;
+            color: #ff204b;
+          }
+        }
+      }
     }
   }
 }
