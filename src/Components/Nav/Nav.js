@@ -32,13 +32,9 @@ class Nav extends Component {
   render() {
     const { navLists } = this.state;
     return (
-      <div className="Nav">
+      <nav className="Nav">
         <div>
-          <img
-            className="benerImg"
-            src="https://image.brandi.me/home/banner/bannerImage_230087_1605493950.jpg"
-            alt="배너 이미지"
-          />
+          <img className="benerImg" src="./images/banner.png" alt="배너 이미지" />
         </div>
         <div className="none">
           <div className="NavBottom">
@@ -84,7 +80,7 @@ class Nav extends Component {
           </div>
         </div>
         {navLists && <ShoppingNav handleEnter={this.handleEnter} handleLeave={this.handleLeave} />}
-      </div>
+      </nav>
     );
   }
 }
