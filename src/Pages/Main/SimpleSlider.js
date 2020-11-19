@@ -13,20 +13,16 @@ export default class SimpleSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 6000,
+      autoplaySpeed: 3000,
       pauseOnHover: true,
       arrows: true,
     };
     return (
       <div className="SimpleSlider">
         <Slider {...settings}>
-          <div>
-            <button type="button" class="slick-prev"></button>
-            <img
-              className="sliderImg"
-              src="https://image.brandi.me/home/banner/bannerImage_5_1605486840.jpg"
-              alt="사진"
-            />
+          <div className="imageContainer">
+            {/* <button type="button" class="slick-prev"></button> */}
+            <img className="sliderImg" src="/images/picture1.jpg" alt="사진" />
           </div>
           {SLIDER.map((slider) => {
             return (
@@ -42,13 +38,8 @@ export default class SimpleSlider extends Component {
 }
 
 const SLIDER = [
-  { img: 'https://image.brandi.me/home/banner/bannerImage_230170_1605494410.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_5_1605491817.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_4_1605486840.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_10_1605488560.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_4_1605488178.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_2_1605493555.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_5_1605489734.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_6_1605491817.jpg' },
-  { img: 'https://image.brandi.me/home/banner/bannerImage_4_1605488178.jpg' },
+  { img: '/images/picture2.jpg' },
+  { img: '/images/picture3.jpg' },
+  { img: '/images/picture4.jpg' },
+  { img: '/images/picture5.jpg' },
 ];

@@ -17,15 +17,11 @@ class Nav extends Component {
       .then((res) => res.data);
   }
 
-  handleLeave = (e) => {
+  handleLeave = () => {
     this.setState({ navLists: false });
   };
-  handleHover = (e) => {
-    const { navLists } = this.state;
-    this.setState({ navLists: !navLists });
-  };
 
-  handleEnter = (e) => {
+  handleEnter = () => {
     this.setState({ navLists: true });
   };
 
@@ -39,11 +35,7 @@ class Nav extends Component {
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox">
-              <img
-                className="logoImg"
-                src="https://www.brandi.co.kr/static/20.08.01/images/logo@3x.png"
-                alt="로고 이미지"
-              />
+              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
             <form>
               <input className="searchInput"></input>
