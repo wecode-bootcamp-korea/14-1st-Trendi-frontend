@@ -1,0 +1,84 @@
+.Review {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .ReviewList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      div {
+        span {
+          margin: 0 5px 0 30px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .layoutLine {
+      border-top: 1px solid black;
+      margin: 8px 0;
+    }
+    .reviewForm {
+      margin-top: 10px;
+      border-bottom: 1px solid #e1e1e1;
+      .orderInfo {
+        display: flex;
+        justify-content: space-between;
+        div {
+          span {
+            margin-right: 10px;
+            font-size: 13px;
+            font-weight: 500;
+          }
+        }
+      }
+      .ReviewDetailInfo {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        div {
+          margin: 8px 0;
+
+          .orderBodyInfo {
+            color: #9a9a9e;
+          }
+        }
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    div {
+      ul {
+        display: flex;
+        justify-content: center;
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 30px;
+          height: 30px;
+          margin: 10px;
+          border: 1px solid #e6e6e6;
+          border-radius: 3px;
+          color: #e6e6e6;
+        }
+      }
+    }
+  }
+}
