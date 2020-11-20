@@ -26,102 +26,6 @@
   position: relative;
   top: 50px;
 
-  .orderContainer {
-    border: 1px solid #f5f6f6;
-    border-radius: 8px;
-    background-color: #f5f6f6;
-
-    .orderWrap {
-      display: flex;
-      flex-direction: column;
-
-      .orderBox {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 142px;
-        .orderBox2 {
-          display: flex;
-          justify-content: space-between;
-          padding: 10px 15px 10px 15px;
-
-          .order {
-            padding: 5px 0;
-
-            .order1 {
-              font-size: 18px;
-              padding: 10px 0;
-              color: #1e1e1e;
-            }
-
-            .delivery {
-              font-size: 16px;
-              color: #868796;
-            }
-          }
-          .buttonBox {
-            padding-top: 10px;
-            width: 18px;
-            height: 18px;
-
-            button {
-              width: 100%;
-              height: 100%;
-              color: #000000;
-              background-color: #f5f6f6;
-              border: none;
-            }
-          }
-        }
-        .orderBottomBox {
-          display: flex;
-          justify-content: space-between;
-          padding: 0 15px;
-
-          .orderBottom {
-            display: flex;
-            border: solid 1px #ebeef2;
-
-            .minus,
-            .plus {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 16px;
-              width: 30px;
-              height: 30px;
-              background-color: #ffffff;
-              border: none;
-            }
-
-            .number {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 16px;
-              width: 30px;
-              height: 30px;
-              background-color: #ffffff;
-              border-left: solid 1px #ebeef2;
-              border-right: solid 1px #ebeef2;
-            }
-          }
-          .orderPriceBox {
-            display: flex;
-            align-items: center;
-
-            .orderPrice1 {
-              font-size: 22px;
-            }
-
-            .orderPrice2 {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
   .wrapPrice {
     display: flex;
     align-items: flex-end;
@@ -136,9 +40,13 @@
       padding: 0 30px;
       width: 100%;
       height: 44px;
+      // border: 1px solid red;
 
       .priceComment {
         font-size: 20px;
+      }
+      .priceBox2 {
+        display: flex;
       }
       .price {
         font-weight: 700;
