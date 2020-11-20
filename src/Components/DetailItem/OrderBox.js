@@ -3,13 +3,9 @@ import './OrderBox.scss';
 
 class OrderBox extends Component {
   render() {
-    const { value, size, priceBox } = this.props;
-    // console.log('props.value', value);
-    // console.log('props.size', size);
-    // console.log('props.priceBox', priceBox);
-    // console.log('========================');
+    const { value, size, priceBox, key } = this.props;
     return (
-      <div className="orderContainer">
+      <div className="orderContainer" key={key}>
         <div className="orderWrap">
           <div className="orderBox">
             <div className="orderBox2">
