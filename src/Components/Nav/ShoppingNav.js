@@ -18,12 +18,9 @@ class ShoppingNav extends Component {
   };
 
   render() {
+    const { handleEnter, handleLeave } = this.props;
     return (
-      <div
-        className="shoppingContainerBox"
-        onMouseLeave={this.props.handleLeave}
-        onMouseEnter={this.props.handleEnter}
-      >
+      <div className="shoppingContainerBox" onMouseLeave={handleLeave} onMouseEnter={handleEnter}>
         <div className="noneBox1">
           {SHOPPING_LIST.map((el) => {
             return (
