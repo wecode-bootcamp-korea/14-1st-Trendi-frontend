@@ -17,16 +17,12 @@ class Main extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    return <div></div>;
-=======
     return (
       <div className="Main">
         <Nav />
         <SimpleSlider />
       </div>
     );
->>>>>>> main
   }
 }
 
