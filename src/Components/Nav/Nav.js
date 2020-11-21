@@ -37,18 +37,20 @@ class Nav extends Component {
             <div className="logoBox">
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
-            <form>
-              <input className="searchInput"></input>
-              <div className="magnifierBox">
-                <img
-                  className="magnifier"
-                  src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
-                  alt="돋보기"
-                />
+            <div className="form">
+              <div className="searchContainer">
+                <input className="searchInput"></input>
+                <div className="magnifierBox">
+                  <img
+                    className="magnifier"
+                    src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
+                    alt="돋보기"
+                  />
+                </div>
               </div>
-            </form>
+            </div>
             <div className="navList">
-              <ul>
+              <ul className="ul">
                 {NAV_LIST.map((el) => {
                   return <li className="liElement">{el.title}</li>;
                 })}
@@ -81,7 +83,7 @@ export default Nav;
 
 const NAV_LIST = [
   { id: 1, title: '찜' },
-  { id: 2, title: '다이렉트' },
+  { id: 2, title: '장바구니' },
   { id: 3, title: '마이페이지' },
   { id: 4, title: '로그인' },
 ];
