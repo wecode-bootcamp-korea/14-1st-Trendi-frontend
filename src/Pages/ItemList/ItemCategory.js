@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import './ItemCategory.scss';
-
 class ItemCategory extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      click: false,
+      imgChange: true,
+    };
   }
 
   handleChange = (checked: boolean) => {
     console.log(checked);
   };
+  upDown = () => {
+    const { click } = this.state;
+    this.setState({ click: !click });
+  };
 
   render() {
+    const { click } = this.state;
+    const upDownImg = click ? '../../../images/up.png' : '../../../images/down.png';
     return (
       <div className="ItemCategory">
         <nav className="nav">
@@ -36,17 +45,19 @@ class ItemCategory extends Component {
                 <img className="arrow" src="./images/down.png" alt="down" />
               </div>
             </div>
-            <div className="categoryOuterBox">
+            <div className="categoryOuterBox" onClick={() => this.upDown()}>
               <div className="categoryListSub">상의</div>
               <div>
-                <img className="arrow" src="./images/down.png" alt="down" />
+                <img className="arrow" src={upDownImg} alt="down" />
               </div>
             </div>
-            <div className="categoryListBox">
-              <div className="list1">전체</div>
-              <div className="list2">티셔츠</div>
-              <div className="list3"></div>
-            </div>
+            {this.state.click && (
+              <div className="categoryListBox">
+                <div className="list1">전체</div>
+                <div className="list2">티셔츠</div>
+                <div className="list3"></div>
+              </div>
+            )}
             {CATEGORY.map((category) => {
               return (
                 <div className="categoryListMap">

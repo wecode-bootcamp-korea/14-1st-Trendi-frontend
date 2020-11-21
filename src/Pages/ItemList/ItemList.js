@@ -23,7 +23,7 @@ class ItemList extends Component {
             </div>
           </div>
         </nav>
-        <div className="none">
+        <div className="noneItemList">
           <ItemCategory />
         </div>
       </div>
