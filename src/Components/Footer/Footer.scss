@@ -4,6 +4,8 @@
 }
 
 .Footer {
+  display: flex;
+  justify-content: center;
   background-color: #1e1e1e;
   .none {
     @extend %none;
@@ -13,7 +15,7 @@
     .container {
       display: flex;
       justify-content: space-between;
-      padding-top: 30px;
+      padding-top: 70px;
       height: 136px;
       background-color: #1e1e1e;
       border-bottom: 1px solid #333333;
