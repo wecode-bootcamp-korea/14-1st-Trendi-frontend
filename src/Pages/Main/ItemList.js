@@ -24,7 +24,9 @@ class ItemList extends Component {
     console.log('MainAPI ', this.props.MainAPI);
     const { count, toggle } = this.state;
     const { MainAPI } = this.props;
-    let MainApiCut = MainAPI.slice(0, count);
+    console.log('왔다감@@@@@@@@@@@@@');
+    let MainApiCut = MainAPI ? MainAPI.slice(0, count) : '';
+    console.log('MainApiCut', MainApiCut);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
     return (
