@@ -73,8 +73,7 @@ class Nav extends Component {
             })}
           </div>
         </div>
-        {/* {navLists && <ShoppingNav handleEnter={this.handleEnter} handleLeave={this.handleLeave} />} */}
-        <ShoppingNav handleEnter={this.handleEnter} handleLeave={this.handleLeave} />
+        {navLists && <ShoppingNav handleEnter={this.handleEnter} handleLeave={this.handleLeave} />}
       </nav>
     );
   }
