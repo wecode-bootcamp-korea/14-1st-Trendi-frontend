@@ -8,44 +8,58 @@
   .none {
     @extend %none;
     height: 363px;
-
     color: #ffffff;
+    background-color: #1e1e1e;
     .container {
       display: flex;
       justify-content: space-between;
       padding-top: 30px;
       height: 136px;
+      background-color: #1e1e1e;
       border-bottom: 1px solid #333333;
 
       .customerService {
         padding-left: 30px;
+        background-color: #1e1e1e;
 
         .leftBox1 {
           font-size: 32.5px;
-          font-weight: 700;
+          font-weight: 700px;
+          background-color: #1e1e1e;
         }
 
         .leftBox2 {
           padding-top: 20px;
+          background-color: #1e1e1e;
         }
 
         .time {
           color: #eeeeee;
           font-size: 13px;
           padding: 3px 0;
+          background-color: #1e1e1e;
         }
       }
       .rightBox {
         display: flex;
-        position: relative;
-        align-items: center;
-        top: -60px;
+        justify-content: flex-start;
+        align-items: flex-start;
         padding-right: 30px;
-
-        .snsBox {
-          padding: 0 5px;
-          .snsImg {
-            width: 30px;
+        background-color: #1e1e1e;
+        .FooterMap {
+          display: flex;
+          align-items: center;
+          background-color: #1e1e1e;
+          .snsBox {
+            padding: 0 5px;
+            background-color: #1e1e1e;
+            .snsImg {
+              width: 30px;
+              background-color: #1e1e1e;
+            }
+          }
+          .snsComent {
+            background-color: #1e1e1e;
           }
         }
       }
