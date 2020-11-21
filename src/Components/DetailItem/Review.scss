@@ -13,17 +13,80 @@
     header {
       display: flex;
       justify-content: space-between;
+      div {
+        display: flex;
+        align-items: center;
 
-      h1 {
-        font-size: 20px;
-        font-weight: bold;
+        ////////////////////여기
+
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0, 0, 0); /* Fallback color */
+          background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+          &.activeModal {
+            display: block;
+          }
+
+          .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+          }
+        }
+
+        // /* Modal Content */
+
+        // /* The Close Button */
+        // .close {
+        //   color: #aaaaaa;
+        //   float: right;
+        //   font-size: 28px;
+        //   font-weight: bold;
+        // }
+
+        // .close:hover,
+        // .close:focus {
+        //   color: #000;
+        //   text-decoration: none;
+        //   cursor: pointer;
+        // }
+
+        ///////////////////////여기
+        h1 {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        input {
+          margin: 0 20px;
+          width: 70px;
+          height: 35px;
+          border: none;
+          border-radius: 4px;
+          background-color: black;
+          color: white;
+        }
       }
-
       div {
         span {
           margin: 0 5px 0 30px;
+          color: #9a9a9e;
           font-size: 14px;
           cursor: pointer;
+
+          &.selectTab {
+            color: black;
+          }
         }
       }
     }
@@ -32,37 +95,7 @@
       border-top: 1px solid black;
       margin: 8px 0;
     }
-    .reviewForm {
-      margin-top: 10px;
-      border-bottom: 1px solid #e1e1e1;
-      .orderInfo {
-        display: flex;
-        justify-content: space-between;
-        div {
-          span {
-            margin-right: 10px;
-            font-size: 13px;
-            font-weight: 500;
-          }
-        }
-      }
-      .ReviewDetailInfo {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        div {
-          margin: 8px 0;
 
-          .orderBodyInfo {
-            color: #9a9a9e;
-          }
-        }
-        img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-    }
     div {
       ul {
         display: flex;
@@ -71,9 +104,9 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 30px;
-          height: 30px;
-          margin: 10px;
+          width: 25px;
+          height: 25px;
+          margin: 5px;
           border: 1px solid #e6e6e6;
           border-radius: 3px;
           color: #e6e6e6;

@@ -1,60 +1,62 @@
 import react, { Component } from "react";
+import Pagination from "react-js-pagination";
+import "./ReviewAllView.scss";
 
 class ReviewAllView extends Component {
   constructor() {
     super();
-    this.state = { stateNum: 0, sliceList: [] };
+    this.state = {
+      page: 1,
+      perPage: 5,
+      activePage: 15,
+    };
   }
-  componentDidMount() {
-    let reviewList = this.props.reviewList;
-    let sliceList = [];
+  setPage = (number) => {
+    this.setState({ page: number });
+  };
 
-    while (reviewList.length) {
-      sliceList.push(reviewList.splice(0, 5));
-    }
-    this.setState({ sliceList });
-  }
   render() {
-    const { sliceList, stateNum } = this.state;
+    const { page, perPage } = this.state;
+    let indexOflast = page * perPage;
+    let indexOffirst = indexOflast - perPage;
+    const currentPage = this.props.reviewList.slice(indexOffirst, indexOflast);
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.props.reviewList.length / perPage); i++) {
+      pageNumbers.push(i);
+    }
     return (
       <div className="ReviewAllView">
-        {sliceList.length &&
-          sliceList[stateNum].map((el, index) => {
-            return (
-              <div className="reviewForm">
-                <div className="orderInfo">
-                  <div>
-                    <span>별5개</span>
-                    <span>{el.nick_name}</span>
-                  </div>
-                  <div>2020.11.15</div>
+        {currentPage.map((el, index) => {
+          return (
+            <div className="reviewForm" key={index}>
+              <div className="orderInfo">
+                <div>
+                  <span>{Array(el.item_discount + 1).join("✮")}</span>
+                  <span>{el.item_name}</span>
                 </div>
-                <div className="ReviewDetailInfo">
-                  <div>
-                    <div className="orderBodyInfo">{el.item_discount}162cm 상의 55 하의 55 240mm 블랙/free 잘 맞아요</div>
-                    <div>{el.content}</div>
-                  </div>
-                  <img
-                    src="https://lh3.googleusercontent.com/ogw/ADGmqu8k2upUX7jY7GxdYcE1kL03iShgI83kJtt5-NKe=s128-b16-cc-rp-mo"
-                    alt="구매 인증 이미지"
-                  />
-                </div>
+                <div className="writeDate">2020.11.15</div>
               </div>
-            );
-          })}
+              <div className="ReviewDetailInfo">
+                <div>
+                  <div className="orderBodyInfo">{el.item_discount}162cm 상의 55 하의 55 240mm 블랙/free 잘 맞아요</div>
+                  <div>{el.content}이거 정말로 이상한 제품인거 같아요 다시는 사기 싫어요 ㅜㅜ</div>
+                </div>
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8k2upUX7jY7GxdYcE1kL03iShgI83kJtt5-NKe=s128-b16-cc-rp-mo"
+                  alt="구매 인증 이미지"
+                />
+              </div>
+            </div>
+          );
+        })}
         <div>
-          <ul>
-            {sliceList.length &&
-              sliceList.map((el, index) => {
-                return index < 5 ? (
-                  <li>
-                    <span>{index + 1}</span>
-                  </li>
-                ) : (
-                  ""
-                );
-              })}
-          </ul>
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={perPage}
+            totalItemsCount={this.props.reviewList.length}
+            pageRangeDisplayed={5}
+            onChange={(number) => this.setPage(number)}
+          />
         </div>
       </div>
     );
