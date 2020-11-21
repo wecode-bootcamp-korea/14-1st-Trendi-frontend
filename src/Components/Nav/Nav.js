@@ -25,6 +25,10 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
+  pageChage = (e) => {
+    this.props.history.push("/Login");
+  };
+
   render() {
     const { navLists } = this.state;
     return (
@@ -50,7 +54,11 @@ class Nav extends Component {
             <div className="navList">
               <ul>
                 {NAV_LIST.map((el) => {
-                  return <li className="liElement">{el.title}</li>;
+                  return (
+                    <li className="liElement" onClick={() => this.pageChage(el)}>
+                      {el.title}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -76,10 +84,10 @@ class Nav extends Component {
 export default Nav;
 
 const NAV_LIST = [
-  { id: 1, title: "찜" },
-  { id: 2, title: "다이렉트" },
-  { id: 3, title: "마이페이지" },
-  { id: 4, title: "로그인" },
+  { id: 1, title: "찜", value: "dibs" },
+  { id: 2, title: "장바구니", value: "cart" },
+  { id: 3, title: "마이페이지", value: "myPage" },
+  { id: 4, title: "로그인", value: "Login" },
 ];
 
 const NAV_BOTTOM = [
