@@ -1,5 +1,6 @@
 import react, { Component } from "react";
-import ReviewAllView from "./ReviewAllView";
+import ReviewListComponet from "./ReviewListComponet";
+import WriteReview from "./WriteReview";
 import "./Review.scss";
 
 class Review extends Component {
@@ -9,17 +10,12 @@ class Review extends Component {
       modal: false,
       viewSate: "all",
       viewList: [],
-      viewFunctionTab: {
-        all: () => this.state.viewList,
-        imgview: () => {
-          return this.state.viewList;
-        },
-        textview: () => this.state.viewList.filter((el) => el.item_discount >= 1500),
-      },
+      writeReview: { rating: "" },
     };
   }
+
   componentDidMount() {
-    fetch("http://localhost:3001/data/MOCK_DATA.json")
+    fetch("http://localhost:3000/data/MOCK_DATA.json")
       // fetch("http://10.58.7.246:8000/review/4")
       .then((res) => res.json())
       .then((res) => this.setState({ viewList: res }));
@@ -31,8 +27,16 @@ class Review extends Component {
   };
 
   changView = (viewSate) => {
-    console.log(viewSate);
     this.setState({ viewSate });
+  };
+
+  listFilter = (value) => {
+    const arrList = {
+      all: () => this.state.viewList,
+      imgview: () => this.state.viewList,
+      textview: () => this.state.viewList.filter((el) => el.item_discount >= 1500),
+    };
+    return arrList[value]();
   };
 
   // inputData = (e) => {
@@ -82,21 +86,15 @@ class Review extends Component {
   // };
 
   render() {
-    console.log(this.state.viewList);
-    const { viewFunctionTab, viewSate, viewList, modal } = this.state;
+    const { viewSate, modal } = this.state;
     return (
       <div className="Review">
         <div className="ReviewList">
           <header>
-            <div>
+            <div className="writeForm" onClick={this.modalView}>
               <h1>리뷰</h1>
-              <input type="button" value="글쓰기" onClick={this.modalView} />
-              <div id="myModal" className={`modal ${modal && "activeModal"}`}>
-                <div className="modal-content">
-                  <span className="close">&times;</span>
-                  <p>Some text in the Modal..</p>
-                </div>
-              </div>
+              <input className="writeBtnReview" type="button" value="글쓰기" onClick={this.modalView} />
+              <WriteReview closeModal={this.modalView} view={modal} />
             </div>
             <div>
               <span className={`${viewSate === "all" && "selectTab"}`} onClick={() => this.changView("all")}>
@@ -111,7 +109,7 @@ class Review extends Component {
             </div>
           </header>
           <div className="layoutLine"></div>
-          <ReviewAllView reviewList={viewList} />
+          <ReviewListComponet reviewList={this.listFilter(viewSate)} />
         </div>
       </div>
     );

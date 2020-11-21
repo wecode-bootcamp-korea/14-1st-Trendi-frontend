@@ -36,24 +36,20 @@
     }
   }
 
-  .pageNaiton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    ul {
-      li {
-        span {
-          font-size: 15px;
-          color: #9a9a9e;
-          &.selectPage {
-            color: black;
-          }
+  .pagination {
+    li {
+      &.disabled {
+        display: none;
+      }
+      &.active {
+        a {
+          color: black;
         }
       }
-    }
-    div {
-      span {
-        margin: 0 10px;
+      a {
+        color: #9a9a9e;
+        font-weight: bold;
+        text-decoration: none;
       }
     }
   }

@@ -1,6 +1,6 @@
 import react, { Component } from "react";
 import Pagination from "react-js-pagination";
-import "./ReviewAllView.scss";
+import "./ReviewListComponet.scss";
 
 class ReviewAllView extends Component {
   constructor() {
@@ -49,15 +49,13 @@ class ReviewAllView extends Component {
             </div>
           );
         })}
-        <div>
-          <Pagination
-            activePage={page}
-            itemsCountPerPage={perPage}
-            totalItemsCount={this.props.reviewList.length}
-            pageRangeDisplayed={5}
-            onChange={(number) => this.setPage(number)}
-          />
-        </div>
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={perPage}
+          totalItemsCount={this.props.reviewList.length}
+          pageRangeDisplayed={5}
+          onChange={(number) => this.setPage(number)}
+        />
       </div>
     );
   }
