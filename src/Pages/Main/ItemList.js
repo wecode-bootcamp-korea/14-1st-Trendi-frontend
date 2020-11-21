@@ -7,6 +7,7 @@ class ItemList extends Component {
     this.state = {
       count: 15,
       toggle: false,
+      haru: true,
     };
   }
 
@@ -22,12 +23,12 @@ class ItemList extends Component {
 
   render() {
     console.log('MainAPI ', this.props.MainAPI);
-    const { count, toggle } = this.state;
+    const { count, toggle, haru } = this.state;
     const { MainAPI } = this.props;
-    console.log('왔다감@@@@@@@@@@@@@');
     let MainApiCut = MainAPI ? MainAPI.slice(0, count) : '';
     console.log('MainApiCut', MainApiCut);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
+    const haruImg = haru ? './image/haru.png' : '';
 
     return (
       <div className="ItemList">
@@ -47,13 +48,12 @@ class ItemList extends Component {
                       <div className="sellerBox">
                         <div className="seller">{api.seller_name}</div>
                         <div className="haru">
-                          <img className="haruPicture" src="./images/likeheart.png" alt="하루" />{' '}
-                          {/*api.delivery*/}
+                          <img className="haruPicture" src={haru} alt="하루" /> {/*api.delivery*/}
                         </div>
                       </div>
                       <div className="itemName">{api.title}</div>
                       <div className="priceBox">
-                        <div className="discount">{api.discounted_price}</div>
+                        <div className="discount">{api.sale}%</div>
                         <div className="price">{api.price}</div>
                       </div>
                     </div>
