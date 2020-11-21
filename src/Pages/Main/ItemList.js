@@ -49,7 +49,7 @@ class ItemList extends Component {
                           {/*api.delivery*/}
                         </div>
                       </div>
-                      <div className="itemName">{api.description}</div>
+                      <div className="itemName">{api.title}</div>
                       <div className="priceBox">
                         <div className="discount">{api.discounted_price}</div>
                         <div className="price">{api.price}</div>

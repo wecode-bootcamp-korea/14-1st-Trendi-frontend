@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import SimpleSlider from './SimpleSlider';
+import ItemList from './ItemList';
 import './Main.scss';
 import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
+
+const API = 'http://10.58.7.223:8000/products?category=2&sub-category=2';
 
 class Main extends Component {
   constructor(props) {
@@ -15,25 +18,26 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    // 원두님 api 붙여볼것
-    // console.log('부모 componentDidMount');
-    // fetch(API, { method: 'post', body: JSON.stringify({ category_num: 2, sub_category_num: 0 }) })
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     console.log('res확인', res);
-    //     this.setState({ data: res.post });
-    //   });
+    console.log('부모 componentDidMount');
+    fetch(API)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log('res:', res);
+        this.setState({ data: res });
+      });
 
-    fetch('http://localhost:3000/data/MOCK_DATA.json', {
-      method: 'get',
-    }).then((res) => this.setState({ data: res }));
+    // fetch('http://localhost:3000/data/MOCK_DATA.json', {
+    //   method: 'get',
+    // }).then((res) => this.setState({ data: res }));
   }
 
   render() {
+    console.log('data:', this.state.data);
     return (
       <div className="Main">
         <Nav />
         <SimpleSlider />
+        <ItemList MainAPI={this.state.data} />
       </div>
     );
   }
