@@ -6,18 +6,23 @@ import './ItemList.scss';
 class ItemList extends Component {
   render() {
     return (
-      <div>
+      <div className="ItemList">
         <Nav />
-        <div>
-          <div>
-            <div>
-              <div>쇼핑몰 마켓</div>
-              <div>카테고리</div>
-              <div>상의</div>
-              <div>전체</div>
+        <nav className="nav">
+          <div className="blankSpaceBox">
+            <div className="navComment">
+              <div className="commentBox">
+                <div className="comment">쇼핑몰 ∙ 마켓</div>
+                <div className="comment">></div>
+                <div className="comment">카테고리</div>
+                <div className="comment">></div>
+                <div className="comment">상의</div>
+                <div className="comment">></div>
+                <div className="comment">전체</div>
+              </div>
             </div>
           </div>
-        </div>
+        </nav>
         <div className="none">
           <ItemCategory />
         </div>

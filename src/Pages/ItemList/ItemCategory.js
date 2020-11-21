@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './ItemCategory.scss';
 
 class ItemCategory extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleChange = (checked: boolean) => {
+    console.log(checked);
+  };
+
   render() {
     return (
       <div className="ItemCategory">
@@ -9,28 +17,46 @@ class ItemCategory extends Component {
           <div className="navBox">
             <div className="mainCategory">
               <div className="categoryTitle">상품옵션</div>
-              <div className="categoryList">하루 사진</div>
-              <div className="categoryList">세일</div>
+              <div className="categoryList">
+                <input type="checkbox" />
+                <img src="./images/haru2.png" alt="하루배송 사진" />
+              </div>
+              <div className="categoryList">
+                <input type="checkbox" />
+                <span>세일</span>
+              </div>
             </div>
           </div>
           <div className="categoryBox">
-            <div className="categoryTitle">CATEGORY</div>
+            <div className="category">CATEGORY</div>
             <div className="categoryList">전체</div>
-            <div className="categoryList">아우터</div>
-            <div className="categoryList">상의</div>
-            <div className="categoryList">
-              <div className="list">전체</div>
-              <div className="list">티셔츠</div>
+            <div className="categoryOuterBox">
+              <div className="categoryListSub">아우터</div>
+              <div>
+                <img className="arrow" src="./images/down.png" alt="down" />
+              </div>
             </div>
-            <div className="categoryList">바지</div>
-            <div className="categoryList">원피스</div>
-            <div className="categoryList">스커트</div>
-            <div className="categoryList">신발</div>
-            <div className="categoryList">가방</div>
-            <div className="categoryList">주얼리</div>
-            <div className="categoryList">잡화</div>
-            <div className="categoryList">라이프웨어</div>
-            <div className="categoryList">빅사이즈</div>
+            <div className="categoryOuterBox">
+              <div className="categoryListSub">상의</div>
+              <div>
+                <img className="arrow" src="./images/down.png" alt="down" />
+              </div>
+            </div>
+            <div className="categoryListBox">
+              <div className="list1">전체</div>
+              <div className="list2">티셔츠</div>
+              <div className="list3"></div>
+            </div>
+            {CATEGORY.map((category) => {
+              return (
+                <div className="categoryListMap">
+                  <div className="categoryListSub">{category.item}</div>
+                  <div className="arrowBox">
+                    <img className="arrow" src="./images/down.png" alt="down" />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </nav>
       </div>
@@ -39,3 +65,13 @@ class ItemCategory extends Component {
 }
 
 export default ItemCategory;
+
+const CATEGORY = [
+  { id: 1, item: '바지' },
+  { id: 2, item: '원피스' },
+  { id: 3, item: '스커트' },
+  { id: 4, item: '신발' },
+  { id: 5, item: '가방' },
+  { id: 6, item: '주얼리' },
+  { id: 7, item: '잡화' },
+];
