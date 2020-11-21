@@ -23,12 +23,12 @@
         article {
           width: 243px;
           height: 360px;
-          border: 1px solid red;
+          // border: 1px solid red;
           .itemBox {
             display: flex;
             flex-direction: column;
             margin: 0 10px 0 10px;
-            border: 2px solid brown;
+            // border: 2px solid brown;
             .itemImgBox {
               width: 100%;
               .itemImg {
@@ -43,7 +43,9 @@
               justify-content: space-between;
               .haru {
                 .haruPicture {
-                  width: 22px;
+                  width: 50px;
+                  height: 10px;
+                  padding-right: 10px;
                 }
               }
             }
@@ -55,7 +57,7 @@
             }
             .priceBox {
               display: flex;
-              border: 1px solid pink;
+              // border: 1px solid pink;
               .discount {
                 display: flex;
                 align-items: flex-end;
@@ -63,9 +65,11 @@
                 width: 40px;
                 font-size: 20px;
                 color: #ff204b;
-                border: 2px solid green;
+                // border: 2px solid green;
               }
               .price {
+                display: flex;
+                align-items: flex-end;
                 font-size: 20px;
                 font-weight: 600;
               }

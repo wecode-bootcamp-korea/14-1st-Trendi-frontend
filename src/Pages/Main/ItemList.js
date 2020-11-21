@@ -28,7 +28,6 @@ class ItemList extends Component {
     let MainApiCut = MainAPI ? MainAPI.slice(0, count) : '';
     console.log('MainApiCut', MainApiCut);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
-    const haruImg = haru ? './image/haru.png' : '';
 
     return (
       <div className="ItemList">
@@ -39,6 +38,11 @@ class ItemList extends Component {
             <div className="comment"></div>
             <div className="Box">
               {MainApiCut.map((api) => {
+                const haruImg = api.delivery
+                  ? '../../../images/haru.png'
+                  : '../../../images/white.png';
+
+                const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
                 return (
                   <article className="itemContainer" key={api.image_url}>
                     <div className="itemBox">
@@ -48,13 +52,13 @@ class ItemList extends Component {
                       <div className="sellerBox">
                         <div className="seller">{api.seller_name}</div>
                         <div className="haru">
-                          <img className="haruPicture" src={haru} alt="하루" /> {/*api.delivery*/}
+                          <img className="haruPicture" src={haruImg} alt="하루" />
                         </div>
                       </div>
-                      <div className="itemName">{api.title}</div>
+                      <div className="itemName">{splitStr}</div>
                       <div className="priceBox">
                         <div className="discount">{api.sale}%</div>
-                        <div className="price">{api.price}</div>
+                        <div className="price">{api.price.toLocaleString(2)}</div>
                       </div>
                     </div>
                   </article>
