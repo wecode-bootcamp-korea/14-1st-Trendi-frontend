@@ -6,7 +6,7 @@ class MyPage extends Component {
   constructor() {
     super();
     this.state = {
-      item: [2, 3, 3, 3, 3, , 3, 3],
+      item: [],
     };
   }
   render() {
@@ -33,34 +33,32 @@ class MyPage extends Component {
               </tr>
             </thead>
             <tbody>
-              {item.map((el) => {
-                return (
-                  <tr>
-                    <td>
-                      <div className="orderInfo">
-                        <div>
+              {Array(2)
+                .fill()
+                .map((el) => {
+                  return (
+                    <tr>
+                      <td>
+                        <div className="orderInfo">
                           <img
                             src="https://thumbnail6.coupangcdn.com/thumbnails/remote/250x250ex/image/product/image/vendoritem/2019/06/19/4436071274/c5067c72-eb35-4900-88df-a38378fc8710.jpg"
                             alt="상품이미지"
                           ></img>
+                          <div className="orderItem">
+                            <label className="itemNmae">벤션 9in1 올인원 컨버ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ터 도킹 스테이션</label>
+                            <label className="itemOption">옵션 1번</label>
+                          </div>
                         </div>
-                        <div className="orderItem">
-                          <label className="itemNmae">
-                            벤션 9in1 올인원 컨버ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ터 도킹 스테이션
-                          </label>
-                          <label className="itemOption">옵션 1번</label>
-                        </div>
-                      </div>
-                    </td>
-                    <td>2020.10.27</td>
-                    <td>4112384012</td>
-                    <td>
-                      <div className="itemPrice">69,900원/1개</div>
-                    </td>
-                    <td>배송조회</td>
-                  </tr>
-                );
-              })}
+                      </td>
+                      <td>2020.10.27</td>
+                      <td>4112384012</td>
+                      <td>
+                        <div className="itemPrice">69,900원/1개</div>
+                      </td>
+                      <td>배송조회</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </section>
