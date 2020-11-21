@@ -17,22 +17,31 @@ class Login extends Component {
 
   Sigin = () => {
     const { id, password } = this.state;
-    fetch("http://10.58.1.4:8000/user/login", {
-      method: "post",
-      body: JSON.stringify({
-        nick_name: id,
-        password: password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.TOKEN) {
-          document.cookie = `user_name=${res.user_name}`;
-          document.cookie = `token_id=${res.TOKEN}`;
-        } else {
-          alert("ID , pasword를 확인해 주세요");
-        }
-      });
+    if (id && password) {
+      fetch("http://10.58.1.4:8000/user/login", {
+        method: "post",
+        body: JSON.stringify({
+          nick_name: id,
+          password: password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.TOKEN) {
+            document.cookie = `user_name=${res.user_name}`;
+            document.cookie = `token_id=${res.TOKEN}`;
+            this.props.history.push("/");
+          } else {
+            alert("ID , pasword를 확인해 주세요");
+          }
+        });
+    } else {
+      alert("아이뒤 비밀번호를 입력해 주세요");
+    }
+  };
+
+  chagePage = () => {
+    this.props.history.push("/SignUp");
   };
 
   render() {
@@ -44,15 +53,10 @@ class Login extends Component {
           <form>
             <input className="inputTextbox" name="id" placeholder="아이디 입력" onChange={this.setLoginData} />
             <input className="inputTextbox" name="password" type="password" placeholder="비밀번호 입력" onChange={this.setLoginData} />
-            <input className="LoginBtn" type="button" value="카카오 로그인" onClick={this.kakaoSigin} />
+            <div className="boundaryLine"></div>
             <input className="LoginBtn" type="button" value="로그인" onClick={this.Sigin} />
-            <input className="SignUpBtn" type="button" value="회원가입" />
+            <input className="SignUpBtn" type="button" value="회원가입" onClick={this.chagePage} />
           </form>
-          <div className="boundaryLine"></div>
-          <div className="otherLogin">
-            <label>간편로그인 / 가입</label>
-            <div></div>
-          </div>
         </div>
       </div>
     );
