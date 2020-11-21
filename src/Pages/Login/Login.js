@@ -47,7 +47,7 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <div>
+        <div class="layoutCenter">
           <h1>오늘 사면 내일 도착?</h1>
           <h2>유료배송으로 내일 받는 트랜디 Login!!</h2>
           <form>
