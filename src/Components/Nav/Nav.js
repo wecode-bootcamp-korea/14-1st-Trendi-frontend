@@ -7,7 +7,6 @@ class Nav extends Component {
     super(props);
     this.state = {
       navLists: false,
-      navListTest: true,
     };
   }
 
@@ -19,10 +18,12 @@ class Nav extends Component {
 
   handleLeave = () => {
     this.setState({ navLists: false });
+    console.log('navLists leave: ', this.state.navLists);
   };
 
   handleEnter = () => {
     this.setState({ navLists: true });
+    console.log('navLists enter: ', this.state.navLists);
   };
 
   render() {
