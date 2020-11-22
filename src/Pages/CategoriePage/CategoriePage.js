@@ -4,7 +4,7 @@ import ItemCategory from './ItemCategory';
 import ShirtList from './ShirtList';
 import './CategoriePage.scss';
 
-const API2 = 'http://10.58.7.223:8000/products?category=2&sub-category=2';
+const API2 = 'http://10.58.1.24:8000/products?category=2&sub-category=2';
 
 class CategoriePage extends Component {
   constructor(props) {
