@@ -26,10 +26,12 @@ class Main extends Component {
         this.setState({ data: res.get });
       });
 
-    // fetch('http://localhost:3000/data/MOCK_DATA.json', {
-    //   method: 'get',
-    // }).then((res) => this.setState({ data: res }));
-  }
+  //   fetch('http://localhost:3000/data/MOCK_DATA.json', {
+  //     method: 'get',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ data: res }));
+  // }
 
   render() {
     console.log('data:', this.state.data);
