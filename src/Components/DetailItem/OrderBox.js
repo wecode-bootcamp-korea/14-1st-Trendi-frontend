@@ -6,8 +6,21 @@ class OrderBox extends Component {
     super(props);
   }
 
+  hadleDelete = (e) => {
+    console.log(e);
+  };
+
   render() {
-    const { value, size, priceBox, key, handlePlus, handleMinus, amount } = this.props;
+    const {
+      value,
+      size,
+      priceBox,
+      key,
+      handlePlus,
+      handleMinus,
+      amount,
+      handleDelete,
+    } = this.props;
     return (
       <div className="orderContainer" key={key}>
         <div className="orderWrap">
@@ -19,7 +32,7 @@ class OrderBox extends Component {
                 <div className="delivery">일반배송</div>
               </div>
               <div className="buttonBox">
-                <button>X</button>
+                <button onClick={handleDelete}>X</button>
               </div>
             </div>
             <div className="orderBottomBox">

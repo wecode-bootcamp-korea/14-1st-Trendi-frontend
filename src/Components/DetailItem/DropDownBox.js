@@ -18,16 +18,18 @@ class DropDownBox extends Component {
       item: [],
       orderBox: [],
       priceBox: 0,
+      heartChange: true,
     };
   }
 
-  componentDidMount() {
-    this.setState({});
-  }
-
   componentDidUpdate(prevprops, prevstate) {
+    const { orderBox } = this.state;
     if (prevstate.orderBox !== this.state.orderBox) {
-      console.log('orderBox : ', this.state.orderBox);
+      const priceBox = orderBox.reduce((a, b) => {
+        a = a + b.priceBox * b.amount;
+        return a;
+      }, 0);
+      this.setState({ priceBox });
     }
   }
 
@@ -59,7 +61,6 @@ class DropDownBox extends Component {
 
   handlePlus = (el) => {
     const { orderBox } = this.state;
-    console.log('el안녕 : ', el);
     // 1. indexOf로 푸는 방법
     // const orderBox = [...this.state.orderBox];
     // orderBox[orderBox.indexOf(el)].amount++;
@@ -90,13 +91,22 @@ class DropDownBox extends Component {
     this.setState({ orderBox: orderBoxMinus });
   };
 
+  handleDelete = (el) => {
+    const { orderBox } = this.state;
+    let orderBoxFilter = orderBox.filter((orderBox) => {
+      return el.idx !== orderBox.idx;
+    });
+    this.setState({ orderBox: orderBoxFilter });
+  };
+
+  handleHeartChange = () => {
+    const { heartChange } = this.state;
+    this.setState({ heartChange: !heartChange });
+  };
+
   render() {
-    const { priceBox, number, orderBox, amount } = this.state;
-    console.log('priceBox : ', priceBox);
-    // console.log('index확인 : ', orderBox.indexOf();
-    // console.log('amount : ', orderB;
-    console.log('priceBox * amount : ', priceBox * amount);
-    // const amountSum=
+    const { priceBox, number, orderBox, heartChange } = this.state;
+    const heart = heartChange ? './images/heart.png' : './images/likeheart.png';
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
@@ -126,6 +136,7 @@ class DropDownBox extends Component {
                 amount={el.amount}
                 handlePlus={() => this.handlePlus(el)}
                 handleMinus={() => this.handleMinus(el)}
+                handleDelete={() => this.handleDelete(el)}
               />
             );
           })}
@@ -149,8 +160,8 @@ class DropDownBox extends Component {
             <div className="cartBox">
               <img className="cart" src="./images/cart.png" alt="카트" />
             </div>
-            <div className="heartBox">
-              <img className="heart" src="./images/heart.png" alt="하트" />
+            <div className="heartBox" onClick={this.handleHeartChange}>
+              <img className="heart" src={heart} alt="하트" />
             </div>
           </div>
         </footer>
