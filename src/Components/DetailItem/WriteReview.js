@@ -5,26 +5,17 @@ import "./WriteReview.scss";
 class WriteReview extends Component {
   constructor() {
     super();
-    this.state = {
-      rating: "",
-      content: "",
-      img: "",
-    };
+    this.state = { review: { content: "", image_url: "", nick_name: "", product: 0, star: 0, updated_at: "", user_information: null } };
   }
 
-  writeReview = (e) => {
-    e.preventDefault();
+  componentDidMount = () => {};
 
-    fetch("", {
-      method: "post",
-      header: {
-        a: "",
-      },
-      body: {
-        a: "",
-      },
-    }).then((res) => console.log(res));
-  };
+  componentDidUpdate(preProps, preState) {
+    const { updateData } = this.props;
+    if (preProps.updateData !== updateData) {
+      this.setState({ review: updateData });
+    }
+  }
 
   handleFileImge = (e) => {
     e.preventDefault();
@@ -39,15 +30,40 @@ class WriteReview extends Component {
     reader.readAsDataURL(file);
   };
 
+  // updateViewSet = (e) => {
+  //   const formData = this.state.review;
+  //   const { name, value } = e.target;
+  //   formData[name] = value;
+  //   this.setState({ [name]: formData });
+  // };
+
+  // insertData = (e) => {
+  //   e.preventDefault();
+  //   const formData = this.state.review;
+  //   const { name, value } = e.target;
+  //   formData[name] = value;
+  //   this.setState({ [name]: formData });
+  //   this.props.insertAPI(formData);
+  // };
+
+  setOnchage = (e) => {
+    console.log(this.state.review);
+    //완료
+    const { name, value } = e.target;
+    let review = this.state.review;
+    review[name] = value;
+    this.setState({ review });
+  };
+
   render() {
     const { view } = this.props;
-    const { rating, img } = this.state;
+    const { rating, img, review } = this.state;
     return (
       <div className="WriteReview">
         <div className={`modal ${view && "activeModal"}`}>
           <div className="modalContent" onClick={(e) => e.stopPropagation()}>
             <div className="modalView">
-              <div className="setCenter">
+              <form className="setCenter" onSubmit={(e) => this.insertData(e)}>
                 <table>
                   <colgroup>
                     <col width="100px" />
@@ -61,13 +77,8 @@ class WriteReview extends Component {
                           const ratingValue = index + 1;
                           return (
                             <label>
-                              <input
-                                type="radio"
-                                name="rating"
-                                value={ratingValue}
-                                onClick={(e) => this.setState({ rating: e.target.value })}
-                              />
-                              <FaStar size={50} color={ratingValue <= rating ? "#ffc107" : "#e4e4e9"} />
+                              <input type="radio" name="star" value={ratingValue} onChange={(e) => this.setOnchage(e)} />
+                              <FaStar size={50} color={ratingValue <= review.star ? "#ffc107" : "#e4e4e9"} />
                             </label>
                           );
                         })}
@@ -76,23 +87,23 @@ class WriteReview extends Component {
                     <tr>
                       <th height="250px">구매후기</th>
                       <td>
-                        <textarea onChange={(e) => this.setState({ content: e.target.value })}></textarea>
+                        <textarea name="content" value={review.content} onChange={(e) => this.setOnchage(e)}></textarea>
                       </td>
                     </tr>
                     <tr>
                       <th height="80px">사진첨부</th>
                       <td className="imghandleForm">
                         <input type="file" accept="image/jpg,impge/png,image/jpeg,image/gif" onChange={this.handleFileImge} />
-                        {img && <img src={img} />}
+                        {img && <img src={img} alt="업로드 이미지" />}
                       </td>
                     </tr>
                   </tbody>
                 </table>
                 <div className="butonForm">
                   <input type="submit" value="등록" />
-                  <input type="button" value="취소" onClick={() => this.props.closeModal()} />
+                  <input type="button" value="취소" onClick={() => this.props.closeModal("close")} />
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
