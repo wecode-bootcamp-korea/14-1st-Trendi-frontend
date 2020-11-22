@@ -6,6 +6,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: '',
       navLists: false,
       navListTest: true,
     };
@@ -17,6 +18,10 @@ class Nav extends Component {
       .then((res) => res.data);
   }
 
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  };
+
   handleLeave = () => {
     this.setState({ navLists: false });
   };
@@ -26,7 +31,7 @@ class Nav extends Component {
   };
 
   render() {
-    const { navLists } = this.state;
+    const { navLists, value } = this.state;
     return (
       <nav className="Nav">
         <div>
@@ -37,9 +42,9 @@ class Nav extends Component {
             <div className="logoBox">
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
-            <div className="form">
+            <form className="form">
               <div className="searchContainer">
-                <input className="searchInput"></input>
+                <input className="searchInput" value={value} onChange={this.handleChange}></input>
                 <div className="magnifierBox">
                   <img
                     className="magnifier"
@@ -48,7 +53,7 @@ class Nav extends Component {
                   />
                 </div>
               </div>
-            </div>
+            </form>
             <div className="navList">
               <ul className="ul">
                 {NAV_LIST.map((el) => {

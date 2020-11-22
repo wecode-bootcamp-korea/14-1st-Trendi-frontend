@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './ItemCategory.scss';
+import ShirtList from './ShirtList';
+
 class ItemCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
       click: false,
       imgChange: true,
+      harucheck: true,
     };
   }
 
-  handleChange = (checked: boolean) => {
-    console.log(checked);
+  handleCheck = (e) => {
+    const { harucheck } = this.state;
+    this.setState({ harucheck: !harucheck });
   };
+
   upDown = () => {
     const { click } = this.state;
     this.setState({ click: !click });
@@ -27,7 +32,7 @@ class ItemCategory extends Component {
             <div className="mainCategory">
               <div className="categoryTitle">상품옵션</div>
               <div className="categoryList">
-                <input type="checkbox" />
+                <input type="checkbox" onChange={this.handleCheck} />
                 <img src="./images/haru2.png" alt="하루배송 사진" />
               </div>
               <div className="categoryList">
@@ -70,6 +75,7 @@ class ItemCategory extends Component {
             })}
           </div>
         </nav>
+        {/* <ShirtList API2={this.props.API2} /> */}
       </div>
     );
   }

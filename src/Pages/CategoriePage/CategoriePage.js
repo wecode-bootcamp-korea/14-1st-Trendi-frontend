@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import ItemCategory from './ItemCategory';
-import './ItemList.scss';
+import ShirtList from './ShirtList';
+import './CategoriePage.scss';
 
-class ItemList extends Component {
+const API2 = 'http://10.58.7.223:8000/products?category=2&sub-category=2';
+
+class CategoriePage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      filterItem: [],
+    };
+  }
+
+  //원두님꺼 데이터
+  componentDidMount() {
+    fetch(API2)
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.get }));
+  }
+
   render() {
+    const { data } = this.state;
+    console.log('data는? ');
     return (
-      <div className="ItemList">
+      <div className="SideItemList">
         <Nav />
         <nav className="nav">
           <div className="blankSpaceBox">
@@ -23,12 +44,17 @@ class ItemList extends Component {
             </div>
           </div>
         </nav>
-        <div className="noneItemList">
-          <ItemCategory />
+        <div className="ItemList">
+          <div className="ItemCategory">
+            <ItemCategory />
+          </div>
+          <div className="ShirtList">
+            <ShirtList data={data} />
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default ItemList;
+export default CategoriePage;
