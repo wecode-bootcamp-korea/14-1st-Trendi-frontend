@@ -32,9 +32,9 @@ class ItemSection extends Component {
               <span class="priceWon">원</span>
             </div>
             <div className="reviewBox">
-              {STAR.map(() => {
+              {STAR.map((star) => {
                 return (
-                  <div className="starBox">
+                  <div className="starBox" key={star.key}>
                     <img className="star" src="./images/star.png" alt="별" />
                   </div>
                 );
@@ -64,9 +64,9 @@ class ItemSection extends Component {
 export default ItemSection;
 
 const STAR = [
-  { img: './images/star.png' },
-  { img: './images/star.png' },
-  { img: './images/star.png' },
-  { img: './images/star.png' },
-  { img: './images/star.png' },
+  { id: 1, img: './images/star.png' },
+  { id: 2, img: './images/star.png' },
+  { id: 3, img: './images/star.png' },
+  { id: 4, img: './images/star.png' },
+  { id: 5, img: './images/star.png' },
 ];

@@ -10,6 +10,7 @@ class DropDownBox extends Component {
       number: 0,
       value: '',
       size: '',
+      amount: 1,
       selectPrice: 16200,
       defaultPrice: 0,
       click: false,
@@ -23,6 +24,13 @@ class DropDownBox extends Component {
   componentDidMount() {
     this.setState({});
   }
+
+  componentDidUpdate(prevprops, prevstate) {
+    if (prevstate.orderBox !== this.state.orderBox) {
+      console.log('orderBox : ', this.state.orderBox);
+    }
+  }
+
   // 상품 클릭시 클릭 바뀌게
   handleChange = (e) => {
     const { number } = this.state;
@@ -34,25 +42,61 @@ class DropDownBox extends Component {
     const { click2, selectPrice, item, value, orderBox, id2 } = this.state;
     let arr = [...item];
     arr.push(selectPrice);
-    let totalPrice = arr.reduce((acc, obj) => acc + obj, 0);
     //중복된 배열이 있을때 걸러주는 기능 추가
     let orderBox2 = [...orderBox];
     let orderBox3 = orderBox2.filter((el) => (el.value === value && el.size === e.label ? el : ''));
-    if (orderBox3 == '') orderBox2.push({ id2, value, size: e.value, priceBox: 16200 });
+    if (orderBox3 == '')
+      orderBox2.push({ idx: Date.now(), value, size: e.value, priceBox: 16200, amount: 1 });
 
     this.setState({
       value,
       click2: !click2,
       defaultPrice: selectPrice,
       item: arr,
-      priceBox: totalPrice,
       orderBox: orderBox2,
     });
   };
 
-  render() {
-    const { priceBox, number, orderBox } = this.state;
+  handlePlus = (el) => {
+    const { orderBox } = this.state;
+    console.log('el안녕 : ', el);
+    // 1. indexOf로 푸는 방법
+    // const orderBox = [...this.state.orderBox];
+    // orderBox[orderBox.indexOf(el)].amount++;
+    // this.setState({ orderBox });
 
+    // 2. map으로 푸는 방법
+    let orderBoxMap = orderBox.map((orderbox) => {
+      if (el.idx === orderbox.idx) {
+        orderbox.amount = orderbox.amount + 1;
+      }
+      return orderbox;
+    });
+
+    this.setState({ orderBox: orderBoxMap });
+  };
+
+  handleMinus = (el) => {
+    const { orderBox } = this.state;
+    let orderBoxMinus = orderBox.map((orderbox) => {
+      if (el.idx === orderbox.idx) {
+        orderbox.amount = orderbox.amount - 1;
+      }
+      return orderbox;
+    });
+    if (orderBoxMinus[orderBoxMinus.indexOf(el)].amount < 1) {
+      return (orderBoxMinus[orderBoxMinus.indexOf(el)].amount = 1);
+    }
+    this.setState({ orderBox: orderBoxMinus });
+  };
+
+  render() {
+    const { priceBox, number, orderBox, amount } = this.state;
+    console.log('priceBox : ', priceBox);
+    // console.log('index확인 : ', orderBox.indexOf();
+    // console.log('amount : ', orderB;
+    console.log('priceBox * amount : ', priceBox * amount);
+    // const amountSum=
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
@@ -74,14 +118,22 @@ class DropDownBox extends Component {
         <footer className="footer">
           {orderBox.map((el) => {
             return (
-              <OrderBox key={el.value} value={el.value} size={el.size} priceBox={el.priceBox} />
+              <OrderBox
+                key={el.value}
+                value={el.value}
+                size={el.size}
+                priceBox={el.priceBox}
+                amount={el.amount}
+                handlePlus={() => this.handlePlus(el)}
+                handleMinus={() => this.handleMinus(el)}
+              />
             );
           })}
           <div className="wrapPrice">
             <div className="priceBox">
               <div className="priceComment">총 상품금액</div>
               <div className="priceBox2">
-                <div className="price">{priceBox}</div>
+                <div className="price">{priceBox.toLocaleString(2)}</div>
                 <div className="price">원</div>
               </div>
             </div>

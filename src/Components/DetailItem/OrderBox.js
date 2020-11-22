@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import './OrderBox.scss';
 
 class OrderBox extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const { value, size, priceBox, key } = this.props;
+    const { value, size, priceBox, key, handlePlus, handleMinus, amount } = this.props;
     return (
       <div className="orderContainer" key={key}>
         <div className="orderWrap">
@@ -20,12 +24,16 @@ class OrderBox extends Component {
             </div>
             <div className="orderBottomBox">
               <div className="orderBottom">
-                <button className="minus">-</button>
-                <div className="number">1</div>
-                <button className="plus">+</button>
+                <button className="minus" onClick={handleMinus}>
+                  -
+                </button>
+                <div className="number">{amount}</div>
+                <button className="plus" onClick={handlePlus}>
+                  +
+                </button>
               </div>
               <div className="orderPriceBox">
-                <div className="orderPrice1">{priceBox}</div>
+                <div className="orderPrice1">{(priceBox * amount).toLocaleString(2)}</div>
                 <div className="orderPrice2">원</div>
               </div>
             </div>
