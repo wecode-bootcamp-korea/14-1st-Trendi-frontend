@@ -9,7 +9,7 @@ class Routes extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/" component={SignUp} />
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </Router>
     );
