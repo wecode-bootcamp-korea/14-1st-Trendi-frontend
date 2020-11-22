@@ -23,7 +23,7 @@ class ItemList extends Component {
 
   render() {
     console.log('MainAPI ', this.props.MainAPI);
-    const { count, toggle, haru } = this.state;
+    const { count, toggle } = this.state;
     const { MainAPI } = this.props;
     let MainApiCut = MainAPI ? MainAPI.slice(0, count) : '';
     console.log('MainApiCut', MainApiCut);
