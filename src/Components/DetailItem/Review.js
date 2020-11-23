@@ -27,13 +27,6 @@ class Review extends Component {
     this.loadList();
   }
 
-  loadList = () => {
-    // fetch("http://10.58.0.167:8000/review/3")
-    fetch("http://10.58.0.167:8000/review/3")
-      .then((res) => res.json())
-      .then((res) => console.log("resrser", res));
-  };
-
   modalView = (value) => {
     const { modal } = this.state;
     if (value === "close") {
@@ -48,12 +41,11 @@ class Review extends Component {
       };
       this.setState({ calList });
     }
-
     this.setState({ modal: !modal });
   };
-
-  changView = (viewSate) => {
-    this.setState({ viewSate });
+  updateViewSet = (data) => {
+    this.setState({ calList: data });
+    this.modalView();
   };
 
   listFilter = (value) => {
@@ -65,43 +57,44 @@ class Review extends Component {
     return arrList[value]();
   };
 
+  loadList = () => {
+    // fetch("http://localhost:3000/data/MOCK_DATA.json")
+    fetch("http://10.58.2.208:8000/review/11")
+      .then((res) => res.json())
+      .then((res) => this.setState({ viewList: res.data }));
+  };
+  changView = (viewSate) => {
+    this.setState({ viewSate });
+  };
+
   insertApi = (insertData) => {
+    const { content, image_url, user_id, product, star } = insertData;
     this.modalView();
-    fetch("http://10.58.0.167:8000/review", {
+    fetch("http://10.58.2.208:8000/review", {
       method: "post",
       body: JSON.stringify({
-        content: insertData.content,
-        image_url: "",
-        user_id: 1,
-        product_id: 3,
-        star: insertData.rating,
+        content: content,
+        image_url: image_url,
+        user_id: 11, //로그인을 위한 id 데이터
+        product_id: 11, //상품 id
+        star: star,
         user_information: "156cm 51kg",
       }),
     })
       .then((res) => res.json())
-      .then((res) => res.message === "SUCCESS" && this.loadList());
-  };
-
-  updateViewSet = (data) => {
-    this.setState({ calList: data });
-    this.modalView();
-  };
-
-  updateViewOnChage = (data) => {
-    let setUpdateObject = this.state.calList;
-    setUpdateObject[data.name] = data.value;
-    this.setState({ calList: setUpdateObject });
+      .then((res) => (res.message === "SUCCESS" ? this.loadList() : console.log("실패=======================================")));
   };
 
   updateAPI = (updateData) => {
-    fetch("http://10.58.7.246:8000/review", {
+    const { content, image_url, user_id, reivew_id, star } = updateData;
+    fetch("http://10.58.2.208:8000/review", {
       method: "put",
       body: JSON.stringify({
-        content: "aaaaaaaaaaaaaaaaaaaaaa",
-        image_url: "",
-        user_id: 1,
-        review_id: 3,
-        star: 4,
+        content: content,
+        image_url: image_url,
+        user_id: user_id, //로그인을 하여서 추후 변경
+        review_id: reivew_id,
+        star: star,
         user_information: "156cm 51kg",
       }),
     })
@@ -109,18 +102,18 @@ class Review extends Component {
       .then((res) => console.log(res));
   };
 
-  // deleteData = (e) => {
-  //   fetch("http://10.58.7.246:8000/review", {
-  //     method: "delete",
-  //     body: JSON.stringify({
-  //       user_id: 1,
-  //       // product_id: 4,
-  //       review_id: 3,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => console.log(res));
-  // };
+  deleteView = (deleteView) => {
+    const { content, image_url, user_id, reivew_id, star } = deleteView;
+    fetch("http://10.58.2.208:8000/review", {
+      method: "delete",
+      body: JSON.stringify({
+        user_id: 1, // 로그인 아이디
+        review_id: 3, //삭제 불가
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
 
   render() {
     const { viewSate, modal, viewList } = this.state;
@@ -136,7 +129,6 @@ class Review extends Component {
                 view={modal}
                 insertAPI={this.insertApi}
                 updateData={this.state.calList}
-                updateViewOnChage={this.updateViewOnChage}
                 updateAPI={this.updateAPI}
               />
             </div>
@@ -154,7 +146,7 @@ class Review extends Component {
           </header>
           <div className="layoutLine"></div>
           {viewList ? (
-            <ReviewListComponet reviewList={this.listFilter(viewSate)} updateView={this.updateViewSet} />
+            <ReviewListComponet reviewList={this.listFilter(viewSate)} updateView={this.updateViewSet} deleteView={this.deleteView} />
           ) : (
             <div>리뷰가 없습니다</div>
           )}

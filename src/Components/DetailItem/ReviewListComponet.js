@@ -19,6 +19,10 @@ class ReviewAllView extends Component {
     this.props.updateView(selectView);
   };
 
+  deleteView = (selectView) => {
+    this.props.deleteView(selectView);
+  };
+
   render() {
     const { page, perPage } = this.state;
     const { reviewList } = this.props;
@@ -36,6 +40,7 @@ class ReviewAllView extends Component {
                     <span>{Array(el.star + 1).join("✮")}</span>
                     <span>{el.nick_name}</span>
                     <input type="button" value="수정" onClick={() => this.updateView(el)} />
+                    <input type="button" value="삭제" onClick={() => this.deleteView(el)} />
                   </div>
                   <div className="writeDate">{el.updated_at.slice(0, 10)}</div>
                 </div>

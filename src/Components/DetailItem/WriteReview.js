@@ -37,18 +37,18 @@ class WriteReview extends Component {
   //   this.setState({ [name]: formData });
   // };
 
-  // insertData = (e) => {
-  //   e.preventDefault();
-  //   const formData = this.state.review;
-  //   const { name, value } = e.target;
-  //   formData[name] = value;
-  //   this.setState({ [name]: formData });
-  //   this.props.insertAPI(formData);
-  // };
+  insertOrUpdateDate = (e) => {
+    const { review } = this.state;
+    const { updateAPI, insertAPI } = this.props;
+    if (review.review_id) {
+      updateAPI(review);
+    } else {
+      insertAPI(review);
+    }
+  };
 
   setOnchage = (e) => {
     console.log(this.state.review);
-    //완료
     const { name, value } = e.target;
     let review = this.state.review;
     review[name] = value;
@@ -57,13 +57,13 @@ class WriteReview extends Component {
 
   render() {
     const { view } = this.props;
-    const { rating, img, review } = this.state;
+    const { img, review } = this.state;
     return (
       <div className="WriteReview">
         <div className={`modal ${view && "activeModal"}`}>
           <div className="modalContent" onClick={(e) => e.stopPropagation()}>
             <div className="modalView">
-              <form className="setCenter" onSubmit={(e) => this.insertData(e)}>
+              <form className="setCenter">
                 <table>
                   <colgroup>
                     <col width="100px" />
@@ -100,7 +100,7 @@ class WriteReview extends Component {
                   </tbody>
                 </table>
                 <div className="butonForm">
-                  <input type="submit" value="등록" />
+                  <input type="button" value="등록" onClick={() => this.insertOrUpdateDate()} />
                   <input type="button" value="취소" onClick={() => this.props.closeModal("close")} />
                 </div>
               </form>
