@@ -6,6 +6,7 @@
 
 .DetailItem {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
   .noneDetailItem {
@@ -16,7 +17,16 @@
 
     .itemBox {
       display: flex;
+      flex-direction: column;
       width: 95%;
+
+      .componentWrap {
+        display: flex;
+        padding-bottom: 100px;
+      }
+      .nio {
+        height: 1000px;
+      }
     }
   }
 }
