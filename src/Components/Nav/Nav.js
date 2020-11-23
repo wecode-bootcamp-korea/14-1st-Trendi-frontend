@@ -6,9 +6,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
       navLists: false,
-      navListTest: true,
     };
   }
 
@@ -18,20 +16,18 @@ class Nav extends Component {
       .then((res) => res.data);
   }
 
-  handleChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
-
   handleLeave = () => {
     this.setState({ navLists: false });
+    console.log('navLists leave: ', this.state.navLists);
   };
 
   handleEnter = () => {
     this.setState({ navLists: true });
+    console.log('navLists enter: ', this.state.navLists);
   };
 
   render() {
-    const { navLists, value } = this.state;
+    const { navLists } = this.state;
     return (
       <nav className="Nav">
         <div>
@@ -42,9 +38,9 @@ class Nav extends Component {
             <div className="logoBox">
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
-            <form className="form">
+            <div className="form">
               <div className="searchContainer">
-                <input className="searchInput" value={value} onChange={this.handleChange}></input>
+                <input className="searchInput"></input>
                 <div className="magnifierBox">
                   <img
                     className="magnifier"
@@ -53,7 +49,7 @@ class Nav extends Component {
                   />
                 </div>
               </div>
-            </form>
+            </div>
             <div className="navList">
               <ul className="ul">
                 {NAV_LIST.map((el) => {
