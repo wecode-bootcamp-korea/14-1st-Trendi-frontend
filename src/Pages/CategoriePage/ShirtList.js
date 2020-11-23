@@ -26,7 +26,7 @@ class ShirtList extends Component {
     console.log('this.props.data : ', this.props.data);
     const { count, toggle } = this.state;
     let dataCut = this.props.data ? this.props.data.slice(0, count) : '';
-    console.log('dataCut', dataCut);
+    // console.log('dataCut', dataCut);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
     return (

@@ -13,6 +13,7 @@ class CategoriePage extends Component {
     this.state = {
       data: [],
       filterItem: [],
+      haruFilter: false,
     };
   }
 
@@ -20,12 +21,28 @@ class CategoriePage extends Component {
   componentDidMount() {
     fetch(API2)
       .then((res) => res.json())
-      .then((res) => this.setState({ data: res.get }));
+      .then((res) => this.setState({ data: res.product_list }));
   }
 
+  handleItemFilter = (e) => {
+    console.log(e.target.value);
+    const { data, haruFilter } = this.state;
+    let itemFilter;
+    if (haruFilter) {
+      itemFilter = [];
+    } else {
+      itemFilter = data.filter((item) => {
+        return item.delivery;
+      });
+    }
+    this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
+  };
+
+  //
+
   render() {
-    const { data } = this.state;
-    console.log('data는? ');
+    const { data, haruFilter, filterItem } = this.state;
+
     return (
       <div className="SideItemList">
         <Nav />
@@ -48,8 +65,15 @@ class CategoriePage extends Component {
           <div className="ItemCategory">
             <ItemCategory />
           </div>
+          <div>
+            <input checked={haruFilter} type="checkbox" onChange={this.handleItemFilter} />
+          </div>
           <div className="ShirtList">
-            <ShirtList data={data} />
+            {filterItem.length && data ? (
+              <ShirtList data={filterItem} />
+            ) : (
+              <ShirtList data={data} />
+            )}
           </div>
         </div>
       </div>
