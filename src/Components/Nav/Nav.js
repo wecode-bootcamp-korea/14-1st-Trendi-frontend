@@ -13,17 +13,15 @@ class Nav extends Component {
   componentDidMount() {
     fetch('http://10.58.3.61:8000/products/categories/2')
       .then((res) => res.json())
-      .then((res) => res.data);
+      .then((res) => res.product_list);
   }
 
   handleLeave = () => {
     this.setState({ navLists: false });
-    console.log('navLists leave: ', this.state.navLists);
   };
 
   handleEnter = () => {
     this.setState({ navLists: true });
-    console.log('navLists enter: ', this.state.navLists);
   };
 
   render() {
