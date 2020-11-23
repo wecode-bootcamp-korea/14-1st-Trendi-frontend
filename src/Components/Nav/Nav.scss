@@ -1,86 +1,118 @@
 .Nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   width: 100%;
-  .benerImg {
+
+  div {
     width: 100%;
+    .benerImg {
+      width: 100%;
+    }
   }
 
   .none {
     width: 1300px;
     margin: 0 246px 0 246px;
-  }
 
-  .NavBottom {
-    height: 120px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .logoBox {
-      .logoImg {
-        width: 150px;
-        height: 25.25px;
-      }
-    }
-
-    .navList {
-      display: flex;
-
-      .liElement {
-        padding: 0 10px;
-        float: left;
-        border-right: 1px solid black;
-        font-size: 14px;
-      }
-    }
-
-    .textField {
-      width: 446px;
-      background-color: #eeeeee;
-      border-radius: 20px;
-      border-bottom: none;
-    }
-
-    form {
+    .NavBottom {
       display: flex;
       align-items: center;
-      width: 504px;
-      height: 40px;
+      height: 120px;
 
-      input {
-        width: 100%;
-        height: 100%;
-        border: #eeeeee;
-        border-radius: 15px;
-        background-color: #eeeeee;
+      .logoBox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 20;
+
+        .logoImg {
+          width: 150px;
+          height: 25.25px;
+        }
       }
 
-      .magnifierBox {
-        position: relative;
+      .navList {
+        display: flex;
 
-        .magnifier {
-          position: absolute;
-          right: 470px;
-          top: -10px;
-          width: 24px;
-          height: 24px;
-          background-color: #eeeeee;
+        .liElement {
+          padding: 0 10px;
+          float: left;
+          border-right: 1px solid black;
+          font-size: 14px;
         }
+      }
+
+      .form {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+
+        .searchContainer {
+          width: 500px;
+          height: 40px;
+
+          .searchInput {
+            width: 100%;
+            height: 100%;
+            border: #eeeeee;
+            border-radius: 15px;
+            background-color: #eeeeee;
+          }
+
+          .magnifierBox {
+            width: 24px;
+            height: 24px;
+            position: relative;
+
+            .magnifier {
+              position: absolute;
+              right: -15px;
+              top: -35px;
+              width: 100%;
+              height: 100%;
+              background-color: #eeeeee;
+            }
+          }
+        }
+      }
+      .navList {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .ul {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .textField {
+        width: 446px;
+        background-color: #eeeeee;
+        border-radius: 20px;
+        border-bottom: none;
+      }
+
+      .none1 {
       }
     }
   }
 
   .navBottomList {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 62px;
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
 
     .none1 {
       display: flex;
-      width: 1300px;
-      margin: 0 246px 0 246px;
       justify-content: space-between;
+      width: 1300px;
     }
 
     .navListLi {

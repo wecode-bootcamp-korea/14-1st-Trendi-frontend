@@ -1,15 +1,18 @@
 .shoppingContainerBox {
+  display: flex;
+  justify-content: center;
   width: 100%;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 9;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 3;
 
   .noneBox1 {
     display: flex;
     width: 1300px;
     margin: 0 246px 0 246px;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.9);
 
     .shoppingContainer {
       display: flex;
@@ -18,8 +21,8 @@
       align-items: flex-start;
       width: 10%;
       padding-left: 20px;
-      border-left: 0.5px solid #eeeeee;
-      background-color: rgba(255, 255, 255, 0.5);
+      // border-left: 0.5px solid #eeeeee;
+      background-color: rgba(255, 255, 255, 0.1);
 
       .mainTitle {
         padding-top: 20px;
@@ -27,7 +30,7 @@
         color: #000;
         font-size: 16px;
         font-weight: bold;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
       }
       .content {
         width: 100%;
@@ -36,7 +39,7 @@
         line-height: 1.4em;
         color: #737373;
         font-size: 16px;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
   }
