@@ -3,6 +3,7 @@ import Nav from '../../Components/Nav/Nav';
 import SimpleSlider from './SimpleSlider';
 import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
+import Footer from '../../Components/Footer/Footer';
 
 class Main extends Component {
   constructor(props) {
@@ -17,16 +18,13 @@ class Main extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    return <div></div>;
-=======
     return (
       <div className="Main">
         <Nav />
         <SimpleSlider />
+        <Footer />
       </div>
     );
->>>>>>> main
   }
 }
 

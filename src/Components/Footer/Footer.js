@@ -17,12 +17,12 @@ class Footer extends Component {
             <div className="rightBox">
               {FOOTER_BOTTOM.map((el) => {
                 return (
-                  <>
+                  <div className="snsContainer">
                     <div className="snsBox">
                       <img className="snsImg" src={el.img} alt="사진"></img>
                     </div>
                     <div className="snsComent">{el.comment}</div>
-                  </>
+                  </div>
                 );
               })}
             </div>
