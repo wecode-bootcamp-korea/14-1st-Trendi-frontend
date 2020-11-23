@@ -12,11 +12,6 @@ class ItemCategory extends Component {
     };
   }
 
-  // handleCheck = (e) => {
-  //   const { harucheck } = this.state;
-  //   this.setState({ harucheck: !harucheck });
-  // };
-
   upDown = () => {
     const { click } = this.state;
     this.setState({ click: !click });
@@ -75,7 +70,6 @@ class ItemCategory extends Component {
             })}
           </div>
         </nav>
-        {/* <ShirtList API2={this.props.API2} /> */}
       </div>
     );
   }

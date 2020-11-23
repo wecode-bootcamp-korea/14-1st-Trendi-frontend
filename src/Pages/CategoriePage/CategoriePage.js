@@ -38,8 +38,6 @@ class CategoriePage extends Component {
     this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
   };
 
-  //
-
   render() {
     const { data, haruFilter, filterItem } = this.state;
 
@@ -66,7 +64,7 @@ class CategoriePage extends Component {
             <ItemCategory />
           </div>
           <div>
-            <input checked={haruFilter} type="checkbox" onChange={this.handleItemFilter} />
+            <input className={haruFilter} type="checkbox" onChange={this.handleItemFilter} />
           </div>
           <div className="ShirtList">
             {filterItem.length && data ? (
