@@ -18,12 +18,10 @@ class Nav extends Component {
 
   handleLeave = () => {
     this.setState({ navLists: false });
-    console.log('navLists leave: ', this.state.navLists);
   };
 
   handleEnter = () => {
     this.setState({ navLists: true });
-    console.log('navLists enter: ', this.state.navLists);
   };
 
   render() {
@@ -53,7 +51,11 @@ class Nav extends Component {
             <div className="navList">
               <ul className="ul">
                 {NAV_LIST.map((el) => {
-                  return <li className="liElement">{el.title}</li>;
+                  return (
+                    <li className="liElement" key={el.idx}>
+                      {el.title}
+                    </li>
+                  );
                 })}
               </ul>
             </div>

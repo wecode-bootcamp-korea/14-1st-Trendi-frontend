@@ -24,7 +24,7 @@ class ShoppingNav extends Component {
         <div className="noneBox1">
           {SHOPPING_LIST.map((el) => {
             return (
-              <div className="shoppingContainer">
+              <div className="shoppingContainer" key={el.idx}>
                 <div className="mainTitle" onClick={this.handleChangePage}>
                   {el.main}
                 </div>
