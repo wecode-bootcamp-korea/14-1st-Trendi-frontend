@@ -9,10 +9,8 @@ class SignUpInfo extends Component {
     this.state = {
       id: {
         state: false,
+        serverMsg: "",
         value: "",
-        check: (value) => {
-          return /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false;
-        },
       },
       email: {
         state: false,
@@ -45,28 +43,34 @@ class SignUpInfo extends Component {
     };
   }
 
-  validationfilter = (type, vlaue) => {
-    name: (value) => {
-      return /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false;
+  validationfilter = (type, value) => {
+    const filter = {
+      id: () => (/^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false),
+      email: () => (/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false),
+      password: () => (/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,19}$/.test(value) ? true : false),
+      passwordCheck: () => (this.state.password.value === value ? true : false),
+      userName: () => (/^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/.test(value) ? true : false),
     };
-    age: (value) => {
-      return /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false;
-    };
+    return filter[type]();
   };
 
   validationCheck = (e) => {
     const { name, value } = e.target;
-    const isValidation = this.state[name].check(value);
-
-    if (name === "id" || name === "email") {
-      fetch("", {
-        method: "post",
-        body: JSON.stringify({
-          nick_name: value,
-        }),
-      }).then((res) => console.log(res.json()));
+    console.log(name);
+    let isValidation = this.validationfilter(name, value);
+    if (isValidation) {
+      if (name === "id" || name === "email") {
+        fetch(`http://10.58.4.38:8000/user/signup${name}`, {
+          method: "post",
+          body: JSON.stringify({
+            [name]: value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => (res.MESSAGE === "SUCCESS" ? (isValidation = true) : (isValidation = false)));
+      }
     }
-
+    console.log("isValidation", isValidation);
     let prev = this.state[name];
     prev.state = isValidation;
     prev.value = value;
@@ -75,23 +79,22 @@ class SignUpInfo extends Component {
     });
   };
 
-  SignUpSendInfo = (e) => {
-    const { id, email, password, userName } = this.state;
-    fetch("/signup/signup", {
-      method: "post",
-      body: JSON.stringify({
-        user_name: userName.value,
-        nick_name: id.value,
-        password: password.value,
-        email: email.value,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => (res.MESSAGE === "SUCCESS" ? console.log("완성") : console.log("실패")));
-  };
+  // SignUpSendInfo = (e) => {
+  //   const { id, email, password, userName } = this.state;
+  //   fetch("http://10.58..:8000/signup", {
+  //     method: "post",
+  //     body: JSON.stringify({
+  //       user_name: userName.value,
+  //       nick_name: id.value,
+  //       password: password.value,
+  //       email: email.value,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => (res.MESSAGE === "SUCCESS" ? alert("") : console.log("실패")));
+  // };
 
   render() {
-    console.log(this.validationfilter.name);
     const { id, password, email, passwordCheck, userName } = this.state;
     return (
       <div className="SignUpInfo">
