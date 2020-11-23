@@ -92,3 +92,12 @@ const CATEGORY = [
   { id: 6, item: '주얼리' },
   { id: 7, item: '잡화' },
 ];
+
+
+
+
+
+
+
+
+
