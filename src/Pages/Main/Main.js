@@ -10,7 +10,6 @@ const API = 'http://10.58.2.123:8000/products?category=2&sub-category=2';
 
 class Main extends Component {
   constructor(props) {
-    console.log('부모 constructor');
     super(props);
     this.state = {
       data: [],
@@ -18,7 +17,6 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    console.log('부모 componentDidMount');
     fetch(API)
       .then((res) => res.json())
       .then((res) => {
@@ -28,7 +26,6 @@ class Main extends Component {
 
   render() {
     const { data } = this.state;
-    console.log('res:', data);
     return (
       <div className="Main">
         <Nav />
