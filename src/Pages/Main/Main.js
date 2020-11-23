@@ -23,8 +23,9 @@ class Main extends Component {
       .then((res) => res.json())
       .then((res) => {
         console.log('res:', res.get);
-        this.setState({ data: res.get });
+        this.setState({ data: res });
       });
+  }
 
   //   fetch('http://localhost:3000/data/MOCK_DATA.json', {
   //     method: 'get',
@@ -34,12 +35,12 @@ class Main extends Component {
   // }
 
   render() {
-    console.log('data:', this.state.data);
+    const { data } = this.state;
     return (
       <div className="Main">
         <Nav />
         <SimpleSlider />
-        {this.state.data.length && <ItemList MainAPI={this.state.data} />}
+        {data.length && <ItemList MainAPI={this.state.data} />}
       </div>
     );
   }
