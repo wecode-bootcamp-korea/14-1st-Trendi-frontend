@@ -44,6 +44,16 @@ class SignUpInfo extends Component {
       },
     };
   }
+
+  validationfilter = (type, vlaue) => {
+    name: (value) => {
+      return /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false;
+    };
+    age: (value) => {
+      return /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false;
+    };
+  };
+
   validationCheck = (e) => {
     const { name, value } = e.target;
     const isValidation = this.state[name].check(value);
@@ -81,6 +91,7 @@ class SignUpInfo extends Component {
   };
 
   render() {
+    console.log(this.validationfilter.name);
     const { id, password, email, passwordCheck, userName } = this.state;
     return (
       <div className="SignUpInfo">
