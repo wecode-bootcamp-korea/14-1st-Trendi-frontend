@@ -23,20 +23,18 @@ class ItemList extends Component {
   render() {
     console.log('MainAPI ', this.props.MainAPI);
     const { count, toggle } = this.state;
-    const { MainAPI } = this.props;
-    let MainApiCut = MainAPI ? MainAPI.slice(0, count) : '';
-    console.log('MainApiCut', MainApiCut);
+    const { mainItem } = this.props;
+    let mainItemCut = mainItem ? mainItem.slice(0, count) : '';
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
-
     return (
       <div className="ItemList">
         <div className="noneBody">
-          <div className="bodyContainer">
+          <section className="bodyContainer">
             <div className="comment"></div>
             <div className="comment">당신을 위한 추천</div>
             <div className="comment"></div>
             <div className="Box">
-              {MainApiCut.map((api) => {
+              {mainItemCut.map((api) => {
                 const haruImg = api.delivery
                   ? '../../../images/haru.png'
                   : '../../../images/white.png';
@@ -72,7 +70,7 @@ class ItemList extends Component {
                 </button>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     );

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import SimpleSlider from './SimpleSlider';
 import ItemList from './ItemList';
+import configData from '../../config.json';
 import './Main.scss';
 import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
-
-const API = 'http://10.58.2.123:8000/products?category=2&sub-category=2';
 
 class Main extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch(API)
+    fetch(`${configData.MAIN_URL}?category=2&sub-category=2`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ data: res.product_list });
@@ -30,7 +29,7 @@ class Main extends Component {
       <div className="Main">
         <Nav />
         <SimpleSlider />
-        {data.length && <ItemList MainAPI={this.state.data} />}
+        {data.length && <ItemList mainItem={this.state.data} />}
       </div>
     );
   }
