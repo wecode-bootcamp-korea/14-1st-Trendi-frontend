@@ -1,21 +1,25 @@
 .section {
   width: 100%;
-
   margin-left: 20px;
+
   .header {
     display: flex;
     flex-direction: column;
+
     .storeBox {
       display: flex;
       margin-bottom: 10px;
+
       .store {
         width: 22px;
         height: 22px;
+
         img {
           width: 100%;
           height: 100%;
         }
       }
+
       .storeComment {
         display: flex;
         align-items: center;
@@ -23,11 +27,13 @@
         font-size: 22px;
       }
     }
+
     .title {
       height: 80px;
       font-size: 28px;
     }
   }
+
   .article {
     display: flex;
     flex-direction: column;
@@ -37,22 +43,26 @@
       align-items: flex-end;
       padding-top: 20px;
       font-size: 34px;
+
       .discount {
         display: flex;
         align-items: center;
         color: #ff204b;
         padding-top: 10px;
       }
+
       .discountPrice {
         position: relative;
         left: 5px;
       }
+
       .discountPriceWon {
         position: relative;
         left: 7px;
         bottom: 5px;
         font-size: 20px;
       }
+
       .price {
         position: relative;
         left: 15px;
@@ -60,6 +70,7 @@
         font-size: 20px;
         color: #c5c5c5;
       }
+
       .priceWon {
         position: relative;
         left: 17px;
@@ -68,6 +79,7 @@
         color: #c5c5c5;
       }
     }
+
     .reviewBox {
       display: flex;
       align-items: center;
@@ -85,6 +97,7 @@
           width: 100%;
         }
       }
+
       .review {
         padding-left: 10px;
       }
@@ -100,6 +113,7 @@
       .shippingInfo {
         width: 20%;
       }
+
       .arriveBox {
         display: flex;
         flex-direction: column;
@@ -122,12 +136,14 @@
             width: 74px;
             height: 18px;
             padding-left: 20px;
+
             img {
               width: 100%;
               height: 100%;
             }
           }
         }
+
         .comment {
           font-size: 18px;
           padding-top: 5px;

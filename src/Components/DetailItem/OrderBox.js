@@ -6,10 +6,6 @@ class OrderBox extends Component {
     super(props);
   }
 
-  hadleDelete = (e) => {
-    console.log(e);
-  };
-
   render() {
     const {
       value,
@@ -27,12 +23,15 @@ class OrderBox extends Component {
           <div className="orderBox">
             <div className="orderBox2">
               <div className="order">
-                <div className="order1">{value}</div>
-                <span className="order2">{size}</span>
+                <div className="order1">
+                  {value} / {size}
+                </div>
                 <div className="delivery">일반배송</div>
               </div>
               <div className="buttonBox">
-                <button onClick={handleDelete}>X</button>
+                <button onClick={handleDelete}>
+                  <img className="close" src="./images/close.png" alt="닫기" />
+                </button>
               </div>
             </div>
             <div className="orderBottomBox">

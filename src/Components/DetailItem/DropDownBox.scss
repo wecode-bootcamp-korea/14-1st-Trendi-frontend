@@ -45,9 +45,11 @@
       .priceComment {
         font-size: 20px;
       }
+
       .priceBox2 {
         display: flex;
       }
+
       .price {
         font-weight: 700;
         font-size: 30px;
@@ -68,19 +70,28 @@
       background-color: #1e1e1e;
       border-radius: 6px;
     }
+
     .logoContainer {
       @include flexBox;
       width: 240px;
       height: 56px;
       color: #fff;
-      background-color: #00c73c;
+      background-color: #58bb5b;
       border-radius: 6px;
 
-      img {
-        width: 30px;
-        height: 30px;
+      .logoBox {
+        background-color: #58bb5b;
+        .naverLogo {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .pay {
+        background-color: #58bb5b;
       }
     }
+
     .cartBox {
       @include flexBox;
       width: 56px;
