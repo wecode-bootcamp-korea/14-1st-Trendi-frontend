@@ -7,7 +7,6 @@ class ItemList extends Component {
     this.state = {
       count: 15,
       toggle: false,
-      haru: true,
     };
   }
 
@@ -41,7 +40,6 @@ class ItemList extends Component {
                 const haruImg = api.delivery
                   ? '../../../images/haru.png'
                   : '../../../images/white.png';
-
                 const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
                 return (
                   <article className="itemContainer" key={api.image_url}>

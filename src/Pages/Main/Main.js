@@ -6,7 +6,7 @@ import './Main.scss';
 import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
 
-const API = 'http://10.58.7.223:8000/products?category=2&sub-category=2';
+const API = 'http://10.58.2.123:8000/products?category=2&sub-category=2';
 
 class Main extends Component {
   constructor(props) {
@@ -22,20 +22,13 @@ class Main extends Component {
     fetch(API)
       .then((res) => res.json())
       .then((res) => {
-        console.log('res:', res.get);
-        this.setState({ data: res });
+        this.setState({ data: res.product_list });
       });
   }
 
-  //   fetch('http://localhost:3000/data/MOCK_DATA.json', {
-  //     method: 'get',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ data: res }));
-  // }
-
   render() {
     const { data } = this.state;
+    console.log('res:', data);
     return (
       <div className="Main">
         <Nav />
