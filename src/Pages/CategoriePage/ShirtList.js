@@ -23,10 +23,8 @@ class ShirtList extends Component {
   };
 
   render() {
-    console.log('this.props.data : ', this.props.data);
     const { count, toggle } = this.state;
     let dataCut = this.props.data ? this.props.data.slice(0, count) : '';
-    // console.log('dataCut', dataCut);
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
     return (
@@ -35,9 +33,7 @@ class ShirtList extends Component {
           <div className="comment"></div>
           <div className="Box">
             {dataCut.map((api) => {
-              const haruImg = api.delivery
-                ? '../../../images/haru2.png'
-                : '../../../images/white.png';
+              const haruImg = api.delivery ? '../../../images/haru2.png' : '../../../images/white.png';
 
               const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
               return (
@@ -62,11 +58,7 @@ class ShirtList extends Component {
               );
             })}
             <div className="buttonBox">
-              <button
-                className={clickBox}
-                onMouseDown={this.handlePlus}
-                onMouseUp={this.handleKeyUp}
-              >
+              <button className={clickBox} onMouseDown={this.handlePlus} onMouseUp={this.handleKeyUp}>
                 더 보기
               </button>
             </div>

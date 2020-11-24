@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import ItemCategory from './ItemCategory';
 import ShirtList from './ShirtList';
+import configData from '../../config.json';
 import './CategoriePage.scss';
-
-const API2 = 'http://10.58.2.123:8000/products?category=2&sub-category=2';
 
 class CategoriePage extends Component {
   constructor(props) {
@@ -14,18 +13,21 @@ class CategoriePage extends Component {
       data: [],
       filterItem: [],
       haruFilter: false,
+      sale: false,
+      saleItem: [],
     };
   }
 
   //원두님꺼 데이터
   componentDidMount() {
-    fetch(API2)
+    // console.log(`${configData.MAIN_URL}`);
+    fetch(`${configData.MAIN_URL}/products?category=2`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
   }
 
+  //하루 배송 필터 기능 추가
   handleItemFilter = (e) => {
-    console.log(e.target.value);
     const { data, haruFilter } = this.state;
     let itemFilter;
     if (haruFilter) {
@@ -36,10 +38,27 @@ class CategoriePage extends Component {
       });
     }
     this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
+    console.log('filterItem : ', this.state.filterItem);
+  };
+
+  //세일 버튼 필터 기능 추가
+  handleSaleFilter = (e) => {
+    const { data, sale } = this.state;
+    let saleFilter;
+    if (sale) {
+      saleFilter = [];
+    }
+    if (!sale) {
+      saleFilter = data.filter((saleItem) => {
+        return saleItem.is_sale;
+      });
+    }
+    this.setState({ saleItem: saleFilter, sale: !sale });
   };
 
   render() {
-    const { data, haruFilter, filterItem } = this.state;
+    console.log('data : ', this.state.data);
+    const { data, filterItem, saleItem } = this.state;
 
     return (
       <div className="SideItemList">
@@ -61,17 +80,12 @@ class CategoriePage extends Component {
         </nav>
         <div className="ItemList">
           <div className="ItemCategory">
-            <ItemCategory />
+            <ItemCategory handleItemFilter={this.handleItemFilter} handleSaleFilter={this.handleSaleFilter} />
           </div>
-          <div>
-            <input className={haruFilter} type="checkbox" onChange={this.handleItemFilter} />
-          </div>
+          <div></div>
           <div className="ShirtList">
-            {filterItem.length && data ? (
-              <ShirtList data={filterItem} />
-            ) : (
-              <ShirtList data={data} />
-            )}
+            {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />}
+            {/* {saleItem.length && data ? <ShirtList data={saleItem} /> : <ShirtList data={data} />} */}
           </div>
         </div>
       </div>
