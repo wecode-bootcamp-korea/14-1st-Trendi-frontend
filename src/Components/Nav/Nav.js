@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingNav from './ShoppingNav';
+import { withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -24,6 +25,10 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
+  goToMain = () => {
+    this.props.history.push('/main');
+  };
+
   render() {
     const { navLists } = this.state;
     return (
@@ -33,18 +38,14 @@ class Nav extends Component {
         </div>
         <div className="none">
           <div className="NavBottom">
-            <div className="logoBox">
+            <div className="logoBox" onClick={this.goToMain}>
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
             <div className="form">
               <div className="searchContainer">
                 <input className="searchInput"></input>
                 <div className="magnifierBox">
-                  <img
-                    className="magnifier"
-                    src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
-                    alt="돋보기"
-                  />
+                  <img className="magnifier" src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png" alt="돋보기" />
                 </div>
               </div>
             </div>
@@ -61,11 +62,7 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        <div
-          className="navBottomList"
-          onMouseLeave={this.handleLeave}
-          onMouseEnter={this.handleEnter}
-        >
+        <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
             {NAV_BOTTOM.map((el) => {
               return <span className="navListLi">{el.title}</span>;
@@ -78,7 +75,7 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 const NAV_LIST = [
   { id: 1, title: '찜' },
