@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
+
 ## Project Summary
 
 #### Front Member

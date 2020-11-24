@@ -51,7 +51,11 @@ class Nav extends Component {
             <div className="navList">
               <ul className="ul">
                 {NAV_LIST.map((el) => {
-                  return <li className="liElement">{el.title}</li>;
+                  return (
+                    <li className="liElement" key={el.idx}>
+                      {el.title}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
