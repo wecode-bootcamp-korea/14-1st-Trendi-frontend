@@ -5,7 +5,17 @@ import "./WriteReview.scss";
 class WriteReview extends Component {
   constructor() {
     super();
-    this.state = { review: { content: "", image_url: "", nick_name: "", product: 0, star: 0, updated_at: "", user_information: null } };
+    this.state = {
+      review: {
+        content: "",
+        image_url: "",
+        nick_name: "",
+        product: 0,
+        star: 0,
+        updated_at: "",
+        user_information: null,
+      },
+    };
   }
 
   componentDidMount = () => {};
@@ -29,13 +39,6 @@ class WriteReview extends Component {
 
     reader.readAsDataURL(file);
   };
-
-  // updateViewSet = (e) => {
-  //   const formData = this.state.review;
-  //   const { name, value } = e.target;
-  //   formData[name] = value;
-  //   this.setState({ [name]: formData });
-  // };
 
   insertOrUpdateDate = (e) => {
     const { review } = this.state;

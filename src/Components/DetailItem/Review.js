@@ -1,5 +1,6 @@
 import react, { Component } from "react";
 import ReviewListComponet from "./ReviewListComponet";
+import configData from "../../config.json";
 import WriteReview from "./WriteReview";
 import "./Review.scss";
 
@@ -43,6 +44,7 @@ class Review extends Component {
     }
     this.setState({ modal: !modal });
   };
+
   updateViewSet = (data) => {
     this.setState({ calList: data });
     this.modalView();
@@ -58,11 +60,11 @@ class Review extends Component {
   };
 
   loadList = () => {
-    // fetch("http://localhost:3000/data/MOCK_DATA.json")
-    fetch("http://10.58.2.208:8000/review/11")
+    fetch(`${configData.REVIEW}11`)
       .then((res) => res.json())
       .then((res) => this.setState({ viewList: res.data }));
   };
+
   changView = (viewSate) => {
     this.setState({ viewSate });
   };
@@ -70,7 +72,7 @@ class Review extends Component {
   insertApi = (insertData) => {
     const { content, image_url, user_id, product, star } = insertData;
     this.modalView();
-    fetch("http://10.58.2.208:8000/review", {
+    fetch(`${configData.REVIEW}/11`, {
       method: "post",
       body: JSON.stringify({
         content: content,
@@ -87,7 +89,7 @@ class Review extends Component {
 
   updateAPI = (updateData) => {
     const { content, image_url, user_id, reivew_id, star } = updateData;
-    fetch("http://10.58.2.208:8000/review", {
+    fetch(`${configData.REVIEW}11`, {
       method: "put",
       body: JSON.stringify({
         content: content,
@@ -104,7 +106,7 @@ class Review extends Component {
 
   deleteView = (deleteView) => {
     const { content, image_url, user_id, reivew_id, star } = deleteView;
-    fetch("http://10.58.2.208:8000/review", {
+    fetch(`${configData.REVIEW}11`, {
       method: "delete",
       body: JSON.stringify({
         user_id: 1, // 로그인 아이디

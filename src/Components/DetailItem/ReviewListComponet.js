@@ -11,6 +11,7 @@ class ReviewAllView extends Component {
       activePage: 15,
     };
   }
+
   setPage = (number) => {
     this.setState({ page: number });
   };
