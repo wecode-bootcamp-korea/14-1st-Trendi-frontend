@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingNav from './ShoppingNav';
+import { withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -18,6 +19,10 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
+  goToMain = () => {
+    this.props.history.push('/main');
+  };
+
   render() {
     const { navLists } = this.state;
     return (
@@ -27,7 +32,7 @@ class Nav extends Component {
         </div>
         <div className="none">
           <div className="NavBottom">
-            <div className="logoBox">
+            <div className="logoBox" onClick={this.goToMain}>
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
             <div className="form">
@@ -64,7 +69,7 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 const NAV_LIST = [
   { id: 1, title: '찜' },
