@@ -21,6 +21,7 @@ class Main extends Component {
       <div className="Main">
         {/* <Nav /> */}
         <SimpleSlider />
+        <Footer />
       </div>
     );
   }

@@ -13,8 +13,9 @@ class Routes extends Component {
         <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/main" component={Main} />
         </Switch>
         <Footer />
       </Router>

@@ -7,7 +7,6 @@ class Nav extends Component {
     super(props);
     this.state = {
       navLists: false,
-      navListTest: true,
     };
   }
 
@@ -41,21 +40,27 @@ class Nav extends Component {
             <div className="logoBox">
               <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
             </div>
-            <form>
-              <input className="searchInput"></input>
-              <div className="magnifierBox">
-                <img
-                  className="magnifier"
-                  src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
-                  alt="돋보기"
-                />
+            <div className="form">
+              <div className="searchContainer">
+                <input className="searchInput"></input>
+                <div className="magnifierBox">
+                  <img
+                    className="magnifier"
+                    src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
+                    alt="돋보기"
+                  />
+                </div>
               </div>
-            </form>
+            </div>
             <div className="navList">
-              <ul>
+              <ul className="ul">
                 {NAV_LIST.map((el) => {
                   return (
+<<<<<<< HEAD
                     <li className="liElement" onClick={() => this.pageChage(el)}>
+=======
+                    <li className="liElement" key={el.idx}>
+>>>>>>> main
                       {el.title}
                     </li>
                   );
@@ -64,14 +69,22 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        <div className="navBottomList">
+        <div
+          className="navBottomList"
+          onMouseLeave={this.handleLeave}
+          onMouseEnter={this.handleEnter}
+        >
           <div className="none1">
             {NAV_BOTTOM.map((el) => {
+<<<<<<< HEAD
               return (
                 <span className="navListLi" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
                   {el.title}
                 </span>
               );
+=======
+              return <span className="navListLi">{el.title}</span>;
+>>>>>>> main
             })}
           </div>
         </div>
@@ -84,10 +97,17 @@ class Nav extends Component {
 export default Nav;
 
 const NAV_LIST = [
+<<<<<<< HEAD
   { id: 1, title: "찜", value: "dibs" },
   { id: 2, title: "장바구니", value: "cart" },
   { id: 3, title: "마이페이지", value: "myPage" },
   { id: 4, title: "로그인", value: "Login" },
+=======
+  { id: 1, title: '찜' },
+  { id: 2, title: '장바구니' },
+  { id: 3, title: '마이페이지' },
+  { id: 4, title: '로그인' },
+>>>>>>> main
 ];
 
 const NAV_BOTTOM = [
