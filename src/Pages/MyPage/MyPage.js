@@ -35,9 +35,9 @@ class MyPage extends Component {
             <tbody>
               {Array(2)
                 .fill()
-                .map((el) => {
+                .map((el, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td>
                         <div className="orderInfo">
                           <img
