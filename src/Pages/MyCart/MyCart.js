@@ -27,19 +27,23 @@ class MyCart extends Component {
     let haruProducts = {};
     let nomalProducts = {};
     myCartItem &&
-      myCartItem[0] &&
-      myCartItem[0].forEach((el) =>
-        !haruProducts.hasOwnProperty(el.seller)
-          ? (haruProducts[el.seller] = [el])
-          : (haruProducts[el.seller] = [...haruProducts[el.seller], el])
+      Object.keys(myCartItem).map(
+        (deliveryKey) =>
+          myCartItem[deliveryKey] &&
+          myCartItem[deliveryKey].forEach((el) =>
+            !haruProducts.hasOwnProperty(el.seller)
+              ? (haruProducts[el.seller] = [el])
+              : (haruProducts[el.seller] = [...haruProducts[el.seller], el])
+          )
       );
-    myCartItem &&
-      myCartItem[1] &&
-      myCartItem[1].forEach((el) =>
-        !nomalProducts.hasOwnProperty(el.seller)
-          ? (nomalProducts[el.seller] = [el])
-          : (nomalProducts[el.seller] = [...nomalProducts[el.seller], el])
-      );
+
+    // myCartItem &&
+    //   myCartItem[1] &&
+    //   myCartItem[1].forEach((el) =>
+    //     !nomalProducts.hasOwnProperty(el.seller)
+    //       ? (nomalProducts[el.seller] = [el])
+    //       : (nomalProducts[el.seller] = [...nomalProducts[el.seller], el])
+    //   );
 
     return (
       <div className="MyCart">
@@ -55,7 +59,6 @@ class MyCart extends Component {
             <div className="allDelete">전체삭제</div>
           </div>
           <div className="productsKind">
-            asdf
             <SelleProduct Products={haruProducts} />
           </div>
         </form>

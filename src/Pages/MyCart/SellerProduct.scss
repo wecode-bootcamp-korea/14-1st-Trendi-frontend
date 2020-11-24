@@ -1,0 +1,34 @@
+.SellerProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid red;
+
+  table {
+    thead {
+      border: 1px solid black;
+      tr {
+        height: 30px;
+        td {
+          vertical-align: middle;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          img {
+            width: 95px;
+            height: 95px;
+            padding: 10px;
+          }
+        }
+        .flexAlign {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
