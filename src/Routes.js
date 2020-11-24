@@ -9,8 +9,8 @@ class Routes extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={CategoriePage} />
-          <Route exact path="/Main" component={Main} />
+          <Route exact path="/" component={Main} />
+          <Route exact path="/CategoriePage" component={CategoriePage} />
           <Route exact path="/SignUp" component={SignUp} />
         </Switch>
       </Router>

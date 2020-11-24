@@ -10,12 +10,6 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('http://10.58.3.61:8000/products/categories/2')
-      .then((res) => res.json())
-      .then((res) => res.product_list);
-  }
-
   handleLeave = () => {
     this.setState({ navLists: false });
   };
@@ -40,11 +34,7 @@ class Nav extends Component {
               <div className="searchContainer">
                 <input className="searchInput"></input>
                 <div className="magnifierBox">
-                  <img
-                    className="magnifier"
-                    src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
-                    alt="돋보기"
-                  />
+                  <img className="magnifier" src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png" alt="돋보기" />
                 </div>
               </div>
             </div>
@@ -61,11 +51,7 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        <div
-          className="navBottomList"
-          onMouseLeave={this.handleLeave}
-          onMouseEnter={this.handleEnter}
-        >
+        <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
             {NAV_BOTTOM.map((el) => {
               return <span className="navListLi">{el.title}</span>;

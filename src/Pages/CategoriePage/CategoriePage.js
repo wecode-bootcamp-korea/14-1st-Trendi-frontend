@@ -15,17 +15,45 @@ class CategoriePage extends Component {
       haruFilter: false,
       sale: false,
       saleItem: [],
-      delivery: true,
+      delivery: false,
     };
   }
 
-  //원두님꺼 데이터
+  //목데이터
   componentDidMount() {
     // console.log(`${configData.MAIN_URL}`);
-    fetch(`${configData.MAIN_URL}/products?category=2`)
+    fetch('/data/MOCK_DATA.json')
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res }));
+  }
+
+  //원두님꺼 데이터
+  // componentDidMount() {
+  //   fetch(`${configData.MAIN_URL}/products?category=2`)
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ data: res.product_list }));
+  // }
+
+  //백엔드로 리퀘스트 보내는 행위
+  getData = () => {
+    const { delivery } = this.state;
+    fetch(`${configData.MAIN_URL}/products?delivery=${delivery}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
+  };
+  //체크 박스 눌렀을때 컨디업
+  componentDidUpdate(prevprops, prevstate) {
+    console.log('delivery : ', this.state.delivery);
+    let { delivery } = this.state;
+    if (prevstate.delivery !== delivery) {
+      this.getData();
+    }
   }
+  //체크 박스 눌렀을때 delivery 변화
+  handleChange = (e) => {
+    const { delivery } = this.state;
+    this.setState({ delivery: !delivery });
+  };
 
   //하루 배송 필터 기능 추가
   handleItemFilter = (e) => {
@@ -84,11 +112,11 @@ class CategoriePage extends Component {
         </nav>
         <div className="ItemList">
           <div className="ItemCategory">
-            <ItemCategory handleItemFilter={this.handleItemFilter} handleSaleFilter={this.handleSaleFilter} />
+            <ItemCategory handleChange={this.handleChange} handleItemFilter={this.handleItemFilter} handleSaleFilter={this.handleSaleFilter} />
           </div>
           <div></div>
           <div className="ShirtList">
-            <ShirtList data={filterItem} />
+            <ShirtList data={data} />
             {/* {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />} */}
             {/* {saleItem.length && data ? <ShirtList data={saleItem} /> : <ShirtList data={data} />} */}
           </div>

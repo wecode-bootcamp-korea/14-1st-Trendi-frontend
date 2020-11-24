@@ -7,7 +7,7 @@ class ShirtList extends Component {
     super(props);
     this.state = {
       value: 'select',
-      count: 30,
+      count: 20,
       toggle: false,
       haru: true,
       data: [],
@@ -15,13 +15,12 @@ class ShirtList extends Component {
   }
 
   handleKeyUp = () => {
-    this.setState({ toggle: false });
     window.scrollBy(0, -500);
   };
 
   handlePlus = () => {
     const { count } = this.state;
-    this.setState({ toggle: true, count: count + 20 });
+    this.setState({ count: count + 20 });
   };
 
   change = (e) => {
