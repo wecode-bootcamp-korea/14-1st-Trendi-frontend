@@ -15,6 +15,7 @@ class CategoriePage extends Component {
       haruFilter: false,
       sale: false,
       saleItem: [],
+      delivery: true,
     };
   }
 
@@ -28,17 +29,22 @@ class CategoriePage extends Component {
 
   //하루 배송 필터 기능 추가
   handleItemFilter = (e) => {
-    const { data, haruFilter } = this.state;
-    let itemFilter;
-    if (haruFilter) {
-      itemFilter = [];
-    } else {
-      itemFilter = data.filter((item) => {
-        return item.delivery;
-      });
-    }
-    this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
-    console.log('filterItem : ', this.state.filterItem);
+    // const { data, haruFilter } = this.state;
+    // let itemFilter;
+    // if (haruFilter) {
+    //   itemFilter = [];
+    // } else {
+    //   itemFilter = data.filter((item) => {
+    //     return item.delivery;
+    //   });
+    // }
+    // this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
+    // console.log('filterItem : ', this.state.filterItem);
+
+    fetch(`?delivery=${!this.state.delivery}`) //이 주소로 요청 한다.(딜리버리가 트루인것만 보여줘)
+      .then((res) => res.json())
+      .then((res) => this.setState({ filterItem: res.product_list }));
+    // fetch(productDetail_API + this.props.match.params.id)
   };
 
   //세일 버튼 필터 기능 추가
@@ -57,9 +63,7 @@ class CategoriePage extends Component {
   };
 
   render() {
-    console.log('data : ', this.state.data);
     const { data, filterItem, saleItem } = this.state;
-
     return (
       <div className="SideItemList">
         <Nav />
@@ -84,7 +88,8 @@ class CategoriePage extends Component {
           </div>
           <div></div>
           <div className="ShirtList">
-            {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />}
+            <ShirtList data={filterItem} />
+            {/* {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />} */}
             {/* {saleItem.length && data ? <ShirtList data={saleItem} /> : <ShirtList data={data} />} */}
           </div>
         </div>
