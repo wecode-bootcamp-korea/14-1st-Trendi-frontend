@@ -11,7 +11,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/MOCK_DATA.json", {
+    fetch("/data/MOCK_DATA.json", {
       method: "get",
     }).then((res) => console.log(res.json()));
   }
