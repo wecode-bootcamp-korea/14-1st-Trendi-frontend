@@ -19,10 +19,7 @@ class ItemSection extends Component {
               </div>
               <div className="storeComment">프린세스 스토어</div>
             </div>
-            <div className="title">
-              [후기극찬!기모버전>] XL까지, 착붙 스판 하이웨스트 쫀득 스키니 레깅스 팬츠
-              _유어아운스퀘어
-            </div>
+            <div className="title">[후기극찬!기모버전>] XL까지, 착붙 스판 하이웨스트 쫀득 스키니 레깅스 팬츠 _유어아운스퀘어</div>
           </header>
           <article className="article">
             <div className="priceBox">
@@ -63,11 +60,3 @@ class ItemSection extends Component {
 }
 
 export default ItemSection;
-
-// const STAR = [
-//   { id: 1, img: './images/star.png' },
-//   { id: 2, img: './images/star.png' },
-//   { id: 3, img: './images/star.png' },
-//   { id: 4, img: './images/star.png' },
-//   { id: 5, img: './images/star.png' },
-// ];

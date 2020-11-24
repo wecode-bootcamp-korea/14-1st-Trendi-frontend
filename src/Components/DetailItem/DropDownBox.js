@@ -26,9 +26,9 @@ class DropDownBox extends Component {
   componentDidUpdate(prevprops, prevstate) {
     const { orderBox } = this.state;
     if (prevstate.orderBox !== this.state.orderBox) {
-      const priceBox = orderBox.reduce((a, b) => {
-        a = a + b.priceBox * b.amount;
-        return a;
+      const priceBox = orderBox.reduce((acc, prev) => {
+        acc = acc + prev.priceBox * prev.amount;
+        return acc;
       }, 0);
       this.setState({ priceBox });
     }
@@ -42,14 +42,13 @@ class DropDownBox extends Component {
 
   //사이즈 클릭시 값이 누적되고 오더박스 카드가 생김,카드 종류별로 담아주는 기능 구현
   handleSizeCheck = (e) => {
-    const { click2, selectPrice, item, value, orderBox, id2 } = this.state;
+    const { click2, selectPrice, item, value, orderBox } = this.state;
     let arr = [...item];
     arr.push(selectPrice);
     //중복된 배열이 있을때 걸러주는 기능 추가
     let orderBox2 = [...orderBox];
-    let orderBox3 = orderBox2.filter((el) => (el.value === value && el.size === e.label ? el : ''));
-    if (orderBox3 == '')
-      orderBox2.push({ idx: Date.now(), value, size: e.value, priceBox: 16200, amount: 1 });
+    let orderBox3 = orderBox2.filter((el) => el.value === value && el.size === e.label);
+    if (orderBox3 == '') orderBox2.push({ idx: Date.now(), value, size: e.value, priceBox: 16200, amount: 1 });
 
     this.setState({
       value,
@@ -111,20 +110,8 @@ class DropDownBox extends Component {
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
-          <Select
-            className="select1"
-            onChange={this.handleChange}
-            options={COLOR}
-            defaultValue={COLOR[0]}
-          />
-          {number > 0 && (
-            <Select
-              className="select2"
-              onChange={this.handleSizeCheck}
-              options={SIZE}
-              defaultValue={SIZE[0]}
-            />
-          )}
+          <Select className="select1" onChange={this.handleChange} options={COLOR} defaultValue={COLOR[0]} />
+          {number > 0 && <Select className="select2" onChange={this.handleSizeCheck} options={SIZE} defaultValue={SIZE[0]} />}
         </form>
         <footer className="footer">
           {orderBox.map((el) => {

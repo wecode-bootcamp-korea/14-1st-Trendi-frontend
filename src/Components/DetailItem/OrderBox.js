@@ -2,21 +2,8 @@ import React, { Component } from 'react';
 import './OrderBox.scss';
 
 class OrderBox extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const {
-      value,
-      size,
-      priceBox,
-      key,
-      handlePlus,
-      handleMinus,
-      amount,
-      handleDelete,
-    } = this.props;
+    const { value, size, priceBox, key, handlePlus, handleMinus, amount, handleDelete } = this.props;
     return (
       <div className="orderContainer" key={key}>
         <div className="orderWrap">
