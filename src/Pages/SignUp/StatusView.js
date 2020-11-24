@@ -2,16 +2,13 @@ import react, { Component } from "react";
 import "./StatusView.scss";
 
 class StatusView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      status: "",
+      status: props.status,
     };
   }
-  componentDidMount() {
-    const { status } = this.props;
-    this.setState({ status });
-  }
+
   render() {
     const { status } = this.state;
     return (
