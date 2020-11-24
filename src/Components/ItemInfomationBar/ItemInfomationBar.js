@@ -6,7 +6,7 @@ class ItemInfomationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showHiddenSubs: true,
+      showHiddenSubs: false,
     };
   }
 
@@ -19,13 +19,15 @@ class ItemInfomationBar extends Component {
   };
 
   handleScroll = (e) => {
-    if (e.srcElement.scrollingElement.scrollTop > 0) this.setState({ showHiddenSubs: false });
-    if (e.srcElement.scrollingElement.scrollTop <= 3656) this.setState({ showHiddenSubs: true });
+    const { showHiddenSubs } = this.state;
+    const scrollTop = e.srcElement.scrollingElement.scrollTop;
+    if (scrollTop > 0 && scrollTop <= 3656 && showHiddenSubs) this.setState({ showHiddenSubs: false });
+    if (scrollTop > 3656 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
   };
 
   render() {
-    const changeColor = this.state.showHiddenSubs ? 'blackColor' : 'defaultColor';
-    const changeColor2 = this.state.showHiddenSubs ? 'defaultColor' : 'blackColor';
+    const changeColor = this.state.showHiddenSubs ? 'defaultColor' : 'blackColor';
+    const changeColor2 = this.state.showHiddenSubs ? 'blackColor' : 'defaultColor';
 
     return (
       <div className="ItemInfomationBar" onScroll={this.handleScroll}>

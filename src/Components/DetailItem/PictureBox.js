@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './PictureBox.scss';
 
 class PictureBox extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="PictureBox">
@@ -32,10 +28,4 @@ class PictureBox extends Component {
 
 export default PictureBox;
 
-const PICTURE_LIST = [
-  { img: './images/clothes1.png' },
-  { img: './images/clothes2.png' },
-  { img: './images/clothes3.png' },
-  { img: './images/clothes4.png' },
-  { img: './images/clothes5.png' },
-];
+const PICTURE_LIST = [{ img: './images/clothes1.png' }, { img: './images/clothes2.png' }, { img: './images/clothes3.png' }, { img: './images/clothes4.png' }, { img: './images/clothes5.png' }];

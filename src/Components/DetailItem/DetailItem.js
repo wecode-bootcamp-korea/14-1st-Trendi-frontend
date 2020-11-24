@@ -6,10 +6,6 @@ import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
 import './DetailItem.scss';
 
 class DetailItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="DetailItem">
