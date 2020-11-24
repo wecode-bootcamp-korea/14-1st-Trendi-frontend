@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DropDownBox from './DropDownBox';
+import STAR from './STAR';
 import './ItemSection.scss';
 
 class ItemSection extends Component {
@@ -63,10 +64,10 @@ class ItemSection extends Component {
 
 export default ItemSection;
 
-const STAR = [
-  { id: 1, img: './images/star.png' },
-  { id: 2, img: './images/star.png' },
-  { id: 3, img: './images/star.png' },
-  { id: 4, img: './images/star.png' },
-  { id: 5, img: './images/star.png' },
-];
+// const STAR = [
+//   { id: 1, img: './images/star.png' },
+//   { id: 2, img: './images/star.png' },
+//   { id: 3, img: './images/star.png' },
+//   { id: 4, img: './images/star.png' },
+//   { id: 5, img: './images/star.png' },
+// ];

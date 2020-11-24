@@ -40,7 +40,6 @@
       padding: 0 30px;
       width: 100%;
       height: 44px;
-      // border: 1px solid red;
 
       .priceComment {
         font-size: 20px;
@@ -57,6 +56,7 @@
       }
     }
   }
+
   .purchaseBox {
     display: flex;
     justify-content: space-between;
@@ -81,7 +81,7 @@
 
       .logoBox {
         background-color: #58bb5b;
-        .naverLogo {
+        img {
           width: 30px;
           height: 30px;
         }
