@@ -3,6 +3,7 @@ import Nav from "../../Components/Nav/Nav";
 import SimpleSlider from "./SimpleSlider";
 import "../../Components/Nav/Nav.scss";
 import "./SimpleSlider.scss";
+import Footer from "../../Components/Footer/Footer";
 
 class Main extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Main extends Component {
       <div className="Main">
         <Nav />
         <SimpleSlider />
+        <Footer />
       </div>
     );
   }
