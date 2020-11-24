@@ -2,7 +2,8 @@ import react, { Component } from "react";
 
 class SellerProduct extends Component {
   render() {
-    return <div>aa</div>;
+    const { Products } = this.props;
+    return <div></div>;
   }
 }
 export default SellerProduct;
