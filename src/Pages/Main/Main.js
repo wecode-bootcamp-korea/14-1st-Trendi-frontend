@@ -17,8 +17,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    // fetch(`${configData.MAIN_URL}?category=2&sub-category=2`)
-    fetch('http://10.58.2.123:8000/products/products?category=2&sub-category=2')
+    fetch(`${configData.MAIN_URL}/products?category=2&sub-category=2`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ data: res.product_list });
