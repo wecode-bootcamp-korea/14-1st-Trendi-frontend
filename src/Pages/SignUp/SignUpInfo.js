@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StatusView from "./StatusView";
+import config from "../../config.json";
 import "./SignUpInfo.scss";
 
 class SignUpInfo extends Component {
@@ -15,16 +16,10 @@ class SignUpInfo extends Component {
       email: {
         state: false,
         value: "",
-        check: (value) => {
-          return /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false;
-        },
       },
       password: {
         state: false,
         value: "",
-        check: (value) => {
-          return /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,19}$/.test(value) ? true : false;
-        },
       },
       passwordCheck: {
         state: false,
@@ -36,9 +31,6 @@ class SignUpInfo extends Component {
       userName: {
         state: false,
         value: "",
-        check: (value) => {
-          return /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/.test(value) ? true : false;
-        },
       },
     };
   }
@@ -60,7 +52,7 @@ class SignUpInfo extends Component {
     let isValidation = this.validationfilter(name, value);
     if (isValidation) {
       if (name === "id" || name === "email") {
-        fetch(`http://10.58.4.38:8000/user/signup${name}`, {
+        fetch(`${config.signup}${name}`, {
           method: "post",
           body: JSON.stringify({
             [name]: value,
@@ -79,20 +71,20 @@ class SignUpInfo extends Component {
     });
   };
 
-  // SignUpSendInfo = (e) => {
-  //   const { id, email, password, userName } = this.state;
-  //   fetch("http://10.58..:8000/signup", {
-  //     method: "post",
-  //     body: JSON.stringify({
-  //       user_name: userName.value,
-  //       nick_name: id.value,
-  //       password: password.value,
-  //       email: email.value,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => (res.MESSAGE === "SUCCESS" ? alert("") : console.log("실패")));
-  // };
+  SignUpSendInfo = (e) => {
+    const { id, email, password, userName } = this.state;
+    fetch(`${config.signup}`, {
+      method: "post",
+      body: JSON.stringify({
+        user_name: userName.value,
+        nick_name: id.value,
+        password: password.value,
+        email: email.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => (res.MESSAGE === "SUCCESS" ? alert("") : console.log("실패")));
+  };
 
   render() {
     const { id, password, email, passwordCheck, userName } = this.state;
