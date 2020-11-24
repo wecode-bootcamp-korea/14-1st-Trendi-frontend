@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+.MyCart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    h1 {
+      margin: 30px 0;
+      font-size: 20px;
+    }
+    .allSelectLayout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid black;
+
+      .allDelete {
+        padding: 8px;
+        border: 1px solid black;
+        font-size: 12px;
+      }
+    }
+
+    .productsKind {
+      width: 100%;
+      .layoutLine {
+        border-top: #e1e1e1;
+      }
+    }
+
+    .kindHaru {
+      margin: 30px 0;
+      padding: 10px 0;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+  }
+}
