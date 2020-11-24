@@ -7,13 +7,24 @@ class SellerProduct extends Component {
   }
   render() {
     const { Products } = this.props;
+
+    let haruProducts = {};
+    viewData &&
+      Object.keys(viewData).map((deliveryKey) =>
+        viewData[deliveryKey].forEach((el) =>
+          !haruProducts.hasOwnProperty(el.seller)
+            ? (haruProducts[el.seller] = [el])
+            : (haruProducts[el.seller] = [...haruProducts[el.seller], el])
+        )
+      );
+
     return (
       <div className="SellerProduct">
         <table>
           <colgroup>
             <col width={500} />
             <col width={200} />
-            <col width={200} />
+            <col width={100} />
           </colgroup>
           {Object.keys(Products).map((keyValue) => (
             <>

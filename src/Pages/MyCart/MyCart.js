@@ -7,43 +7,25 @@ class MyCart extends Component {
   constructor() {
     super();
     this.state = {
-      myCartItem: {},
-      paymentPrice: 0,
+      myCartData: {},
     };
   }
   componentDidMount() {
     fetch(configData.MOCK_DATA2)
       .then((res) => res.json())
-      .then((res) => {
-        let myCart = {};
-        res.forEach((el) => {
-          !myCart.hasOwnProperty(el.delivery) ? (myCart[el.delivery] = [el]) : (myCart[el.delivery] = [...myCart[el.delivery], el]);
-        });
-        this.setState({ myCartItem: myCart });
-      });
+      .then((res) => this.setState({ myCartData: res }));
   }
   render() {
-    const { myCartItem } = this.state;
-    let haruProducts = {};
-    let nomalProducts = {};
-    myCartItem &&
-      Object.keys(myCartItem).map(
-        (deliveryKey) =>
-          myCartItem[deliveryKey] &&
-          myCartItem[deliveryKey].forEach((el) =>
-            !haruProducts.hasOwnProperty(el.seller)
-              ? (haruProducts[el.seller] = [el])
-              : (haruProducts[el.seller] = [...haruProducts[el.seller], el])
-          )
-      );
+    const { myCartData } = this.state;
+    // let filterSellert = {};
 
-    // myCartItem &&
-    //   myCartItem[1] &&
-    //   myCartItem[1].forEach((el) =>
-    //     !nomalProducts.hasOwnProperty(el.seller)
-    //       ? (nomalProducts[el.seller] = [el])
-    //       : (nomalProducts[el.seller] = [...nomalProducts[el.seller], el])
-    //   );
+    let filterSellert = {};
+
+    // myCartData.forEach((el) => {
+    //   !filterSellert.hasOwnProperty(el.delivery)
+    //     ? (filterSellert[el.delivery] = [el])
+    //     : (filterSellert[el.delivery] = [...filterSellert[el.delivery], el]);
+    // });
 
     return (
       <div className="MyCart">
@@ -58,9 +40,7 @@ class MyCart extends Component {
             </div>
             <div className="allDelete">전체삭제</div>
           </div>
-          <div className="productsKind">
-            <SelleProduct Products={haruProducts} />
-          </div>
+          {/* <div className="productsKind">{myCartData && <SelleProduct filterSellert={filterSellert} />}</div> */}
         </form>
       </div>
     );
