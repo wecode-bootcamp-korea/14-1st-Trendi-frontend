@@ -18,13 +18,13 @@ class SignUpInfo extends Component {
 
   validationfilter = (type, value) => {
     const filter = {
-      id: () => (/^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false),
-      email: () => (/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false),
-      password: () => (/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,19}$/.test(value) ? true : false),
-      passwordCheck: () => (this.state.password.value === value ? true : false),
-      userName: () => (/^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/.test(value) ? true : false),
+      id: /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false,
+      email: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false,
+      password: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,19}$/.test(value) ? true : false,
+      passwordCheck: this.state.password.value === value ? true : false,
+      userName: /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/.test(value) ? true : false,
     };
-    return filter[type]();
+    return filter[type];
   };
 
   validationCheck = (e) => {
@@ -87,14 +87,20 @@ class SignUpInfo extends Component {
               <input type="password" name="password" placeholder="비밀번호 입력" onBlur={this.validationCheck} />
               <img className={password.state ? "imgShow" : ""} src="images/lock.png" alt="비밀번호 패스 이미지" />
               <div className="errorMsg">
-                {password.value ? (password.state ? "" : "비밀번호는 최소 8자 이상, 특수문자, 대문자, 소문자를 입력해주세요") : ""}
+                {password.value
+                  ? password.state
+                    ? ""
+                    : "비밀번호는 최소 8자 이상, 특수문자, 대문자, 소문자를 입력해주세요"
+                  : ""}
               </div>
             </div>
             <div>
               <label>비밀번호 재확인</label>
               <input type="password" name="passwordCheck" placeholder="비밀번호 확인" onBlur={this.validationCheck} />
               <img className={passwordCheck.state ? "imgShow" : ""} src="images/lock.png" alt="비밀번호 확인 패스 이미지" />
-              <div className="errorMsg">{passwordCheck.value ? (passwordCheck.state ? "" : "비밀번호가 일치 하지 않습니다") : ""}</div>
+              <div className="errorMsg">
+                {passwordCheck.value ? (passwordCheck.state ? "" : "비밀번호가 일치 하지 않습니다") : ""}
+              </div>
             </div>
             <div>
               <label>E-mail</label>
@@ -104,7 +110,9 @@ class SignUpInfo extends Component {
             <div>
               <label>이름</label>
               <input type="text" name="userName" placeholder="이름 입력" onBlur={this.validationCheck} />
-              <div className="errorMsg">{userName.value ? (userName.state ? "" : "이름 숫자, 특수문자를 사용할 수 없습니다.") : ""}</div>
+              <div className="errorMsg">
+                {userName.value ? (userName.state ? "" : "이름 숫자, 특수문자를 사용할 수 없습니다.") : ""}
+              </div>
             </div>
           </div>
           <div className="boundaryLine"></div>
