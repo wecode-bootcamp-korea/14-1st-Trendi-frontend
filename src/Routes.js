@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
@@ -9,6 +10,18 @@ import MyPage from './Pages/MyPage/MyPage';
 // import DetailItem from './Components/DetailItem/DetailItem';
 import Complete from './Pages/SignUp/Complete';
 import CategoryPage from './Pages/CategoryPage/CategoryPage';
+=======
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Nav from "./Components/Nav/Nav";
+import Footer from "./Components/Footer/Footer";
+import Main from "./Pages/Main/Main";
+import SignUp from "./Pages/SignUp/SignUp";
+import SignUpInfo from "./Pages/SignUp/SignUpInfo";
+import MyPage from "./Pages/MyPage/MyPage";
+import DetailItem from "./Components/DetailItem/DetailItem";
+import Complete from "./Pages/SignUp/Complete";
+>>>>>>> main
 
 class Routes extends Component {
   render() {
@@ -17,6 +30,7 @@ class Routes extends Component {
         <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
+<<<<<<< HEAD
           {/* <Route exact path="/signup" component={SignUp} /> */}
           <Route exact path="/signupinfo" component={SignUpInfo} />
           {/* <Route exact path="/DetailItem" component={DetailItem} /> */}
@@ -24,6 +38,13 @@ class Routes extends Component {
           <Route exact path="/Complete" component={Complete} />
           <Route exact path="/CategoryPage" component={CategoryPage} />
           <Route exact path="/detailitem/:id" component={CategoryPage} />
+=======
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signupinfo" component={SignUpInfo} />
+          <Route exact path="/DetailItem" component={DetailItem} />
+          <Route exact path="/mypage" component={MyPage} />
+          <Route exact path="/Complete" component={Complete} />
+>>>>>>> main
         </Switch>
         <Footer />
       </Router>
