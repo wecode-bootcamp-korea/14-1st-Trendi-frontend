@@ -11,6 +11,10 @@ class DetailItem extends Component {
     let location = document.querySelector('.nio1').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
   };
+  goToReview = (e) => {
+    let location = document.querySelector('.nio2').offsetTop;
+    window.scrollTo({ top: location, behavior: 'smooth' });
+  };
   render() {
     return (
       <div className="DetailItem">
@@ -20,10 +24,13 @@ class DetailItem extends Component {
               <PictureBox />
               <ItemSection />
             </div>
-            <ItemInfomationBar goToItemInfo={this.goToItemInfo} />
+            <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
             <ItemInfo />
-            <div className="nio1">상품정보</div>
             <div className="nio">테스트</div>
+            <div className="nio">테스트</div>
+            <div className="nio">테스트</div>
+            <div className="nio1">상품정보</div>
+            <div className="nio">상품정보</div>
             <div className="nio">테스트</div>
             <div className="nio2">리뷰</div>
             <div className="nio">테스트</div>

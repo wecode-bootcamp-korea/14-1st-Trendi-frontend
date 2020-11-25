@@ -26,23 +26,24 @@ class ItemInfomationBar extends Component {
   };
 
   render() {
-    const changeColor = this.state.showHiddenSubs ? 'defaultColor' : 'blackColor';
-    const changeColor2 = this.state.showHiddenSubs ? 'blackColor' : 'defaultColor';
+    const { showHiddenSubs } = this.state;
+    const { goToItemInfo, goToReview } = this.props;
+    const changeColor = showHiddenSubs ? 'defaultColor' : 'blackColor';
+    const changeColor2 = showHiddenSubs ? 'blackColor' : 'defaultColor';
 
     return (
       <div className="ItemInfomationBar" onScroll={this.handleScroll}>
         <div className="wrap">
           <ul className="reviewBar">
             <li className="itemInfomation1">
-              <div onClick={this.props.goToItemInfo}> 상품정보</div>
-              <Link className={changeColor} to="/main">
+              <div className={changeColor} onClick={goToItemInfo}>
                 상 품 정 보
-              </Link>
+              </div>
             </li>
             <li className="itemInfomation2">
-              <Link className={changeColor2} to="/">
+              <div className={changeColor2} onClick={goToReview}>
                 리 뷰
-              </Link>
+              </div>
             </li>
           </ul>
         </div>
