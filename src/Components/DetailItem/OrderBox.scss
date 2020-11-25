@@ -1,3 +1,9 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .orderContainer {
   border: 1px solid #f5f6f6;
   border-radius: 8px;
@@ -78,9 +84,7 @@
 
           .minus,
           .plus {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flexCenter;
             font-size: 16px;
             width: 30px;
             height: 30px;
@@ -89,9 +93,7 @@
           }
 
           .number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flexCenter;
             font-size: 16px;
             width: 30px;
             height: 30px;
@@ -101,8 +103,7 @@
           }
         }
         .orderPriceBox {
-          display: flex;
-          align-items: center;
+          @include flexCenter;
           background-color: #f5f6f6;
 
           .orderPrice1 {

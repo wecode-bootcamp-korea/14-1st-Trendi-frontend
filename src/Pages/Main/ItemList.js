@@ -21,7 +21,6 @@ class ItemList extends Component {
   };
 
   render() {
-    console.log('MainAPI ', this.props.MainAPI);
     const { count, toggle } = this.state;
     const { mainItem } = this.props;
     let mainItemCut = mainItem ? mainItem.slice(0, count) : '';

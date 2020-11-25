@@ -13,7 +13,7 @@ class PictureBox extends Component {
             <div className="pictureListBox">
               {PICTURE_LIST.map((picture) => {
                 return (
-                  <div className="pictureList">
+                  <div className="pictureList" key={picture.img}>
                     <img src={picture.img} alt="사진 리스트" />
                   </div>
                 );
