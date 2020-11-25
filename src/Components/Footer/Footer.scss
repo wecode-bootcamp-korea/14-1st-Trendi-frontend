@@ -4,6 +4,8 @@
 }
 
 .Footer {
+  display: flex;
+  justify-content: center;
   background-color: #1e1e1e;
   .none {
     @extend %none;
@@ -13,7 +15,7 @@
     .container {
       display: flex;
       justify-content: space-between;
-      padding-top: 30px;
+      padding-top: 70px;
       height: 136px;
       background-color: #1e1e1e;
       border-bottom: 1px solid #333333;
@@ -42,15 +44,15 @@
       }
       .rightBox {
         display: flex;
-        justify-content: flex-start;
         align-items: flex-start;
         padding-right: 30px;
         background-color: #1e1e1e;
-        .FooterMap {
+        .snsContainer {
           display: flex;
-          align-items: center;
-          background-color: #1e1e1e;
           .snsBox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 0 5px;
             background-color: #1e1e1e;
             .snsImg {
@@ -58,9 +60,13 @@
               background-color: #1e1e1e;
             }
           }
-          .snsComent {
-            background-color: #1e1e1e;
-          }
+        }
+
+        .snsComent {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #1e1e1e;
         }
       }
     }

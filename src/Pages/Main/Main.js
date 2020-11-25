@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
-import Footer from '../../Components/Footer/Footer';
 import SimpleSlider from './SimpleSlider';
-import '../../Components/Nav/Nav.scss';
+import ItemList from './ItemList';
+import configData from '../../config.json';
+import './Main.scss';
 import './SimpleSlider.scss';
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: [],
+    };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/MOCK_DATA.json', {
-      method: 'get',
-    }).then((res) => console.log(res.json()));
+    fetch(`${configData.MAIN_URL}/products?category=2&sub-category=2`)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ data: res.product_list });
+      });
   }
 
   render() {
+    console.log(this.state.data);
+    const { data } = this.state;
     return (
       <div className="Main">
-        <Nav />
         <SimpleSlider />
-        <div className="testNoneBox">dsd</div>
-        <div className="testNoneBox">dsd</div>
-        <div className="testNoneBox">dsd</div>
-        <div className="testNoneBox">dsd</div>
-        <div className="testNoneBox">dsd</div>
-
-        <Footer />
+        {data.length && <ItemList mainItem={this.state.data} />}
       </div>
     );
   }

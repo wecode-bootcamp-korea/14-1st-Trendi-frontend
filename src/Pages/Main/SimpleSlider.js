@@ -26,7 +26,7 @@ export default class SimpleSlider extends Component {
           {SLIDER.map((slider) => {
             return (
               <div>
-                <img src={slider.img} alt="슬라이더 이미지" />
+                <img src={slider.img} key={slider.idx} alt="슬라이더 이미지" />
               </div>
             );
           })}
