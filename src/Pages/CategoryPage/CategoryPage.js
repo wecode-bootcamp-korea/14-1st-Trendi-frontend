@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
 import ItemCategory from './ItemCategory';
 import ShirtList from './ShirtList';
 import configData from '../../config.json';
-import './CategoriePage.scss';
+import './CategoryPage.scss';
 
-class CategoriePage extends Component {
+class CategoryPage extends Component {
   constructor(props) {
     super(props);
 
@@ -67,7 +66,6 @@ class CategoriePage extends Component {
     const { data } = this.state;
     return (
       <div className="SideItemList">
-        <Nav />
         <nav className="nav">
           <div className="blankSpaceBox">
             <div className="navComment">
@@ -96,4 +94,4 @@ class CategoriePage extends Component {
   }
 }
 
-export default CategoriePage;
+export default CategoryPage;
