@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SimpleSlider from './SimpleSlider';
 import ItemList from './ItemList';
 import configData from '../../config.json';
 import '../../Components/Nav/Nav.scss';
