@@ -35,9 +35,7 @@ class ItemList extends Component {
             <div className="comment"></div>
             <div className="Box">
               {mainItemCut.map((api) => {
-                const haruImg = api.delivery
-                  ? '../../../images/haru.png'
-                  : '../../../images/white.png';
+                const haruImg = api.delivery ? '../../../images/haru.png' : '../../../images/white.png';
                 const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
                 return (
                   <article className="itemContainer" key={api.image_url}>
@@ -61,11 +59,7 @@ class ItemList extends Component {
                 );
               })}
               <div className="buttonBox">
-                <button
-                  className={clickBox}
-                  onMouseDown={this.handlePlus}
-                  onMouseUp={this.handleKeyUp}
-                >
+                <button className={clickBox} onMouseDown={this.handlePlus} onMouseUp={this.handleKeyUp}>
                   더 보기
                 </button>
               </div>

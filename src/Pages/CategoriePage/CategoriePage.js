@@ -21,7 +21,6 @@ class CategoriePage extends Component {
 
   //목데이터
   // componentDidMount() {
-  //   // console.log(`${configData.MAIN_URL}`);
   //   fetch('/data/MOCK_DATA.json')
   //     .then((res) => res.json())
   //     .then((res) => this.setState({ data: res }));
@@ -57,44 +56,15 @@ class CategoriePage extends Component {
     this.setState({ delivery: !delivery });
   };
 
-  //하루 배송 필터 기능 추가
-  handleItemFilter = (e) => {
-    // const { data, haruFilter } = this.state;
-    // let itemFilter;
-    // if (haruFilter) {
-    //   itemFilter = [];
-    // } else {
-    //   itemFilter = data.filter((item) => {
-    //     return item.delivery;
-    //   });
-    // }
-    // this.setState({ filterItem: itemFilter, haruFilter: !haruFilter });
-    // console.log('filterItem : ', this.state.filterItem);
-
-    fetch(`?delivery=${!this.state.delivery}`) //이 주소로 요청 한다.(딜리버리가 트루인것만 보여줘)
-      .then((res) => res.json())
-      .then((res) => this.setState({ filterItem: res.product_list }));
-    // fetch(productDetail_API + this.props.match.params.id)
-  };
-
   //세일 버튼 필터 기능 추가
-  handleSaleFilter = (e) => {
+  handleSaleFilter = () => {
     const { data, sale } = this.state;
-    let saleFilter;
-    if (sale) {
-      saleFilter = [];
-    }
-    if (!sale) {
-      saleFilter = data.filter((saleItem) => {
-        return saleItem.is_sale;
-      });
-    }
+    const saleFilter = sale ? [] : data.filter((saleItem) => saleItem.is_sale);
     this.setState({ saleItem: saleFilter, sale: !sale });
   };
 
   render() {
-    console.log('받기 전 data : ', this.state.data);
-    const { data, filterItem, saleItem } = this.state;
+    const { data } = this.state;
     return (
       <div className="SideItemList">
         <Nav />
@@ -119,8 +89,6 @@ class CategoriePage extends Component {
           </div>
           <div className="ShirtList">
             <ShirtList data={data} id={data.product_pk} />
-            {/* {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />} */}
-            {/* {saleItem.length && data ? <ShirtList data={saleItem} /> : <ShirtList data={data} />} */}
           </div>
         </div>
       </div>
