@@ -8,19 +8,14 @@ class SignUp extends Component {
     super();
     this.state = {
       allCheckd: false,
-      agreement: [],
+      agreement: [
+        { isCheck: false, content: "우리는 국가와 국민에 충성을 다하는 대한민국 국민이다" },
+        { isCheck: false, content: "하나,우리는 자유민주주의를 수호하며 조국통일의 역군이다." },
+        { isCheck: false, content: "둘, 우리는 실전과 같은 훈련으로 지상전의 승리자가 된다" },
+        { isCheck: false, content: "셋, 우리는 법규를 준수하고 상관의 명령에 복종한다" },
+        { isCheck: false, content: "넷,우리는 명예와 신의를 지키며 전우애로 굳게 단결한다." },
+      ],
     };
-  }
-  componentDidMount() {
-    let agreement = [];
-    agreementList.forEach((el) => {
-      let obj = {
-        isCheck: false,
-        content: el,
-      };
-      agreement.push(obj);
-    });
-    this.setState({ agreement });
   }
 
   isCheck = (e) => {
@@ -28,30 +23,30 @@ class SignUp extends Component {
     let agreement = this.state.agreement;
     let allCheckd = true;
 
-    if (target.name === "all") {
-      allCheckd = !this.state.allCheckd;
-      agreement.map((el) => (el.isCheck = target.checked));
-    } else {
-      agreement.forEach((el, index) => {
-        el.isCheck = index === parseInt(target.name) ? !el.isCheck : el.isCheck;
-        allCheckd = allCheckd && el.isCheck ? true : false;
-      });
-    }
+    target.name === "all"
+      ? agreement.map((el) => {
+          allCheckd = !this.state.allCheckd;
+          return (el.isCheck = target.checked);
+        })
+      : agreement.forEach((el, index) => {
+          el.isCheck = index === parseInt(target.name) ? !el.isCheck : el.isCheck;
+          allCheckd = allCheckd && el.isCheck ? true : false;
+        });
     this.setState({ agreement, allCheckd });
   };
 
   nextSignUp = (e) => {
     e.preventDefault();
     const { agreement } = this.state;
-    let comparison = true;
-    agreement.some((el) => {
-      comparison = comparison && el.isCheck ? true : false;
-      if (!comparison) {
-        alert(el.content + "를 확인 해주세요");
-        return true;
-      }
+    let comparison = agreement.filter((el) => {
+      return !el.isCheck && el;
     });
-    if (comparison) this.props.history.push("/SignUpInfo");
+    console.log(comparison);
+    if (comparison.length) {
+      alert(`${comparison[0].content} 을 확인해 주세요`);
+    } else {
+      this.props.history.push("/SignUpInfo");
+    }
   };
 
   cancelBtn = (e) => {
@@ -82,11 +77,3 @@ class SignUp extends Component {
   }
 }
 export default SignUp;
-
-const agreementList = [
-  "우리는 국가와 국민에 충성을 다하는 대한민국 국민이다",
-  "하나,우리는 자유민주주의를 수호하며 조국통일의 역군이다.",
-  "둘, 우리는 실전과 같은 훈련으로 지상전의 승리자가 된다",
-  "셋, 우리는 법규를 준수하고 상관의 명령에 복종한다",
-  "넷,우리는 명예와 신의를 지키며 전우애로 굳게 단결한다.",
-];
