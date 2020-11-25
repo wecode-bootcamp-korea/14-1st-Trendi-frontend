@@ -1,0 +1,22 @@
+@mixin flexBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DetailItem {
+  display: flex;
+  justify-content: center;
+
+  .noneDetailItem {
+    @include flexBox;
+    width: 1300px;
+    padding-top: 70px;
+    margin: 0 310px;
+
+    .itemBox {
+      display: flex;
+      width: 95%;
+    }
+  }
+}
