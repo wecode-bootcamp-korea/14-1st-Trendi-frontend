@@ -3,6 +3,9 @@ import Complete from "./Pages/SignUp/Complete";
 import React, { Component } from "react";
 import SignUp from "./Pages/SignUp/SignUp";
 import Main from "./Pages/Main/Main";
+import SignUp from "./Pages/SignUp/SignUp";
+import SignUpInfo from "./Pages/SignUp/SignUpInfo";
+
 
 class Routes extends Component {
   render() {

@@ -1,5 +1,5 @@
 import react, { Component } from "react";
-// import "./StatusView.scss";
+import "./StatusView.scss";
 
 class StatusView extends Component {
   constructor(props) {
