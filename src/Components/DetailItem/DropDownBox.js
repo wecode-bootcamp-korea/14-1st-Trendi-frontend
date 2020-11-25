@@ -40,7 +40,6 @@ class DropDownBox extends Component {
   handleChange = (e) => {
     const { number, selectValue1 } = this.state;
     this.setState({ selectValue1: e.value, number: number + 1, value: e.label });
-    // console.log(this.state.selectValue);
   };
 
   //사이즈 클릭시 값이 누적되고 오더박스 카드가 생김,카드 종류별로 담아주는 기능 구현

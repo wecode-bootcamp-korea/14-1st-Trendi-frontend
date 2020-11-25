@@ -11,10 +11,7 @@ class ShoppingNav extends Component {
   }
 
   handleChangePage = () => {
-    const { click } = this.state;
-    if (!click) {
-      this.props.history.push('/test');
-    }
+    this.props.history.push('/categorypage');
   };
 
   render() {
