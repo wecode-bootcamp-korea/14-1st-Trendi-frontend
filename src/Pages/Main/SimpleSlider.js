@@ -21,7 +21,6 @@ export default class SimpleSlider extends Component {
       <div className="SimpleSlider">
         <Slider {...settings}>
           <div className="imageContainer">
-            {/* <button type="button" class="slick-prev"></button> */}
             <img className="sliderImg" src="/images/picture1.jpg" alt="사진" />
           </div>
           {SLIDER.map((slider) => {
