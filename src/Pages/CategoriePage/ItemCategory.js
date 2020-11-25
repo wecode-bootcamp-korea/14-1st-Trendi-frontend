@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CATEGORY } from './CATEGORY';
+import { withRouter } from 'react-router-dom';
 import './ItemCategory.scss';
 
 class ItemCategory extends Component {
@@ -17,6 +18,10 @@ class ItemCategory extends Component {
   upDown = () => {
     const { click } = this.state;
     this.setState({ click: !click });
+  };
+
+  goToDetailPage = () => {
+    this.props.history.push('/detailpage');
   };
 
   render() {
@@ -57,7 +62,9 @@ class ItemCategory extends Component {
             {this.state.click && (
               <div className="categoryListBox">
                 <div className="list1">전체</div>
-                <div className="list2">티셔츠</div>
+                <div className="list2" onClick={this.goToDetailPage}>
+                  티셔츠
+                </div>
                 <div className="list3"></div>
               </div>
             )}
@@ -78,4 +85,4 @@ class ItemCategory extends Component {
   }
 }
 
-export default ItemCategory;
+export default withRouter(ItemCategory);
