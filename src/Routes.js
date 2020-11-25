@@ -5,6 +5,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Main from "./Pages/Main/Main";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
+import SignUpInfo from "./Pages/SignUp/SignUpInfo";
 
 class Routes extends Component {
   render() {
@@ -12,9 +13,11 @@ class Routes extends Component {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Complete} />
+          <Route exact path="/" component={SignUpInfo} />
+          <Route exact path="/Complete" component={Complete} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/main" component={Main} />
+          <Route exact path="/SignUpInfo" component={SignUpInfo} />
         </Switch>
         <Footer />
       </Router>
