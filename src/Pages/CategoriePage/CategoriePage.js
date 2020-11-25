@@ -117,7 +117,6 @@ class CategoriePage extends Component {
           <div className="ItemCategory">
             <ItemCategory handleChange={this.handleChange} handleItemFilter={this.handleItemFilter} handleSaleFilter={this.handleSaleFilter} />
           </div>
-          <div></div>
           <div className="ShirtList">
             <ShirtList data={data} id={data.product_pk} />
             {/* {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />} */}

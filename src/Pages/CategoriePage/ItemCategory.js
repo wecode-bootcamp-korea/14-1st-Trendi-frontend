@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ItemCategory.scss';
-import ShirtList from './ShirtList';
+import '../../common.scss';
 
 class ItemCategory extends Component {
   constructor(props) {

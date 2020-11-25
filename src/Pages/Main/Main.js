@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import SimpleSlider from './SimpleSlider';
-// import ItemList from './ItemList';
+import ItemList from './ItemList';
 import configData from '../../config.json';
-import './Main.scss';
+// import './Main.scss';
 import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
 import Footer from '../../Components/Footer/Footer';
@@ -31,7 +31,7 @@ class Main extends Component {
       <div className="Main">
         <Nav />
         <SimpleSlider />
-        {/* {data.length && <ItemList mainItem={this.state.data} />} */}
+        {data.length && <ItemList mainItem={this.state.data} />}
         <Footer />
       </div>
     );
