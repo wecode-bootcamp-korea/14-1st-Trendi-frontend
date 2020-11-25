@@ -6,7 +6,7 @@ class SellerProduct extends Component {
     this.state = {};
   }
   render() {
-    const { products, changeQuantity } = this.props;
+    const { products, changeQuantity, checkProduct } = this.props;
     let filterSeller = {};
     products.forEach((el) => {
       !filterSeller.hasOwnProperty(el.seller)
@@ -35,7 +35,7 @@ class SellerProduct extends Component {
                 {filterSeller[keyValue].map((value, index) => (
                   <tr key={index}>
                     <td className="flexAlign">
-                      <input type="checkbox" checked={value.checked} />
+                      <input type="checkbox" checked={value.checked} onChange={(e) => checkProduct(e, value)} />
                       <img src={value.thumb_image_url} alt="상품이미지" />
                       <div className="productDetail">
                         <div className="productTitle">{value.title}</div>
@@ -45,9 +45,9 @@ class SellerProduct extends Component {
                       </div>
                     </td>
                     <td className="quantityBtnForm">
-                      <input type="button" data-state="-" value="-" onChange={(el) => changeQuantity(el, value)} />
-                      <input className="quantityText" value={value.quantity} onChange={(el) => changeQuantity(el, value)} />
-                      <input type="button" data-state="+" value="+" onChange={(el) => changeQuantity(el, value)} />
+                      <input type="button" data-state="-" value="-" onClick={(el) => changeQuantity(el, value)} />
+                      <input className="quantityText" value={value.quantity} onChange={(e) => changeQuantity(e, value)} />
+                      <input type="button" data-state="+" value="+" onClick={(el) => changeQuantity(el, value)} />
                     </td>
                     <td className="orderFomr">
                       <div className="productPrice">{value.price.toLocaleString()}원</div>

@@ -34,18 +34,20 @@
     }
 
     .productsList {
-      .deliveryKind {
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        img {
-          width: 40px;
-          height: 40px;
-          margin-right: 10px;
-        }
+      div {
+        .deliveryKind {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+          }
 
-        .haruDelivery {
-          color: #36b5e7;
+          .haruDelivery {
+            color: #36b5e7;
+          }
         }
       }
     }
