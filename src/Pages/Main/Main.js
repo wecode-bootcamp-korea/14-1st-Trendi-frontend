@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
-import SimpleSlider from './SimpleSlider';
-import ItemList from './ItemList';
-import configData from '../../config.json';
-import './Main.scss';
-import '../../Components/Nav/Nav.scss';
-import './SimpleSlider.scss';
-import Footer from '../../Components/Footer/Footer';
+import React, { Component } from "react";
+import Nav from "../../Components/Nav/Nav";
+import SimpleSlider from "./SimpleSlider";
+import ItemList from "./ItemList";
+import configData from "../../config.json";
+import "../../Components/Nav/Nav.scss";
+import "./SimpleSlider.scss";
+import Footer from "../../Components/Footer/Footer";
 
 class Main extends Component {
   constructor(props) {
