@@ -1,20 +1,17 @@
-import react, { Component } from 'react';
-import './StatusView.scss';
+import react, { Component } from "react";
+import "./StatusView.scss";
 
-class StatusView extends Component{
-  constructor(){
-    super();
+class StatusView extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      status : ""
-    }
+      status: props.status,
+    };
   }
-  componentDidMount(){
-    const {status} = this.props;
-    this.setState({status})
-  }
-  render(){
-    const {status} = this.state;
-    return(
+
+  render() {
+    const { status } = this.state;
+    return (
       <div className="StatusView">
         <div className="SignUpTitle">회원가입</div>
         <div className="nowState">
