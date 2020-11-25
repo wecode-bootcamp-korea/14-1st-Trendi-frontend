@@ -2,13 +2,16 @@ import react, { Component } from "react";
 import "./StatusView.scss";
 
 class StatusView extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      status: props.status,
+      status: "",
     };
   }
-
+  componentDidMount() {
+    const { status } = this.props;
+    this.setState({ status });
+  }
   render() {
     const { status } = this.state;
     return (
@@ -17,7 +20,7 @@ class StatusView extends Component {
         <div className="nowState">
           <div className={status === "agreement" ? "setNow" : ""}>정보수집동의</div>
           <div className={status === "info" ? "setNow" : ""}>정보입력</div>
-          <div className={status === "com" ? "setNow" : ""}>가입완료</div>
+          <div className={status === "complete" ? "setNow" : ""}>가입완료</div>
         </div>
       </div>
     );
