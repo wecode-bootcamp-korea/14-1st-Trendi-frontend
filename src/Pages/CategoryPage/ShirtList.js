@@ -50,14 +50,26 @@ class ShirtList extends Component {
           <div className="dropDownContainer">
             <div className="dropDownBox">
               <div className="dropDown">
-                <div className="dropDownElement">판매량순</div>
-                <div className="dropImgBox">
-                  <img className="dropImg" src="/images/down.png" alt="다운" />
+                <div className="downBox">
+                  <div className="dropDownElement" onClick={onChangeSaleValue}>
+                    판매량순
+                  </div>
+                  <div className="dropImgBox">
+                    <img className="dropImg" src="/images/down.png" alt="다운" />
+                  </div>
                 </div>
               </div>
-              <div className="dropDownElement2">최신순</div>
-              <div className="dropDownElement2">리뷰많은순</div>
-              <div className="dropDownElement2">낮은가격순</div>
+              <div className="ortherBox">
+                <div className="dropDownElement2" onClick={onChangeNewestValue}>
+                  최신순
+                </div>
+                <div className="dropDownElement2" onClick={onChangeReviewValue}>
+                  리뷰많은순
+                </div>
+                <div className="dropDownElement2" onClick={onChangeUnderPriceValue}>
+                  낮은가격순
+                </div>
+              </div>
             </div>
           </div>
           <div className="Box">

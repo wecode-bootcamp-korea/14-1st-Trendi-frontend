@@ -1,23 +1,10 @@
 @import '../../common.scss';
 
-// @mixin flexCenter {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-// @mixin category {
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-//   width: 100%;
-//   height: 62px;
-//   border-bottom: 1px solid #bfbfbf;
-// }
-
 .ItemCategory {
   display: flex;
   justify-content: center;
   width: 248px;
+  z-index: 999;
 
   .nav {
     width: 212px;
@@ -52,7 +39,9 @@
         width: 100%;
         height: 62px;
         .arrow {
-          padding-right: 10px;
+          width: 12px;
+          height: 12px;
+          margin-right: 10px;
         }
       }
       .categoryListBox {

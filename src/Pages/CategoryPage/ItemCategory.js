@@ -26,7 +26,7 @@ class ItemCategory extends Component {
 
   render() {
     const { click } = this.state;
-    const { handleSaleFilter, handleChange } = this.props;
+    const { handleSaleFilter, handleDeliveryFilter } = this.props;
     const upDownImg = click ? '../../../images/up.png' : '../../../images/down.png';
     return (
       <div className="ItemCategory">
@@ -35,7 +35,7 @@ class ItemCategory extends Component {
             <div className="mainCategory">
               <div className="categoryTitle">상품옵션</div>
               <div className="categoryList">
-                <input type="checkbox" onChange={handleChange} />
+                <input type="checkbox" onChange={handleDeliveryFilter} />
                 <img src="/images/haru2.png" alt="하루배송 사진" />
               </div>
               <div className="categoryList">
