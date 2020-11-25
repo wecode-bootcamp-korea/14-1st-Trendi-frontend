@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ShoppingNav from './ShoppingNav';
 import { withRouter } from 'react-router-dom';
+import ShoppingNav from "./ShoppingNav";
 import './Nav.scss';
+
 
 class Nav extends Component {
   constructor(props) {
@@ -9,6 +11,16 @@ class Nav extends Component {
     this.state = {
       navLists: false,
     };
+  }
+
+  componentDidMount() {
+    const user_name = localStorage.getItem("user_name");
+    user_name && this.setState({ user_name });
+
+    this.setState({ user_name: localStorage.get });
+    fetch("http://10.58.3.61:8000/products/categories/2")
+      .then((res) => res.json())
+      .then((res) => res.data);
   }
 
   handleLeave = () => {
@@ -47,7 +59,7 @@ class Nav extends Component {
               <ul className="ul">
                 {NAV_LIST.map((el) => {
                   return (
-                    <li className="liElement" key={el.idx}>
+                    <li className="liElement" onClick={() => this.pageChage(el)}>
                       {el.title}
                     </li>
                   );
@@ -59,7 +71,11 @@ class Nav extends Component {
         <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
             {NAV_BOTTOM.map((el) => {
-              return <span className="navListLi">{el.title}</span>;
+              return (
+                <span className="navListLi" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
+                  {el.title}
+                </span>
+              );
             })}
           </div>
         </div>
@@ -72,17 +88,17 @@ class Nav extends Component {
 export default withRouter(Nav);
 
 const NAV_LIST = [
-  { id: 1, title: '찜' },
-  { id: 2, title: '장바구니' },
-  { id: 3, title: '마이페이지' },
-  { id: 4, title: '로그인' },
+  { id: 1, title: "찜" },
+  { id: 2, title: "장바구니" },
+  { id: 3, title: "마이페이지" },
+  { id: 4, title: "로그인" },
 ];
 
 const NAV_BOTTOM = [
-  { id: 1, title: '홈' },
-  { id: 2, title: '랭킹' },
-  { id: 3, title: '하루배송' },
-  { id: 4, title: '쇼핑몰·마켓' },
-  { id: 5, title: '특가' },
-  { id: 6, title: '스토어' },
+  { id: 1, title: "홈" },
+  { id: 2, title: "랭킹" },
+  { id: 3, title: "하루배송" },
+  { id: 4, title: "쇼핑몰·마켓" },
+  { id: 5, title: "특가" },
+  { id: 6, title: "스토어" },
 ];
