@@ -28,7 +28,7 @@ class Main extends Component {
     const { data } = this.state;
     return (
       <div className="Main">
-        <Nav />
+        {/* <Nav /> */}
         <SimpleSlider />
         {data.length && <ItemList mainItem={this.state.data} />}
         <Footer />
