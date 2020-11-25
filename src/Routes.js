@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Main from "./Pages/Main/Main";
-// import Login from "./Pages/Login/Login";
-import SignUp from "./Pages/SignUp/SignUp";
-// import MyPage from "./Pages/MyPage/MyPage";
 import SignUpInfo from "./Pages/SignUp/SignUpInfo";
+import SignUp from "./Pages/SignUp/Agreement";
+import Complete from "./Pages/SignUp/Complete";
+import Main from "./Pages/Main/Main";
 
 class Routes extends Component {
   render() {
@@ -12,6 +11,10 @@ class Routes extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={SignUpInfo} />
+          <Route exact path="/Complete" component={Complete} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/main" component={Main} />
+          <Route exact path="/SignUpInfo" component={SignUpInfo} />
         </Switch>
       </Router>
     );

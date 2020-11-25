@@ -9,6 +9,7 @@
     flex-direction: column;
     margin-top: 20px;
     width: 330px;
+
     div {
       display: flex;
       flex-direction: column;
@@ -25,8 +26,10 @@
         font-weight: bold;
         margin-top: 10px;
       }
+
       div {
         position: relative;
+
         img {
           display: none;
           position: absolute;
@@ -47,6 +50,7 @@
         }
       }
     }
+
     .boundaryLine {
       margin-top: 10px;
       border-bottom: 1px solid black;
