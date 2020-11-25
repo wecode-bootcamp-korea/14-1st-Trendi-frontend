@@ -105,7 +105,7 @@ class DropDownBox extends Component {
 
   render() {
     const { priceBox, number, orderBox, heartChange } = this.state;
-    const heart = heartChange ? './images/heart.png' : './images/likeheart.png';
+    const heart = heartChange ? '/images/heart.png' : '/images/likeheart.png';
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
@@ -140,12 +140,12 @@ class DropDownBox extends Component {
             <div className="directPurchase">바로 구매</div>
             <div className="logoContainer">
               <div className="logoBox">
-                <img className="naverLogo" src="./images/naver.png" alt="네이버 로고" />
+                <img className="naverLogo" src="/images/naver.png" alt="네이버 로고" />
               </div>
               <div className="pay">Pay 구매</div>
             </div>
             <div className="cartBox">
-              <img className="cart" src="./images/cart.png" alt="카트" />
+              <img className="cart" src="/images/cart.png" alt="카트" />
             </div>
             <div className="heartBox" onClick={this.handleHeartChange}>
               <img className="heart" src={heart} alt="하트" />

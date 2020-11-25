@@ -14,14 +14,11 @@ class ItemSection extends Component {
           <header className="header">
             <div className="storeBox">
               <div className="store">
-                <img src="./images/home.png" alt="가게이름" />
+                <img src="/images/home.png" alt="가게이름" />
               </div>
               <div className="storeComment">프린세스 스토어</div>
             </div>
-            <div className="title">
-              [후기극찬!기모버전>] XL까지, 착붙 스판 하이웨스트 쫀득 스키니 레깅스 팬츠
-              _유어아운스퀘어
-            </div>
+            <div className="title">[후기극찬!기모버전>] XL까지, 착붙 스판 하이웨스트 쫀득 스키니 레깅스 팬츠 _유어아운스퀘어</div>
           </header>
           <article className="article">
             <div className="priceBox">
@@ -35,7 +32,7 @@ class ItemSection extends Component {
               {STAR.map((star) => {
                 return (
                   <div className="starBox" key={star.key}>
-                    <img className="star" src="./images/star.png" alt="별" />
+                    <img className="star" src="/images/star.png" alt="별" />
                   </div>
                 );
               })}
@@ -47,7 +44,7 @@ class ItemSection extends Component {
                 <div className="haruBox">
                   <div className="arriveComment">11/20(금)도착예정</div>
                   <div className="haruImg">
-                    <img src="./images/haru.png" alt="하루배송" />
+                    <img src="/images/haru.png" alt="하루배송" />
                   </div>
                 </div>
                 <div className="comment">하루배송 상품 내일 오후 2시 전 결제 시 적용</div>
@@ -64,9 +61,9 @@ class ItemSection extends Component {
 export default ItemSection;
 
 const STAR = [
-  { id: 1, img: './images/star.png' },
-  { id: 2, img: './images/star.png' },
-  { id: 3, img: './images/star.png' },
-  { id: 4, img: './images/star.png' },
-  { id: 5, img: './images/star.png' },
+  { id: 1, img: '/images/star.png' },
+  { id: 2, img: '/images/star.png' },
+  { id: 3, img: '/images/star.png' },
+  { id: 4, img: '/images/star.png' },
+  { id: 5, img: '/images/star.png' },
 ];

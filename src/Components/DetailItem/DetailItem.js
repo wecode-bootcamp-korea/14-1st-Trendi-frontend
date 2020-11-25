@@ -3,6 +3,7 @@ import ItemSection from './ItemSection';
 import PictureBox from './PictureBox';
 import Nav from '../Nav/Nav';
 import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
+import ItemInfo from '../ItemInfomationBar/ItemInfo';
 import './DetailItem.scss';
 
 class DetailItem extends Component {
@@ -17,6 +18,7 @@ class DetailItem extends Component {
               <ItemSection />
             </div>
             <ItemInfomationBar />
+            <ItemInfo />
             <div className="nio">상품정보</div>
             <div className="nio">테스트</div>
             <div className="nio">테스트</div>

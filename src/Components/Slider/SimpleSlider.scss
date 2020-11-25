@@ -1,0 +1,18 @@
+.SimpleSlider {
+  width: 100%;
+  div {
+    img {
+      width: 100%;
+    }
+  }
+
+  .slick-prev {
+    left: 3% !important;
+    z-index: 1;
+  }
+
+  .slick-next {
+    right: 3% !important;
+    z-index: 1;
+  }
+}

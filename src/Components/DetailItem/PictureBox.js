@@ -8,7 +8,7 @@ class PictureBox extends Component {
         <aside className="aside">
           <div className="pictureBox">
             <div className="bigPictureBox">
-              <img className="bigPicture" src="./images/clothes1.png" alt="대표 사진" />
+              <img className="bigPicture" src="/images/clothes1.png" alt="대표 사진" />
             </div>
             <div className="pictureListBox">
               {PICTURE_LIST.map((picture) => {
@@ -28,4 +28,4 @@ class PictureBox extends Component {
 
 export default PictureBox;
 
-const PICTURE_LIST = [{ img: './images/clothes1.png' }, { img: './images/clothes2.png' }, { img: './images/clothes3.png' }, { img: './images/clothes4.png' }, { img: './images/clothes5.png' }];
+const PICTURE_LIST = [{ img: '/images/clothes1.png' }, { img: '/images/clothes2.png' }, { img: '/images/clothes3.png' }, { img: '/images/clothes4.png' }, { img: '/images/clothes5.png' }];

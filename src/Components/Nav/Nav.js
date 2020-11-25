@@ -29,22 +29,18 @@ class Nav extends Component {
     return (
       <nav className="Nav">
         <div>
-          <img className="benerImg" src="./images/banner.png" alt="배너 이미지" />
+          <img className="benerImg" src="/images/banner.png" alt="배너 이미지" />
         </div>
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox">
-              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
+              <img className="logoImg" src="/images/trandi.jpg" alt="로고 이미지" />
             </div>
             <div className="form">
               <div className="searchContainer">
                 <input className="searchInput"></input>
                 <div className="magnifierBox">
-                  <img
-                    className="magnifier"
-                    src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png"
-                    alt="돋보기"
-                  />
+                  <img className="magnifier" src="https://www.brandi.co.kr/static/20.08.01/images/a-action-bar-icon-search-nor.png" alt="돋보기" />
                 </div>
               </div>
             </div>
@@ -61,11 +57,7 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        <div
-          className="navBottomList"
-          onMouseLeave={this.handleLeave}
-          onMouseEnter={this.handleEnter}
-        >
+        <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
             {NAV_BOTTOM.map((el) => {
               return <span className="navListLi">{el.title}</span>;

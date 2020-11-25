@@ -34,7 +34,7 @@ class ItemInfomationBar extends Component {
         <div className="wrap">
           <ul className="reviewBar">
             <li className="itemInfomation1">
-              <Link className={changeColor} to="/">
+              <Link className={changeColor} to="/main">
                 상 품 정 보
               </Link>
             </li>
