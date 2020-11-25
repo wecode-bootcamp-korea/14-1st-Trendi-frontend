@@ -1,4 +1,5 @@
 {
   "MYCART_VIEW": "http://10.58.2.208:8000/order/orderlist/1",
-  "MOCK_DATA2":"http://localhost:3000/data/MOCK_DATA2.json"
+  "MOCK_DATA2":"http://localhost:3000/data/MOCK_DATA2.json",
+  "MY_CART":"http://10.58.6.231:8000/order/orderlist/1"
 }
