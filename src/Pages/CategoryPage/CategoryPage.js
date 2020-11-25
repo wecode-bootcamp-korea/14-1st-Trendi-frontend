@@ -15,6 +15,9 @@ class CategoryPage extends Component {
       sale: false,
       saleItem: [],
       delivery: false,
+      saleValue: '',
+      newestValue: '',
+      underPriceValue: '',
     };
   }
 
@@ -62,8 +65,23 @@ class CategoryPage extends Component {
     this.setState({ saleItem: saleFilter, sale: !sale });
   };
 
+  onChangeSaleValue = (e) => {
+    console.log('클릭1');
+    this.setState({ saleValue: e.target.value });
+  };
+
+  onChangeNewestValue = (e) => {
+    console.log('클릭2');
+    this.setState({ newestValue: e.target.value });
+  };
+
+  onChangeUnderPriceValue = (e) => {
+    console.log('클릭3');
+    this.setState({ underPriceValue: e.target.value });
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, saleValue, newestValue, underPriceValue } = this.state;
     return (
       <div className="SideItemList">
         <nav className="nav">
@@ -83,10 +101,23 @@ class CategoryPage extends Component {
         </nav>
         <div className="ItemList">
           <div className="ItemCategory">
-            <ItemCategory handleChange={this.handleChange} handleItemFilter={this.handleItemFilter} handleSaleFilter={this.handleSaleFilter} />
+            <ItemCategory
+              handleChange={this.handleChange}
+              handleItemFilter={this.handleItemFilter}
+              handleSaleFilter={this.handleSaleFilter}
+            />
           </div>
           <div className="ShirtList">
-            <ShirtList data={data} id={data.product_pk} />
+            <ShirtList
+              data={data}
+              id={data.product_pk}
+              saleValue={saleValue}
+              newestValue={newestValue}
+              underPriceValue={underPriceValue}
+              onChangeSaleValue={this.onChangeSaleValue}
+              onChangeNewestValue={this.onChangeNewestValue}
+              onChangeUnderPriceValue={this.onChangeUnderPriceValue}
+            />
           </div>
         </div>
       </div>

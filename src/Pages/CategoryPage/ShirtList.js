@@ -25,25 +25,40 @@ class ShirtList extends Component {
   };
 
   change = (e) => {
+    console.log('얘는 클릭되나?');
     this.setState({ value: e.target.value });
   };
 
   render() {
-    console.log('props.data는? : ', this.props.data);
     const { count, toggle, value } = this.state;
+    const {
+      saleValue,
+      newestValue,
+      reviewValue,
+      underPriceValue,
+      onChangeSaleValue,
+      onChangeNewestValue,
+      onChangeReviewValue,
+      onChangeUnderPriceValue,
+    } = this.props;
     let dataCut = this.props.data ? this.props.data.slice(0, count) : '';
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
     return (
       <div className="ShirtList">
         <div className="bodyContainer">
-          <div className="dropDownBox">
-            <select value={value} onChange={this.change}>
-              <option value="">판매량순</option>
-              <option value="">최신순</option>
-              <option value="">리뷰많은순</option>
-              <option value="">낮은가격순</option>
-            </select>
+          <div className="dropDownContainer">
+            <div className="dropDownBox">
+              <div className="dropDown">
+                <div className="dropDownElement">판매량순</div>
+                <div className="dropImgBox">
+                  <img className="dropImg" src="/images/down.png" alt="다운" />
+                </div>
+              </div>
+              <div className="dropDownElement2">최신순</div>
+              <div className="dropDownElement2">리뷰많은순</div>
+              <div className="dropDownElement2">낮은가격순</div>
+            </div>
           </div>
           <div className="Box">
             {dataCut.map((api) => {

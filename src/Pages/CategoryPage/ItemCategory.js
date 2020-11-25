@@ -36,7 +36,7 @@ class ItemCategory extends Component {
               <div className="categoryTitle">상품옵션</div>
               <div className="categoryList">
                 <input type="checkbox" onChange={handleChange} />
-                <img src="./images/haru2.png" alt="하루배송 사진" />
+                <img src="/images/haru2.png" alt="하루배송 사진" />
               </div>
               <div className="categoryList">
                 <input type="checkbox" onChange={handleSaleFilter} />
@@ -50,7 +50,7 @@ class ItemCategory extends Component {
             <div className="categoryOuterBox">
               <div className="categoryListSub">아우터</div>
               <div>
-                <img className="arrow" src="./images/down.png" alt="down" />
+                <img className="arrow" src="/images/down.png" alt="down" />
               </div>
             </div>
             <div className="categoryOuterBox" onClick={() => this.setState({ click: !click })}>
@@ -73,7 +73,7 @@ class ItemCategory extends Component {
                 <div className="categoryListMap">
                   <div className="categoryListSub">{category.item}</div>
                   <div className="arrowBox">
-                    <img className="arrow" src="./images/down.png" alt="down" />
+                    <img className="arrow" src="/images/down.png" alt="down" />
                   </div>
                 </div>
               );
