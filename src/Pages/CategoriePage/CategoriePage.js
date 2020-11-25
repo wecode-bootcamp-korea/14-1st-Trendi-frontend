@@ -20,26 +20,28 @@ class CategoriePage extends Component {
   }
 
   //목데이터
-  componentDidMount() {
-    // console.log(`${configData.MAIN_URL}`);
-    fetch('/data/MOCK_DATA.json')
-      .then((res) => res.json())
-      .then((res) => this.setState({ data: res }));
-  }
+  // componentDidMount() {
+  //   // console.log(`${configData.MAIN_URL}`);
+  //   fetch('/data/MOCK_DATA.json')
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ data: res }));
+  // }
 
   //원두님꺼 데이터
-  // componentDidMount() {
-  //   fetch(`${configData.MAIN_URL}/products?category=2`)
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ data: res.product_list }));
-  // }
+  componentDidMount() {
+    fetch(`${configData.MAIN_URL}/products?category=2`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.product_list }));
+  }
 
   //백엔드로 리퀘스트 보내는 행위
   getData = () => {
-    const { delivery } = this.state;
-    fetch(`${configData.MAIN_URL}/products?delivery=${delivery}`)
+    let delivery2 = this.state.delivery ? 'delivery=true' : '';
+    // const { delivery } = this.state;
+    fetch(`${configData.MAIN_URL}${delivery2}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
+    console.log('받은 후 data : ', this.state.data);
   };
   //체크 박스 눌렀을때 컨디업
   componentDidUpdate(prevprops, prevstate) {
@@ -91,6 +93,7 @@ class CategoriePage extends Component {
   };
 
   render() {
+    console.log('받기 전 data : ', this.state.data);
     const { data, filterItem, saleItem } = this.state;
     return (
       <div className="SideItemList">
@@ -116,7 +119,7 @@ class CategoriePage extends Component {
           </div>
           <div></div>
           <div className="ShirtList">
-            <ShirtList data={data} />
+            <ShirtList data={data} id={data.product_pk} />
             {/* {filterItem.length && data ? <ShirtList data={filterItem} /> : <ShirtList data={data} />} */}
             {/* {saleItem.length && data ? <ShirtList data={saleItem} /> : <ShirtList data={data} />} */}
           </div>

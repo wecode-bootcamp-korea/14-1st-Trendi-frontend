@@ -1,5 +1,6 @@
 import { TransferWithinAStationSharp } from '@material-ui/icons';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './ShirtList.scss';
 
 class ShirtList extends Component {
@@ -28,6 +29,7 @@ class ShirtList extends Component {
   };
 
   render() {
+    console.log('props.data는? : ', this.props.data);
     const { count, toggle, value } = this.state;
     let dataCut = this.props.data ? this.props.data.slice(0, count) : '';
     let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
@@ -48,13 +50,13 @@ class ShirtList extends Component {
               const haruImg = api.delivery ? '../../../images/haru2.png' : '../../../images/white.png';
               const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
               return (
-                <article className="itemContainer" key={api.item_seller}>
+                <article className="itemContainer" key={api.item_seller} id={api.product_pk}>
                   <div className="itemBox">
                     <div className="itemImgBox">
                       <img className="itemImg" src={api.image_url} alt="대표사진" />
                     </div>
                     <div className="sellerBox">
-                      <div className="seller">{api.seller_name}</div>
+                      <div className="seller">{api.seller_name} </div>
                       <div className="haru">
                         <img className="haruPicture" src={haruImg} alt="하루사진" />
                       </div>
@@ -80,4 +82,4 @@ class ShirtList extends Component {
   }
 }
 
-export default ShirtList;
+export default withRouter(ShirtList);
