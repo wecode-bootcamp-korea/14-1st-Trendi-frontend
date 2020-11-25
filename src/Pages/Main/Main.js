@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import SimpleSlider from './SimpleSlider';
 import ItemList from './ItemList';
 import configData from '../../config.json';
-import '../../Components/Nav/Nav.scss';
 import './SimpleSlider.scss';
 
 class Main extends Component {
@@ -23,7 +23,12 @@ class Main extends Component {
   render() {
     console.log(this.state.data);
     const { data } = this.state;
-    return <div className="Main">{data.length && <ItemList mainItem={this.state.data} />}</div>;
+    return (
+      <div className="Main">
+        <SimpleSlider />
+        {data.length && <ItemList mainItem={this.state.data} />}
+      </div>
+    );
   }
 }
 

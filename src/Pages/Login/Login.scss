@@ -1,0 +1,80 @@
+%flex_center {
+  display: flex;
+}
+
+.Login {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 50px 0;
+
+  .layoutCenter {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    h1 {
+      text-align: center;
+      margin: 6px 0;
+      color: #ff204b;
+      font-size: 23px;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      margin: 8px 0;
+      font-size: 25px;
+      font-weight: lighter;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .input {
+        margin: 3px 0;
+      }
+
+      .inputTextbox {
+        height: 40px;
+        margin: 5px 0;
+        border-radius: 3px;
+        border: 1px solid #e1e1e1;
+      }
+
+      .LoginBtn {
+        height: 50px;
+        margin: 4px 0;
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .SignUpBtn {
+        height: 50px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+    .boundaryLine {
+      margin: 20px 0;
+      border-bottom: 1px solid black;
+    }
+
+    .otherLogin {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px 0;
+
+      label {
+        text-align: center;
+        font-size: 12px;
+        font-weight: bolder;
+      }
+    }
+  }
+}
