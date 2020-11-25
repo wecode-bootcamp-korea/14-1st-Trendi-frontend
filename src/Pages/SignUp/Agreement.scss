@@ -1,0 +1,16 @@
+.Agreement {
+  label {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] {
+      margin: 10px 10px;
+      width: 15px;
+      height: 15px;
+    }
+    span {
+      font-size: 12px;
+      color: red;
+    }
+  }
+}
