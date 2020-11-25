@@ -1,0 +1,63 @@
+.ReviewAllView {
+  .reviewForm {
+    margin-top: 10px;
+    border-bottom: 1px solid #e1e1e1;
+    .orderInfo {
+      display: flex;
+      justify-content: space-between;
+      div {
+        span {
+          margin-right: 10px;
+          font-size: 13px;
+          font-weight: 500;
+        }
+        input {
+          border: none;
+        }
+      }
+
+      .writeDate {
+        font-size: 13px;
+      }
+    }
+    .ReviewDetailInfo {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      div {
+        margin: 8px 0;
+
+        .orderBodyInfo {
+          font-size: 13px;
+          color: #9a9a9e;
+        }
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .pagination {
+    li {
+      &.disabled {
+        display: none;
+      }
+      &.active {
+        a {
+          color: black;
+        }
+      }
+      a {
+        color: #9a9a9e;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.active {
+  color: black;
+}
