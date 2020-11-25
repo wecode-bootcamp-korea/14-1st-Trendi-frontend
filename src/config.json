@@ -1,4 +1,4 @@
 {
-  "signup":"http://10.58.4.38:8000/user/signup",
+  "signup": "http://10.58.4.38:8000/user/signup",
   "MAIN_URL": "http://10.58.2.123:8000/products"
 }
