@@ -9,6 +9,7 @@ import MyPage from "./Pages/MyPage/MyPage";
 import DetailItem from "./Components/DetailItem/DetailItem";
 import Complete from "./Pages/SignUp/Complete";
 import Login from "./Pages/Login/Login";
+import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 
 class Routes extends Component {
   render() {
@@ -19,10 +20,11 @@ class Routes extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signupinfo" component={SignUpInfo} />
-          <Route exact path="/DetailItem" component={DetailItem} />
+          <Route exact path="/detailItem" component={DetailItem} />
           <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/Complete" component={Complete} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/categoryPage" component={CategoryPage} />
         </Switch>
         <Footer />
       </Router>

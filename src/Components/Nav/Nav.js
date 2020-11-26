@@ -17,8 +17,6 @@ class Nav extends Component {
     user_name && this.setState({ user_name });
   }
 
-  componentDidUpdate(prevProps, prepState) {}
-
   handleLeave = () => {
     this.setState({ navLists: false });
   };
@@ -40,7 +38,7 @@ class Nav extends Component {
     return (
       <nav className="Nav">
         <div>
-          <img className="benerImg" src="./images/banner.png" alt="배너 이미지" />
+          <img className="benerImg" src="/images/banner.png" alt="배너 이미지" />
         </div>
         <div className="none">
           <div className="NavBottom">

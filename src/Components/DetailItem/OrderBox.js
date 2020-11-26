@@ -17,7 +17,7 @@ class OrderBox extends Component {
               </div>
               <div className="buttonBox">
                 <button onClick={handleDelete}>
-                  <img className="close" src="./images/close.png" alt="닫기" />
+                  <img className="close" src="/images/close.png" alt="닫기" />
                 </button>
               </div>
             </div>
