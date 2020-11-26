@@ -5,7 +5,7 @@ class StatusView extends Component {
   constructor() {
     super();
     this.state = {
-      status: '',
+      status: "",
     };
   }
   componentDidMount() {
@@ -18,9 +18,15 @@ class StatusView extends Component {
       <div className="StatusView">
         <div className="SignUpTitle">회원가입</div>
         <div className="nowState">
+<<<<<<< HEAD
           <div className={status === 'agreement' ? 'setNow' : ''}>정보수집동의</div>
           <div className={status === 'info' ? 'setNow' : ''}>정보입력</div>
-          <div className={status === 'complete' ? 'setNow' : ''}>가입완료</div>
+          <div className={status === 'com' ? 'setNow' : ''}>가입완료</div>
+=======
+          <div className={status === "agreement" ? "setNow" : ""}>정보수집동의</div>
+          <div className={status === "info" ? "setNow" : ""}>정보입력</div>
+          <div className={status === "complete" ? "setNow" : ""}>가입완료</div>
+>>>>>>> main
         </div>
       </div>
     );
