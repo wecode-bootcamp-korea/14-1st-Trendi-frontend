@@ -4,6 +4,7 @@ import PictureBox from './PictureBox';
 import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
 import ItemInfo from '../ItemInfomationBar/ItemInfo';
 import configData from '../../config.json';
+import Review from './Review';
 import './DetailItem.scss';
 
 class DetailItem extends Component {
@@ -15,23 +16,21 @@ class DetailItem extends Component {
   }
 
   goToItemInfo = (e) => {
-    let location = document.querySelector('.nio1').offsetTop;
+    let location = document.querySelector('.commentBox').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
   };
   goToReview = (e) => {
-    let location = document.querySelector('.nio2').offsetTop;
+    let location = document.querySelector('.reviewBox2').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
   };
-
   componentDidMount() {
-    fetch(`${configData.DETAILITEM_URL}/3`)
+    fetch(`${configData.GUESTHOUSE_URL}/3`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_detail }));
   }
 
   render() {
     const { data } = this.state;
-    console.log('data : ', data);
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">
@@ -40,12 +39,12 @@ class DetailItem extends Component {
               <PictureBox />
               <ItemSection />
             </div>
-            <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
-            <ItemInfo data={data} />
-
-            <div className="nio1">테스트</div>
-
-            <div className="nio2">테스트</div>
+            <div className="test2">
+              <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
+              {data.review_info && <ItemInfo data={data} />}
+              {data.review_info && <Review reviewProps={data.review_info} />}
+              <div className="reviewBox2"></div>
+            </div>
           </div>
         </div>
       </div>

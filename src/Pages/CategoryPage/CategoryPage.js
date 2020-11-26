@@ -216,10 +216,6 @@ class CategoryPage extends Component {
             <ShirtList
               data={data}
               id={data.product_pk}
-              saleValue={saleValue}
-              newestValue={newestValue}
-              reviewValue={reviewValue}
-              underPriceValue={underPriceValue}
               onChangeSaleValue={this.onChangeSaleValue}
               onChangeNewestValue={this.onChangeNewestValue}
               onChangeUnderPriceValue={this.onChangeUnderPriceValue}

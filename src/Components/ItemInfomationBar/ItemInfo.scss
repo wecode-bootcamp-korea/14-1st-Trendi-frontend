@@ -7,7 +7,6 @@
     justify-items: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid red;
     margin-top: 100px;
     .imgContainer {
       width: 100%;
@@ -16,9 +15,13 @@
       }
     }
     .commentBox {
-      border: 2px solid blue;
+      padding-top: 100px;
       .comment {
+        padding: 100px 0;
         font-size: 100px;
+      }
+      .description {
+        font-size: 50px;
       }
     }
   }

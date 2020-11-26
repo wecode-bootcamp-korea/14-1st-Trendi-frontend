@@ -29,17 +29,8 @@ class ShirtList extends Component {
   };
 
   render() {
-    const { count, toggle, value } = this.state;
-    const {
-      saleValue,
-      newestValue,
-      reviewValue,
-      underPriceValue,
-      onChangeSaleValue,
-      onChangeNewestValue,
-      onChangeReviewValue,
-      onChangeUnderPriceValue,
-    } = this.props;
+    const { count, toggle } = this.state;
+    const { onChangeSaleValue, onChangeNewestValue, onChangeReviewValue, onChangeUnderPriceValue } = this.props;
     const dataCut = this.props.data ? this.props.data.slice(0, count) : '';
     const clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
