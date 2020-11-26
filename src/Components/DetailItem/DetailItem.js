@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ItemSection from './ItemSection';
 import PictureBox from './PictureBox';
-import Nav from '../Nav/Nav';
 import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
 import ItemInfo from '../ItemInfomationBar/ItemInfo';
 import './DetailItem.scss';
@@ -47,9 +46,9 @@ class DetailItem extends Component {
             </div>
             <div></div>
             <div className="nio">테스트</div>
+            <div className="nio1">테스트</div>
             <div className="nio">테스트</div>
-            <div className="nio">테스트</div>
-            <div className="nio">테스트</div>
+            <div className="nio2">테스트</div>
           </div>
         </div>
       </div>
