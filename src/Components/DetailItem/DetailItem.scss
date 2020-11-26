@@ -17,6 +17,10 @@
     .itemBox {
       display: flex;
       width: 95%;
+
+      .componentWrap {
+        display: flex;
+      }
     }
   }
 }
