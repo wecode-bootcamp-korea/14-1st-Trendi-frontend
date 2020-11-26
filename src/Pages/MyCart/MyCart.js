@@ -6,10 +6,10 @@ import "./MyCart.scss";
 class MyCart extends Component {
   constructor() {
     super();
-    this.state = { allChekced: true };
+    this.state = { allChekced: true, myCartData: [] };
   }
   componentDidMount() {
-    fetch(configData.MYCART, {
+    fetch(`${configData.MYCART}`, {
       headers: {
         Authorization: localStorage.getItem("key"),
       },
@@ -19,13 +19,13 @@ class MyCart extends Component {
   }
 
   changeQuantity = (e, product) => {
-    const { value, dataset } = e.target;
+    const { value } = e.target;
     const myCartData = [];
     this.state.myCartData.forEach((el) => {
       if (el.orderlist_id === product.orderlist_id) {
-        if (dataset.state === "+") {
+        if (value === "+") {
           el.quantity = parseInt(el.quantity) + 1;
-        } else if (dataset.state === "-") {
+        } else if (value === "-") {
           el.quantity = parseInt(el.quantity) - 1;
         } else {
           el.quantity = value;
@@ -38,25 +38,21 @@ class MyCart extends Component {
   };
 
   checkProduct = (e, product) => {
-    const { checked } = e.target;
-    const { orderlist_id, chekced } = product;
-
-    const myCartData = [];
+    const myCartData = [...this.state.myCartData];
     let checkAllCheck = true;
-    this.state.myCartData.forEach((el) => {
+    myCartData.forEach((el) => {
       el.orderlist_id === product.orderlist_id && (el.checked = !el.checked);
       el.checked !== checkAllCheck && (checkAllCheck = false);
-      myCartData.push(el);
     });
     this.setState({ myCartData, allChekced: checkAllCheck });
   };
 
   allCheckBtn = (e) => {
     const myCartData = [...this.state.myCartData];
-    const { checked } = e.target;
+    const checked = e.target;
 
     for (let i in myCartData) {
-      myCartData[i].checked = targetState;
+      myCartData[i].checked = checked;
     }
     this.setState({ myCartData, allChekced: checked });
   };
@@ -90,22 +86,20 @@ class MyCart extends Component {
   render() {
     const { myCartData, allChekced } = this.state;
     let filterDelivery = {};
-    myCartData &&
-      myCartData.forEach((el, index) => {
-        !el.hasOwnProperty("checked") && (el["checked"] = true);
-        !filterDelivery.hasOwnProperty(el.delivery)
-          ? (filterDelivery[el.delivery] = [el])
-          : (filterDelivery[el.delivery] = [...filterDelivery[el.delivery], el]);
-      });
 
-    const totalPrice =
-      myCartData &&
-      myCartData
-        .reduce((acc, cur) => {
-          let sum = cur.checked ? acc + cur.price * cur.quantity : acc;
-          return sum;
-        }, 0)
-        .toLocaleString();
+    myCartData.forEach((el, index) => {
+      !el.hasOwnProperty("checked") && (el["checked"] = true);
+      !filterDelivery.hasOwnProperty(el.delivery)
+        ? (filterDelivery[el.delivery] = [el])
+        : (filterDelivery[el.delivery] = [...filterDelivery[el.delivery], el]);
+    });
+
+    const totalPrice = myCartData
+      .reduce((acc, cur) => {
+        let sum = cur.checked ? acc + cur.price * cur.quantity : acc;
+        return sum;
+      }, 0)
+      .toLocaleString();
 
     return (
       <div className="MyCart">
