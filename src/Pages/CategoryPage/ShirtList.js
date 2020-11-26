@@ -7,7 +7,6 @@ class ShirtList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'select',
       count: 20,
       toggle: false,
       haru: true,
@@ -52,7 +51,7 @@ class ShirtList extends Component {
               <div className="dropDown">
                 <div className="downBox">
                   <div className="dropDownElement" onClick={onChangeSaleValue}>
-                    판매량순
+                    인기순
                   </div>
                   <div className="dropImgBox">
                     <img className="dropImg" src="/images/down.png" alt="다운" />
@@ -64,7 +63,7 @@ class ShirtList extends Component {
                   최신순
                 </div>
                 <div className="dropDownElement2" onClick={onChangeReviewValue}>
-                  리뷰많은순
+                  가격순
                 </div>
                 <div className="dropDownElement2" onClick={onChangeUnderPriceValue}>
                   낮은가격순
