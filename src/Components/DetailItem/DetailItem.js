@@ -3,7 +3,7 @@ import ItemSection from './ItemSection';
 import PictureBox from './PictureBox';
 
 import ItemInfomationBar from './ItemInfomationBar';
-import ItemInfo from './ItemInfo';
+// import ItemInfo from './ItemInfo';
 import './DetailItem.scss';
 class DetailItem extends Component {
   constructor(props) {
@@ -38,13 +38,20 @@ class DetailItem extends Component {
               <PictureBox />
               <ItemSection />
             </div>
-            {/* <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
-            <ItemInfo /> */}
+            <div className="infoBox">
+              <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
+              {/* <ItemInfo /> */}
+            </div>
           </div>
-          <div className="nio">테스트</div>
-          <div className="nio">테스트</div>
-          <div className="nio">테스트</div>
-          <div className="nio">테스트</div>
+          <div className="nioBox">
+            <div className="nio">테스트sdsdsd</div>
+            <div className="nio1">테스트</div>
+            <div className="nio2">테스트</div>
+            <div className="nio">테스트</div>
+            <div className="nio">테스트</div>
+            <div className="nio">테스트</div>
+            <div className="nio">테스트</div>
+          </div>
         </div>
       </div>
     );
