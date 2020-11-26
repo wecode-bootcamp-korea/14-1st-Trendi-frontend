@@ -1,9 +1,5 @@
 import react, { Component } from 'react';
-<<<<<<< HEAD
-// import "./StatusView.scss";
-=======
 import './StatusView.scss';
->>>>>>> main
 
 class StatusView extends Component {
   constructor() {
