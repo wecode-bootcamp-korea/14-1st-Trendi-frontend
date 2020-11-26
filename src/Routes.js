@@ -8,10 +8,7 @@ import SignUpInfo from './Pages/SignUp/SignUpInfo';
 import MyPage from './Pages/MyPage/MyPage';
 import DetailItem from './Components/DetailItem/DetailItem';
 import Complete from './Pages/SignUp/Complete';
-<<<<<<< HEAD
-=======
 import CategoryPage from './Pages/CategoryPage/CategoryPage';
->>>>>>> main
 
 class Routes extends Component {
   render() {
