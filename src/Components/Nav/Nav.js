@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ShoppingNav from "./ShoppingNav";
 import "./Nav.scss";
 import { withRouter } from "react-router-dom";
+import { LocalHospitalTwoTone } from "@material-ui/icons";
 
 class Nav extends Component {
   constructor(props) {
@@ -27,11 +28,17 @@ class Nav extends Component {
 
   pageChage = (e) => {
     const { user_name } = this.state;
-    user_name && localStorage.removeItem("user_name");
-    user_name && localStorage.removeItem("token");
+    const { dataset } = e.target;
+    console.log(dataset.page);
+    if (dataset.page === "logout") {
+      user_name && localStorage.removeItem("user_name");
+      user_name && localStorage.removeItem("token");
+    }
 
-    this.props.history.push(e.target.dataset.page);
+    // this.props.history.push(e.target.dataset.page);
   };
+
+  ㅊ;
 
   render() {
     const { navLists, user_name } = this.state;
@@ -61,7 +68,7 @@ class Nav extends Component {
               <ul className="ul">
                 {NAV_LIST.map((el, index) => {
                   return el.title === "로그인" && user_name ? (
-                    <li className="liElement" data-page={el.id} onClick={this.pageChage}>
+                    <li className="liElement" data-page="logout" onClick={this.pageChage}>
                       로그아웃
                     </li>
                   ) : (
