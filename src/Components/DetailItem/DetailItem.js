@@ -30,6 +30,7 @@ class DetailItem extends Component {
 
   render() {
     const { data } = this.state;
+    console.log('data : ', data);
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">
@@ -39,15 +40,10 @@ class DetailItem extends Component {
               <ItemSection />
             </div>
             <ItemInfomationBar goToItemInfo={this.goToItemInfo} goToReview={this.goToReview} />
-            <ItemInfo />
+            <ItemInfo data={data} />
 
-            <div>
-              <img src={data.image_url} alt="사진" />
-            </div>
-            <div></div>
-            <div className="nio">테스트</div>
             <div className="nio1">테스트</div>
-            <div className="nio">테스트</div>
+
             <div className="nio2">테스트</div>
           </div>
         </div>

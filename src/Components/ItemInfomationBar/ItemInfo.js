@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import './ItemInfo';
+import './ItemInfo.scss';
 
 class ItemInfo extends Component {
-  // componentDidMount() {
-  //   fetch(`${configData.MAIN_URL}/products?category=2`)
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ data: res.product_list }));
-  // }
-
   render() {
-    return <div className="ItemInfo"></div>;
+    const { data } = this.props;
+    return (
+      <div className="ItemInfo">
+        <div>
+          <img src={data.image_url} alt="사진" />
+        </div>
+      </div>
+    );
   }
 }
 
