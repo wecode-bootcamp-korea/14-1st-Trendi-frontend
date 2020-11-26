@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ShoppingNav from "./ShoppingNav";
 import "./Nav.scss";
+import { withRouter } from "react-router-dom";
 
 class Nav extends Component {
   constructor(props) {
@@ -12,13 +13,11 @@ class Nav extends Component {
 
   componentDidMount() {
     const user_name = localStorage.getItem("user_name");
+    console.log("////////////", user_name);
     user_name && this.setState({ user_name });
-
-    this.setState({ user_name: localStorage.get });
-    fetch("http://10.58.3.61:8000/products/categories/2")
-      .then((res) => res.json())
-      .then((res) => res.data);
   }
+
+  componentDidUpdate(prevProps, prepState) {}
 
   handleLeave = () => {
     this.setState({ navLists: false });
@@ -29,11 +28,15 @@ class Nav extends Component {
   };
 
   pageChage = (e) => {
-    this.props.history.push("/Login");
+    const { user_name } = this.state;
+    user_name && localStorage.removeItem("user_name");
+    user_name && localStorage.removeItem("token");
+
+    this.props.history.push(e.target.dataset.page);
   };
 
   render() {
-    const { navLists } = this.state;
+    const { navLists, user_name } = this.state;
     return (
       <nav className="Nav">
         <div>
@@ -42,7 +45,7 @@ class Nav extends Component {
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox">
-              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
+              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" onClick={() => this.props.history.push("/")} />
             </div>
             <div className="form">
               <div className="searchContainer">
@@ -58,9 +61,13 @@ class Nav extends Component {
             </div>
             <div className="navList">
               <ul className="ul">
-                {NAV_LIST.map((el) => {
-                  return (
-                    <li className="liElement" onClick={() => this.pageChage(el)}>
+                {NAV_LIST.map((el, index) => {
+                  return el.title === "로그인" && user_name ? (
+                    <li className="liElement" data-page={el.id} onClick={this.pageChage}>
+                      로그아웃
+                    </li>
+                  ) : (
+                    <li className="liElement" data-page={el.id} onClick={this.pageChage}>
                       {el.title}
                     </li>
                   );
@@ -86,13 +93,13 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 const NAV_LIST = [
-  { id: 1, title: "찜" },
-  { id: 2, title: "장바구니" },
-  { id: 3, title: "마이페이지" },
-  { id: 4, title: "로그인" },
+  { id: "/dibs", title: "찜" },
+  { id: "mycart", title: "장바구니" },
+  { id: "mypage", title: "마이페이지" },
+  { id: "login", title: "로그인" },
 ];
 
 const NAV_BOTTOM = [

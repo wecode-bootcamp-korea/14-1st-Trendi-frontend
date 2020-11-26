@@ -50,7 +50,7 @@ class SignUp extends Component {
   };
 
   cancelBtn = (e) => {
-    this.props.history.push("/");
+    this.props.history.push("/login");
   };
 
   render() {
