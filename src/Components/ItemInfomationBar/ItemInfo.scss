@@ -17,6 +17,9 @@
     }
     .commentBox {
       border: 2px solid blue;
+      .comment {
+        font-size: 100px;
+      }
     }
   }
 }

@@ -12,9 +12,12 @@ class ItemInfo extends Component {
             <img src={data.image_url} alt="사진" />
           </div>
           <div className="commentBox">
-            <div className="color">{data.color_list}</div>
-            <div className="price">가격 : {data.price}</div>
-            <div className="size">사이즈 : {data.size_list}</div>
+            <div className="comment">사이즈 : {data.color_list}</div>
+            <br />
+            <div className="comment">가격 : {data.price}</div>
+            <br />
+            <div className="comment">사이즈 : {data.size_list}</div>
+            <br />
             <div>{data.description}</div>
           </div>
         </div>
