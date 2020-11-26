@@ -91,9 +91,9 @@ class Nav extends Component {
         </div>
         <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
-            {NAV_BOTTOM.map((el) => {
+            {NAV_BOTTOM.map((el, i) => {
               return (
-                <span className="navListLi" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
+                <span className="navListLi" key={i} onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
                   {el.title}
                 </span>
               );

@@ -21,8 +21,8 @@ class ItemInfomationBar extends Component {
   handleScroll = (e) => {
     const { showHiddenSubs } = this.state;
     const scrollTop = e.srcElement.scrollingElement.scrollTop;
-    if (scrollTop > 0 && scrollTop <= 3656 && showHiddenSubs) this.setState({ showHiddenSubs: false });
-    if (scrollTop > 3656 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
+    if (scrollTop > 0 && scrollTop <= 3000 && showHiddenSubs) this.setState({ showHiddenSubs: false });
+    if (scrollTop > 3000 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
   };
 
   render() {

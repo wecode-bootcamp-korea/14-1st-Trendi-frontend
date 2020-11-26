@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import SimpleSlider from './SimpleSlider';
-import ItemList from './ItemList';
-import configData from '../../config.json';
-import './SimpleSlider.scss';
+import React, { Component } from "react";
+import SimpleSlider from "./SimpleSlider";
+import ItemList from "./ItemList";
+import configData from "../../config.json";
+import "./SimpleSlider.scss";
 
 class Main extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch(`${configData.MAIN_URL}/products?category=2&sub-category=2`)
+    fetch(`${configData.GUESTHOUSE_URL}?trendi-pick=1`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ data: res.product_list });
@@ -25,7 +25,7 @@ class Main extends Component {
     return (
       <div className="Main">
         <SimpleSlider />
-        {data.length && <ItemList mainItem={this.state.data} />}
+        {data.length && <ItemList mainItem={data} />}
       </div>
     );
   }
