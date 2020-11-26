@@ -21,7 +21,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     const { data } = this.state;
     return (
       <div className="Main">
