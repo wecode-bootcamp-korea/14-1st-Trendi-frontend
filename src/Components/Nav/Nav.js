@@ -10,16 +10,6 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    const user_name = localStorage.getItem('user_name');
-    user_name && this.setState({ user_name });
-
-    this.setState({ user_name: localStorage.get });
-    fetch('http://10.58.3.61:8000/products/categories/2')
-      .then((res) => res.json())
-      .then((res) => res.data);
-  }
-
   handleLeave = () => {
     this.setState({ navLists: false });
   };
