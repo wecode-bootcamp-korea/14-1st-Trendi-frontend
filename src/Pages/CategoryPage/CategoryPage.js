@@ -18,13 +18,6 @@ class CategoryPage extends Component {
     };
   }
 
-  //목데이터
-  // componentDidMount() {
-  //   fetch('/data/MOCK_DATA.json')
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ data: res }));
-  // }
-
   //원두님꺼 데이터
   componentDidMount() {
     fetch(`${configData.MAIN_URL}?trendi-pick=1`)
