@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ShoppingNav from "./ShoppingNav";
-import "./Nav.scss";
+import React, { Component } from 'react';
+import ShoppingNav from './ShoppingNav';
+import './Nav.scss';
 
 class Nav extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    const user_name = localStorage.getItem("user_name");
+    const user_name = localStorage.getItem('user_name');
     user_name && this.setState({ user_name });
 
     this.setState({ user_name: localStorage.get });
-    fetch("http://10.58.3.61:8000/products/categories/2")
+    fetch('http://10.58.3.61:8000/products/categories/2')
       .then((res) => res.json())
       .then((res) => res.data);
   }
@@ -29,7 +29,7 @@ class Nav extends Component {
   };
 
   pageChage = (e) => {
-    this.props.history.push("/Login");
+    this.props.history.push('/Login');
   };
 
   render() {
@@ -37,12 +37,12 @@ class Nav extends Component {
     return (
       <nav className="Nav">
         <div>
-          <img className="benerImg" src="./images/banner.png" alt="배너 이미지" />
+          <img className="benerImg" src="/images/banner.png" alt="배너 이미지" />
         </div>
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox">
-              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" />
+              <img className="logoImg" src="/images/trandi.jpg" alt="로고 이미지" />
             </div>
             <div className="form">
               <div className="searchContainer">
@@ -89,17 +89,17 @@ class Nav extends Component {
 export default Nav;
 
 const NAV_LIST = [
-  { id: 1, title: "찜" },
-  { id: 2, title: "장바구니" },
-  { id: 3, title: "마이페이지" },
-  { id: 4, title: "로그인" },
+  { id: 1, title: '찜' },
+  { id: 2, title: '장바구니' },
+  { id: 3, title: '마이페이지' },
+  { id: 4, title: '로그인' },
 ];
 
 const NAV_BOTTOM = [
-  { id: 1, title: "홈" },
-  { id: 2, title: "랭킹" },
-  { id: 3, title: "하루배송" },
-  { id: 4, title: "쇼핑몰·마켓" },
-  { id: 5, title: "특가" },
-  { id: 6, title: "스토어" },
+  { id: 1, title: '홈' },
+  { id: 2, title: '랭킹' },
+  { id: 3, title: '하루배송' },
+  { id: 4, title: '쇼핑몰·마켓' },
+  { id: 5, title: '특가' },
+  { id: 6, title: '스토어' },
 ];

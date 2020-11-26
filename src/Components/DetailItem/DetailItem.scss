@@ -6,17 +6,26 @@
 
 .DetailItem {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   .noneDetailItem {
     @include flexBox;
     width: 1300px;
     padding-top: 70px;
-    margin: 0 310px;
 
     .itemBox {
       display: flex;
+      flex-direction: column;
       width: 95%;
+
+      .componentWrap {
+        display: flex;
+        padding-bottom: 100px;
+      }
+      .nio {
+        height: 1000px;
+      }
     }
   }
 }

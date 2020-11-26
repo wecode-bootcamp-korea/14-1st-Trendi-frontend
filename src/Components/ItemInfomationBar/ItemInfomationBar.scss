@@ -1,0 +1,59 @@
+.ItemInfomationBar {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+
+  .wrap {
+    .reviewBar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 68px;
+      font-size: 30px;
+      font-weight: 400;
+
+      .itemInfomation1 {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        font-weight: 600;
+
+        .defaultColor {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          color: #9b9b9f;
+          text-decoration: none;
+          border-bottom: 4px solid #f2f2f2;
+        }
+      }
+
+      .itemInfomation2 {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        font-weight: 600;
+
+        .defaultColor {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          color: #9b9b9f;
+          text-decoration: none;
+          border-bottom: 4px solid #f2f2f2;
+        }
+      }
+    }
+  }
+}
+
+.blackColor {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  border-bottom: 4px solid black;
+}
