@@ -1,3 +1,4 @@
+import { TramSharp } from "@material-ui/icons";
 import react, { Component } from "react";
 import "./SellerProduct.scss";
 class SellerProduct extends Component {
@@ -6,7 +7,7 @@ class SellerProduct extends Component {
     this.state = {};
   }
   render() {
-    const { products, changeQuantity, checkProduct } = this.props;
+    const { products, changeQuantity, checkProduct, deleteProduct } = this.props;
     let filterSeller = {};
     products.forEach((el) => {
       !filterSeller.hasOwnProperty(el.seller)
@@ -38,7 +39,10 @@ class SellerProduct extends Component {
                       <input type="checkbox" checked={value.checked} onChange={(e) => checkProduct(e, value)} />
                       <img src={value.thumb_image_url} alt="상품이미지" />
                       <div className="productDetail">
-                        <div className="productTitle">{value.title}</div>
+                        <div>
+                          <h1 className="productTitle">{value.title}</h1>
+                          <img className="trashIcon" src="images/trash.png" value="삭제" onClick={() => deleteProduct([value])} />
+                        </div>
                         <div className="productOption">
                           {value.color} {value.size}
                         </div>

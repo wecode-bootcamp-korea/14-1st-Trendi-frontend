@@ -8,6 +8,7 @@ import SignUpInfo from "./Pages/SignUp/SignUpInfo";
 import MyPage from "./Pages/MyPage/MyPage";
 import DetailItem from "./Components/DetailItem/DetailItem";
 import Complete from "./Pages/SignUp/Complete";
+import MyCart from "./Pages/MyCart/MyCart";
 
 class Routes extends Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends Component {
           <Route exact path="/DetailItem" component={DetailItem} />
           <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/Complete" component={Complete} />
+          <Route exact path="/mycart" component={MyCart} />
         </Switch>
         <Footer />
       </Router>

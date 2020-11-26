@@ -9,16 +9,20 @@ class MyCart extends Component {
     this.state = { allChekced: true };
   }
   componentDidMount() {
-    fetch(configData.MOCK_DATA2)
+    fetch(configData.MYCART, {
+      headers: {
+        Authorization: localStorage.getItem("key"),
+      },
+    })
       .then((res) => res.json())
-      .then((res) => this.setState({ myCartData: res }));
+      .then((res) => this.setState({ myCartData: res.data }));
   }
 
   changeQuantity = (e, product) => {
     const { value, dataset } = e.target;
     const myCartData = [];
     this.state.myCartData.forEach((el) => {
-      if (el.orderList_id === product.orderList_id) {
+      if (el.orderlist_id === product.orderlist_id) {
         if (dataset.state === "+") {
           el.quantity = parseInt(el.quantity) + 1;
         } else if (dataset.state === "-") {
@@ -35,13 +39,13 @@ class MyCart extends Component {
 
   checkProduct = (e, product) => {
     const { checked } = e.target;
-    const { orderList_id, chekced } = product;
+    const { orderlist_id, chekced } = product;
 
     const myCartData = [];
     let checkAllCheck = true;
     this.state.myCartData.forEach((el) => {
-      el.orderList_id === product.orderList_id && (el.checked = !el.checked);
-      el.checked != checkAllCheck && (checkAllCheck = false);
+      el.orderlist_id === product.orderlist_id && (el.checked = !el.checked);
+      el.checked !== checkAllCheck && (checkAllCheck = false);
       myCartData.push(el);
     });
     this.setState({ myCartData, allChekced: checkAllCheck });
@@ -61,15 +65,34 @@ class MyCart extends Component {
     this.setState({ myCartData: [], allChekced: false });
   };
 
+  deleteProduct = (products) => {
+    const { myCartData } = this.state;
+    products.forEach((product) =>
+      fetch(`${configData.MYCART}/${product.orderlist_id}`, {
+        method: "delete",
+        headers: {
+          Authorization: localStorage.getItem("key"),
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (products.length < 2) {
+            const products =
+              res.message === "SUCCESS" && myCartData.filter((el) => el.orderlist_id !== product.orderlist_id && el);
+            this.setState({ myCartData: products });
+          } else {
+            this.setState({ myCartData: [] });
+          }
+        })
+    );
+  };
+
   render() {
     const { myCartData, allChekced } = this.state;
-
     let filterDelivery = {};
     myCartData &&
       myCartData.forEach((el, index) => {
         !el.hasOwnProperty("checked") && (el["checked"] = true);
-        !el.hasOwnProperty("orderList_id") && (el["orderList_id"] = index); //추후 삭제
-
         !filterDelivery.hasOwnProperty(el.delivery)
           ? (filterDelivery[el.delivery] = [el])
           : (filterDelivery[el.delivery] = [...filterDelivery[el.delivery], el]);
@@ -93,7 +116,7 @@ class MyCart extends Component {
               <input className="allChekbox" type="checkbox" checked={allChekced} onChange={this.allCheckBtn} />
               전체선택
             </label>
-            <div className="allDelete" onClick={this.allChlick}>
+            <div className="allDelete" onClick={() => this.deleteProduct(myCartData)}>
               전체삭제
             </div>
           </div>
@@ -103,12 +126,13 @@ class MyCart extends Component {
                 <div key={index}>
                   <div className="deliveryKind">
                     {!index && <img src="images/delivery.png" alt="하루빠른배송이미지" />}
-                    <span className={`${!index && "haruDelivery"}`}>{el}</span>
+                    <span className={`${!index && "haruDelivery"}`}>{el === "0" ? "하루배송" : "일반배송"}</span>
                   </div>
                   <SelleProduct
                     products={filterDelivery[el]}
                     changeQuantity={this.changeQuantity}
                     checkProduct={this.checkProduct}
+                    deleteProduct={this.deleteProduct}
                   />
                 </div>
               ))}
