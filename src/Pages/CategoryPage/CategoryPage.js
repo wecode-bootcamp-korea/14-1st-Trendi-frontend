@@ -18,13 +18,6 @@ class CategoryPage extends Component {
     };
   }
 
-  //목데이터
-  // componentDidMount() {
-  //   fetch('/data/MOCK_DATA.json')
-  //     .then((res) => res.json())
-  //     .then((res) => this.setState({ data: res }));
-  // }
-
   //원두님꺼 데이터
   componentDidMount() {
     fetch(`${configData.MAIN_URL}?trendi-pick=1`)
@@ -223,10 +216,6 @@ class CategoryPage extends Component {
             <ShirtList
               data={data}
               id={data.product_pk}
-              saleValue={saleValue}
-              newestValue={newestValue}
-              reviewValue={reviewValue}
-              underPriceValue={underPriceValue}
               onChangeSaleValue={this.onChangeSaleValue}
               onChangeNewestValue={this.onChangeNewestValue}
               onChangeUnderPriceValue={this.onChangeUnderPriceValue}

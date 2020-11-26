@@ -48,9 +48,9 @@ class Nav extends Component {
             </div>
             <div className="navList">
               <ul className="ul">
-                {NAV_LIST.map((el) => {
+                {NAV_LIST.map((el, i) => {
                   return (
-                    <li className="liElement" onClick={() => this.pageChage(el)}>
+                    <li className="liElement" key={i} onClick={() => this.pageChage(el)}>
                       {el.title}
                     </li>
                   );
@@ -61,9 +61,9 @@ class Nav extends Component {
         </div>
         <div className="navBottomList" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
           <div className="none1">
-            {NAV_BOTTOM.map((el) => {
+            {NAV_BOTTOM.map((el, i) => {
               return (
-                <span className="navListLi" onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
+                <span className="navListLi" key={i} onMouseLeave={this.handleLeave} onMouseEnter={this.handleEnter}>
                   {el.title}
                 </span>
               );
