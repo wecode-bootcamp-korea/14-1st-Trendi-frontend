@@ -1,0 +1,156 @@
+.ShirtList {
+  .bodyContainer {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+
+    .dropDownContainer {
+      display: flex;
+      position: relative;
+      align-items: flex-end;
+      width: 80%;
+
+      .dropDownBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        position: absolute;
+        top: 70px;
+        width: 150px;
+        height: 100%;
+        z-index: 3;
+
+        .dropDown {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .downBox {
+            display: flex;
+            position: relative;
+            align-items: center;
+
+            .dropDownElement {
+              display: flex;
+              align-items: center;
+              border: 1px solid #e1e1e1;
+              width: 130px;
+              height: 30px;
+              padding-left: 5px;
+            }
+            .dropImgBox {
+              position: absolute;
+              right: 10px;
+              width: 18px;
+              height: 18px;
+
+              .dropImg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+        }
+
+        .dropDownElement2 {
+          display: flex;
+          align-items: center;
+          border: 1px solid #e1e1e1;
+          width: 130px;
+          height: 30px;
+          padding-left: 5px;
+        }
+      }
+    }
+
+    .Box {
+      display: flex;
+      flex-wrap: wrap;
+      article {
+        width: 243px;
+        height: 360px;
+
+        .itemBox {
+          display: flex;
+          flex-direction: column;
+          margin: 0 10px;
+
+          .itemImgBox {
+            width: 100%;
+            .itemImg {
+              width: 100%;
+              height: 254px;
+            }
+          }
+
+          .sellerBox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .haru {
+              .haruPicture {
+                width: 50px;
+                height: 10px;
+                padding-right: 10px;
+              }
+            }
+          }
+
+          .itemName {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 40px;
+          }
+
+          .priceBox {
+            display: flex;
+
+            .discount {
+              display: flex;
+              align-items: flex-end;
+              justify-content: flex-start;
+              width: 40px;
+              font-size: 20px;
+              color: #ff204b;
+            }
+
+            .price {
+              display: flex;
+              align-items: flex-end;
+              font-size: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      .buttonBox {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 42px;
+        .whiteBtn {
+          width: 250px;
+          background-color: #ffffff;
+          font-size: 14px;
+          border: 1px solid #000;
+          transition-duration: 0.4s;
+        }
+
+        .blackBtn {
+          width: 250px;
+          font-size: 14px;
+          border: 1px solid #000;
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
