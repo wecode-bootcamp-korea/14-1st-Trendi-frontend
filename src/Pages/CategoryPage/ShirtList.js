@@ -40,8 +40,8 @@ class ShirtList extends Component {
       onChangeReviewValue,
       onChangeUnderPriceValue,
     } = this.props;
-    let dataCut = this.props.data ? this.props.data.slice(0, count) : '';
-    let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
+    const dataCut = this.props.data ? this.props.data.slice(0, count) : '';
+    const clickBox = toggle ? 'blackBtn' : 'whiteBtn';
 
     return (
       <div className="ShirtList">

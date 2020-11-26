@@ -68,9 +68,9 @@ class ItemCategory extends Component {
                 <div className="list3"></div>
               </div>
             )}
-            {CATEGORY.map((category) => {
+            {CATEGORY.map((category, i) => {
               return (
-                <div className="categoryListMap">
+                <div className="categoryListMap" key={category.i}>
                   <div className="categoryListSub">{category.item}</div>
                   <div className="arrowBox">
                     <img className="arrow" src="/images/down.png" alt="down" />
