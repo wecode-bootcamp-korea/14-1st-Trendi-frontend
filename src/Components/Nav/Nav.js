@@ -8,13 +8,13 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_name: "",
       navLists: false,
     };
   }
 
   componentDidMount() {
     const user_name = localStorage.getItem("user_name");
-    console.log("////////////", user_name);
     user_name && this.setState({ user_name });
   }
 
@@ -26,19 +26,27 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    const { user_name } = this.state;
+    const key = localStorage.getItem("key");
+    const localUserName = localStorage.getItem("user_name");
+
+    if (!user_name && localUserName) {
+      this.setState({ user_name: localUserName });
+    } else if (user_name && !localUserName) {
+      this.setState({ user_name: "" });
+    }
+  }
+
   pageChage = (e) => {
     const { user_name } = this.state;
-    const { dataset } = e.target;
-    console.log(dataset.page);
-    if (dataset.page === "logout") {
+    const { dataset, innerHTML } = e.target;
+    if (innerHTML === "로그아웃") {
       user_name && localStorage.removeItem("user_name");
       user_name && localStorage.removeItem("token");
     }
-
-    // this.props.history.push(e.target.dataset.page);
+    this.props.history.push(e.target.dataset.page);
   };
-
-  ㅊ;
 
   render() {
     const { navLists, user_name } = this.state;
@@ -68,7 +76,7 @@ class Nav extends Component {
               <ul className="ul">
                 {NAV_LIST.map((el, index) => {
                   return el.title === "로그인" && user_name ? (
-                    <li className="liElement" data-page="logout" onClick={this.pageChage}>
+                    <li className="liElement" data-page="/login" onClick={this.pageChage}>
                       로그아웃
                     </li>
                   ) : (
@@ -102,9 +110,9 @@ export default withRouter(Nav);
 
 const NAV_LIST = [
   { id: "/dibs", title: "찜" },
-  { id: "mycart", title: "장바구니" },
-  { id: "mypage", title: "마이페이지" },
-  { id: "login", title: "로그인" },
+  { id: "/mycart", title: "장바구니" },
+  { id: "/mypage", title: "마이페이지" },
+  { id: "/login", title: "로그인" },
 ];
 
 const NAV_BOTTOM = [
