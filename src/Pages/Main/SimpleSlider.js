@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Slider from 'react-slick';
-import './SimpleSlider.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { Component } from "react";
+import Slider from "react-slick";
+import "./SimpleSlider.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default class SimpleSlider extends Component {
   render() {
@@ -37,8 +37,8 @@ export default class SimpleSlider extends Component {
 }
 
 const SLIDER = [
-  { img: '/images/picture2.jpg' },
-  { img: '/images/picture3.jpg' },
-  { img: '/images/picture4.jpg' },
-  { img: '/images/picture5.jpg' },
+  { img: "/images/picture2.jpg" },
+  { img: "/images/picture3.jpg" },
+  { img: "/images/picture4.jpg" },
+  { img: "/images/picture5.jpg" },
 ];
