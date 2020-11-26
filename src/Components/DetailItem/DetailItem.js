@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ItemSection from './ItemSection';
 import PictureBox from './PictureBox';
+
 import ItemInfomationBar from './ItemInfomationBar';
 import ItemInfo from './ItemInfo';
-
+import './DetailItem.scss';
 class DetailItem extends Component {
   constructor(props) {
     super(props);
