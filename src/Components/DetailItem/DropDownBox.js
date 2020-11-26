@@ -20,6 +20,8 @@ class DropDownBox extends Component {
       orderBox: [],
       priceBox: 0,
       heartChange: true,
+      selectValue1: '',
+      selectValue2: '',
     };
   }
 
@@ -36,13 +38,13 @@ class DropDownBox extends Component {
 
   // 상품 클릭시 클릭 바뀌게
   handleChange = (e) => {
-    const { number } = this.state;
-    this.setState({ number: number + 1, value: e.label });
+    const { number, selectValue1 } = this.state;
+    this.setState({ selectValue1: e.value, number: number + 1, value: e.label });
   };
 
   //사이즈 클릭시 값이 누적되고 오더박스 카드가 생김,카드 종류별로 담아주는 기능 구현
   handleSizeCheck = (e) => {
-    const { click2, selectPrice, item, value, orderBox } = this.state;
+    const { click2, selectPrice, item, value, orderBox, selectValue2 } = this.state;
     let arr = [...item];
     arr.push(selectPrice);
     //중복된 배열이 있을때 걸러주는 기능 추가
@@ -56,6 +58,7 @@ class DropDownBox extends Component {
       defaultPrice: selectPrice,
       item: arr,
       orderBox: orderBox2,
+      selectValue2: e.value,
     });
   };
 
@@ -104,9 +107,22 @@ class DropDownBox extends Component {
     this.setState({ heartChange: !heartChange });
   };
 
+  goToCart = (e) => {
+    const { selectValue1, selectValue2 } = this.state;
+    if (!selectValue1 && !selectValue2) {
+      alert('[컬러]를 선택하세요.');
+    }
+    if (selectValue1 && !selectValue2) {
+      alert('[사이즈]를 선택하세요.');
+    }
+    if (selectValue1 && selectValue2) {
+      alert('www.trandi.co.kr 내용 : 선택하신 상품들이 정상적으로 장바구니에 담겼습니다. 지금 장바구니함으로 이동하시겠습니까?');
+    }
+  };
+
   render() {
     const { priceBox, number, orderBox, heartChange } = this.state;
-    const heart = heartChange ? './images/heart.png' : './images/likeheart.png';
+    const heart = heartChange ? '/images/heart.png' : '/images/likeheart.png';
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
@@ -141,12 +157,12 @@ class DropDownBox extends Component {
             <div className="directPurchase">바로 구매</div>
             <div className="logoContainer">
               <div className="logoBox">
-                <img className="naverLogo" src="./images/naver.png" alt="네이버 로고" />
+                <img className="naverLogo" src="/images/naver.png" alt="네이버 로고" />
               </div>
               <div className="pay">Pay 구매</div>
             </div>
-            <div className="cartBox">
-              <img className="cart" src="./images/cart.png" alt="카트" />
+            <div className="cartBox" onClick={this.goToCart}>
+              <img className="cart" src="/images/cart.png" alt="카트" />
             </div>
             <div className="heartBox" onClick={this.handleHeartChange}>
               <img className="heart" src={heart} alt="하트" />

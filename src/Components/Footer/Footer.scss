@@ -7,11 +7,13 @@
   display: flex;
   justify-content: center;
   background-color: #1e1e1e;
+
   .none {
     @extend %none;
     height: 363px;
     color: #ffffff;
     background-color: #1e1e1e;
+
     .container {
       display: flex;
       justify-content: space-between;
@@ -47,8 +49,10 @@
         align-items: flex-start;
         padding-right: 30px;
         background-color: #1e1e1e;
+
         .snsContainer {
           display: flex;
+
           .snsBox {
             display: flex;
             align-items: center;
