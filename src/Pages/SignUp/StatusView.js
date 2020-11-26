@@ -1,4 +1,4 @@
-import react, { Component } from "react";
+import react, { Component } from 'react';
 import "./StatusView.scss";
 
 class StatusView extends Component {

@@ -10,11 +10,8 @@ class ShoppingNav extends Component {
     };
   }
 
-  handleChangePage = () => {
-    const { click } = this.state;
-    if (!click) {
-      this.props.history.push('/test');
-    }
+  goToDetailPage = () => {
+    this.props.history.push('/CategoriePage');
   };
 
   render() {
@@ -25,7 +22,7 @@ class ShoppingNav extends Component {
           {SHOPPING_LIST.map((el) => {
             return (
               <div className="shoppingContainer" key={el.idx}>
-                <div className="mainTitle" onClick={this.handleChangePage}>
+                <div className="mainTitle" onClick={this.goToDetailPage}>
                   {el.main}
                 </div>
                 <div className="content">{el.item1}</div>
