@@ -105,13 +105,17 @@
     height: 62px;
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
+    margin: 0px;
+    padding: 0px;
 
     .none1 {
       display: flex;
       width: 1300px;
-      margin: 0 246px 0 246px;
+      height: 100%;
+      padding: 0px;
+      margin: 0 246px;
       justify-content: space-between;
-      width: 1300px;
+      // border: 2px solid red;
     }
 
     .navListLi {
