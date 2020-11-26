@@ -53,12 +53,12 @@ class MyCart extends Component {
 
   allCheckBtn = (e) => {
     const myCartData = [...this.state.myCartData];
-    const targetState = e.target.checked;
+    const { checked } = e.target;
 
     for (let i in myCartData) {
       myCartData[i].checked = targetState;
     }
-    this.setState({ myCartData, allChekced: targetState });
+    this.setState({ myCartData, allChekced: checked });
   };
 
   allChlick = (e) => {
