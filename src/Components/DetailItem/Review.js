@@ -1,43 +1,39 @@
-import react, { Component } from "react";
-import ReviewListComponet from "./ReviewListComponet";
-import configData from "../../config.json";
-import WriteReview from "./WriteReview";
-import "./Review.scss";
+import react, { Component } from 'react';
+import ReviewListComponet from './ReviewListComponet';
+import configData from '../../config.json';
+import WriteReview from './WriteReview';
+import './Review.scss';
 
 class Review extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modal: false,
-      viewSate: "all",
-      viewList: [],
+      viewSate: 'all',
+      viewList: props.reviewProps,
       calList: {
-        content: "",
-        image_url: "",
-        nick_name: "",
+        content: '',
+        image_url: '',
+        nick_name: '',
         product: 0,
         star: 0,
-        updated_at: "",
+        updated_at: '',
         review_id: 0,
         user_information: null,
       },
     };
   }
 
-  componentDidMount() {
-    this.loadList();
-  }
-
   modalView = (value) => {
     const { modal } = this.state;
-    if (value === "close") {
+    if (value === 'close') {
       const calList = {
-        content: "",
-        image_url: "",
-        nick_name: "",
+        content: '',
+        image_url: '',
+        nick_name: '',
         product: 0,
         star: 0,
-        updated_at: "",
+        updated_at: '',
         user_information: null,
       };
       this.setState({ calList });
@@ -59,12 +55,6 @@ class Review extends Component {
     return arrList[value]();
   };
 
-  loadList = () => {
-    fetch(`${configData.REVIEW}11`)
-      .then((res) => res.json())
-      .then((res) => this.setState({ viewList: res.data }));
-  };
-
   changView = (viewSate) => {
     this.setState({ viewSate });
   };
@@ -73,31 +63,31 @@ class Review extends Component {
     const { content, image_url, user_id, product, star } = insertData;
     this.modalView();
     fetch(`${configData.REVIEW}/11`, {
-      method: "post",
+      method: 'post',
       body: JSON.stringify({
         content: content,
         image_url: image_url,
         user_id: 11, //로그인을 위한 id 데이터
         product_id: 11, //상품 id
         star: star,
-        user_information: "156cm 51kg",
+        user_information: '156cm 51kg',
       }),
     })
       .then((res) => res.json())
-      .then((res) => (res.message === "SUCCESS" ? this.loadList() : console.log("실패=======================================")));
+      .then((res) => (res.message === 'SUCCESS' ? this.loadList() : console.log('실패=======================================')));
   };
 
   updateAPI = (updateData) => {
     const { content, image_url, user_id, reivew_id, star } = updateData;
     fetch(`${configData.REVIEW}11`, {
-      method: "put",
+      method: 'put',
       body: JSON.stringify({
         content: content,
         image_url: image_url,
         user_id: user_id, //로그인을 하여서 추후 변경
         review_id: reivew_id,
         star: star,
-        user_information: "156cm 51kg",
+        user_information: '156cm 51kg',
       }),
     })
       .then((res) => res.json())
@@ -107,7 +97,7 @@ class Review extends Component {
   deleteView = (deleteView) => {
     const { content, image_url, user_id, reivew_id, star } = deleteView;
     fetch(`${configData.REVIEW}11`, {
-      method: "delete",
+      method: 'delete',
       body: JSON.stringify({
         user_id: 1, // 로그인 아이디
         review_id: 3, //삭제 불가
@@ -124,7 +114,7 @@ class Review extends Component {
         <div className="ReviewList">
           <header>
             <div className="writeForm" onClick={this.modalView}>
-              <h1>리뷰({viewList.length})</h1>
+              <h1>리뷰({viewList ? viewList.length : 0})</h1>
               <input className="writeBtnReview" type="button" value="글쓰기" onClick={this.modalView} />
               <WriteReview
                 closeModal={this.modalView}
@@ -135,20 +125,24 @@ class Review extends Component {
               />
             </div>
             <div>
-              <span className={`${viewSate === "all" && "selectTab"}`} onClick={() => this.changView("all")}>
+              <span className={`${viewSate === 'all' && 'selectTab'}`} onClick={() => this.changView('all')}>
                 전체
               </span>
-              <span className={`${viewSate === "imgview" && "selectTab"}`} onClick={() => this.changView("imgview")}>
+              <span className={`${viewSate === 'imgview' && 'selectTab'}`} onClick={() => this.changView('imgview')}>
                 포토리뷰
               </span>
-              <span className={`${viewSate === "textview" && "selectTab"}`} onClick={() => this.changView("textview")}>
+              <span className={`${viewSate === 'textview' && 'selectTab'}`} onClick={() => this.changView('textview')}>
                 텍스트리뷰
               </span>
             </div>
           </header>
           <div className="layoutLine"></div>
           {viewList ? (
-            <ReviewListComponet reviewList={this.listFilter(viewSate)} updateView={this.updateViewSet} deleteView={this.deleteView} />
+            <ReviewListComponet
+              reviewList={this.listFilter(viewSate)}
+              updateView={this.updateViewSet}
+              deleteView={this.deleteView}
+            />
           ) : (
             <div>리뷰가 없습니다</div>
           )}
