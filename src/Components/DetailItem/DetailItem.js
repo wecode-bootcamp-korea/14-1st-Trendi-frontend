@@ -5,6 +5,7 @@ import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
 import ItemInfo from '../ItemInfomationBar/ItemInfo';
 import configData from '../../config.json';
 import Review from './Review';
+import { withRouter } from 'react-router-dom';
 import './DetailItem.scss';
 
 class DetailItem extends Component {
@@ -52,4 +53,4 @@ class DetailItem extends Component {
   }
 }
 
-export default DetailItem;
+export default withRouter(DetailItem);

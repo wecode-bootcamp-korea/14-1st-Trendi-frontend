@@ -49,8 +49,8 @@ class Review extends Component {
   listFilter = (value) => {
     const arrList = {
       all: () => this.state.viewList,
-      imgview: () => this.state.viewList.filter((el) => el.image_url && el),
-      textview: () => this.state.viewList.filter((el) => !el.image_url && el),
+      imgview: () => this.state.viewList.filter((el) => el.photo_review && el),
+      textview: () => this.state.viewList.filter((el) => !el.photo_review && el),
     };
     return arrList[value]();
   };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './ItemList.scss';
 
 class ItemList extends Component {
@@ -20,11 +21,14 @@ class ItemList extends Component {
     this.setState({ toggle: true, count: count + 15 });
   };
 
+  goToDetail = () => {
+    this.props.history.push('/detailitem/');
+  };
+
   render() {
-    const { count, toggle } = this.state;
+    const { count } = this.state;
     const { mainItem } = this.props;
     let mainItemCut = mainItem ? mainItem.slice(0, count) : '';
-    let clickBox = toggle ? 'blackBtn' : 'whiteBtn';
     return (
       <div className="ItemList">
         <div className="noneBody">
@@ -33,11 +37,11 @@ class ItemList extends Component {
             <div className="comment">당신을 위한 추천</div>
             <div className="comment"></div>
             <div className="Box">
-              {mainItemCut.map((api) => {
+              {mainItemCut.map((api, i) => {
                 const haruImg = api.delivery ? '../../../images/haru.png' : '../../../images/white.png';
                 const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
                 return (
-                  <article className="itemContainer" key={api.image_url}>
+                  <article className="itemContainer" key={i} id={api.product_pk} onClick={this.goToDetail}>
                     <div className="itemBox">
                       <div className="itemImgBox">
                         <img className="itemImg" src={api.image_url} alt="사진" />
@@ -58,7 +62,7 @@ class ItemList extends Component {
                 );
               })}
               <div className="buttonBox">
-                <button className={clickBox} onMouseDown={this.handlePlus} onMouseUp={this.handleKeyUp}>
+                <button className="whiteBtn" onMouseDown={this.handlePlus} onMouseUp={this.handleKeyUp}>
                   더 보기
                 </button>
               </div>
@@ -70,4 +74,4 @@ class ItemList extends Component {
   }
 }
 
-export default ItemList;
+export default withRouter(ItemList);

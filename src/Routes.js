@@ -9,6 +9,7 @@ import MyPage from './Pages/MyPage/MyPage';
 import DetailItem from './Components/DetailItem/DetailItem';
 import Complete from './Pages/SignUp/Complete';
 import CategoryPage from './Pages/CategoryPage/CategoryPage';
+import Login from './Pages/Login/Login';
 
 class Routes extends Component {
   render() {
@@ -23,6 +24,7 @@ class Routes extends Component {
           <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/complete" component={Complete} />
           <Route exact path="/categoryPage" component={CategoryPage} />
+          <Route exact path="/login" component={Login} />
         </Switch>
         <Footer />
       </Router>

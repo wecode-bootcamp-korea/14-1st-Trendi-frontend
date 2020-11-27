@@ -11,6 +11,7 @@ class ShirtList extends Component {
       toggle: false,
       haru: true,
       data: [],
+      click: false,
     };
   }
 
@@ -24,22 +25,23 @@ class ShirtList extends Component {
   };
 
   change = (e) => {
-    console.log('얘는 클릭되나?');
     this.setState({ value: e.target.value });
+  };
+  goToDetail = () => {
+    this.props.history.push(`./detailItem`);
   };
 
   render() {
-    const { count, toggle } = this.state;
+    const { count, toggle, click } = this.state;
     const { onChangeSaleValue, onChangeNewestValue, onChangeReviewValue, onChangeUnderPriceValue } = this.props;
     const dataCut = this.props.data ? this.props.data.slice(0, count) : '';
     const clickBox = toggle ? 'blackBtn' : 'whiteBtn';
-
     return (
       <div className="ShirtList">
         <div className="bodyContainer">
           <div className="dropDownContainer">
             <div className="dropDownBox">
-              <div className="dropDown">
+              <div className="dropDown" onClick={() => this.setState({ click: !click })}>
                 <div className="downBox">
                   <div className="dropDownElement" onClick={onChangeSaleValue}>
                     인기순
@@ -49,25 +51,27 @@ class ShirtList extends Component {
                   </div>
                 </div>
               </div>
-              <div className="ortherBox">
-                <div className="dropDownElement2" onClick={onChangeNewestValue}>
-                  최신순
+              {click && (
+                <div className="ortherBox">
+                  <div className="dropDownElement2" onClick={onChangeNewestValue}>
+                    최신순
+                  </div>
+                  <div className="dropDownElement2" onClick={onChangeReviewValue}>
+                    가격순
+                  </div>
+                  <div className="dropDownElement2" onClick={onChangeUnderPriceValue}>
+                    낮은가격순
+                  </div>
                 </div>
-                <div className="dropDownElement2" onClick={onChangeReviewValue}>
-                  가격순
-                </div>
-                <div className="dropDownElement2" onClick={onChangeUnderPriceValue}>
-                  낮은가격순
-                </div>
-              </div>
+              )}
             </div>
           </div>
           <div className="Box">
-            {dataCut.map((api) => {
+            {dataCut.map((api, i) => {
               const haruImg = api.delivery ? '../../../images/haru2.png' : '../../../images/white.png';
               const splitStr = api.title.length >= 5 ? api.title.substr(0, 17) + '・・・' : '';
               return (
-                <article className="itemContainer" key={api.item_seller} id={api.product_pk}>
+                <article className="itemContainer" key={i} id={api.product_pk} onClick={this.goToDetail}>
                   <div className="itemBox">
                     <div className="itemImgBox">
                       <img className="itemImg" src={api.image_url} alt="대표사진" />

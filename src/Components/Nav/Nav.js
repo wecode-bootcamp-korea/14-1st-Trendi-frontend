@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingNav from './ShoppingNav';
+import { withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -18,8 +19,12 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
-  pageChage = (e) => {
-    this.props.history.push('/Login');
+  goToLogin = (e) => {
+    this.props.history.push('/login');
+  };
+
+  goToMain = () => {
+    this.props.history.push('/');
   };
 
   render() {
@@ -31,7 +36,7 @@ class Nav extends Component {
         </div>
         <div className="none">
           <div className="NavBottom">
-            <div className="logoBox">
+            <div className="logoBox" onClick={this.goToMain}>
               <img className="logoImg" src="/images/trandi.jpg" alt="로고 이미지" />
             </div>
             <div className="form">
@@ -49,11 +54,19 @@ class Nav extends Component {
             <div className="navList">
               <ul className="ul">
                 {NAV_LIST.map((el, i) => {
-                  return (
-                    <li className="liElement" key={i} onClick={() => this.pageChage(el)}>
-                      {el.title}
-                    </li>
-                  );
+                  if (el.id === 4) {
+                    return (
+                      <li className="liElement" key={i} onClick={this.goToLogin}>
+                        {el.title}
+                      </li>
+                    );
+                  } else {
+                    return (
+                      <li className="liElement" key={i}>
+                        {el.title}
+                      </li>
+                    );
+                  }
                 })}
               </ul>
             </div>
@@ -76,7 +89,7 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 const NAV_LIST = [
   { id: 1, title: '찜' },
