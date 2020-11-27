@@ -13,7 +13,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch(`${configData.GUESTHOUSE_URL}?trendi-pick=1`)
+    fetch(`${configData.MAIN_URL}?trendi-pick=1`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ data: res.product_list });

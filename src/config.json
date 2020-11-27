@@ -2,7 +2,8 @@
   "REVIEW": "http://10.58.2.208:8000/review",
   "REVIEW-MOCK-DATA": "http://localhost:3000/data/MOCK_DATA.json",
   "SIGNUP": "http://10.58.4.38:8000/user/signup",
-  "MAIN_URL": "http://10.58.5.224:8000/products",
-  "DETAILITEM_URL": "http://10.58.5.224:8000/products",
-  "GUESTHOUSE_URL": "http://192.168.200.156:8000/products"
+  "MAIN_URL": "http://10.58.153:8000/products",
+  "DETAILITEM_URL": "http://10.58.0.153:8002/products",
+  "ITEMLIST_URL": "http://10.58.0.153:8003/products",
+  "HARU_URL": "http://10.58.0.153:8001/products"
 }

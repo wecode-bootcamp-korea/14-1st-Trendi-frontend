@@ -16,6 +16,12 @@ class DetailItem extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch(`${configData.DETAILITEM_URL}/1`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.product_detail }));
+  }
+
   goToItemInfo = (e) => {
     let location = document.querySelector('.commentBox').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
@@ -24,14 +30,10 @@ class DetailItem extends Component {
     let location = document.querySelector('.reviewBox2').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
   };
-  componentDidMount() {
-    fetch(`${configData.GUESTHOUSE_URL}/3`)
-      .then((res) => res.json())
-      .then((res) => this.setState({ data: res.product_detail }));
-  }
 
   render() {
     const { data } = this.state;
+    console.log('data :', data);
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">

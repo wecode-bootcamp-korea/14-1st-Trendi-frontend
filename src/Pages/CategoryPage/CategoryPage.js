@@ -22,8 +22,7 @@ class CategoryPage extends Component {
 
   //원두님꺼 데이터
   componentDidMount() {
-    // fetch(`${configData.GUESTHOUSE_URL}?trendi-pick=1`)
-    fetch(API)
+    fetch(`${configData.ITEMLIST_URL}?category=2&delivery=1&ordering=review`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
   }
@@ -32,11 +31,11 @@ class CategoryPage extends Component {
   getDelivery = () => {
     const { delivery, newestValue, reviewValue, underPriceValue } = this.state;
     console.log('delivery :', delivery);
-    let sendDelivery = delivery ? '?delivery=1' : '?trendi-pick=1';
+    let sendDelivery = delivery ? 'delivery=1' : 'trendi-pick=1';
     let sendNewsValue = newestValue === 10 ? '&sale=true' : '';
     let sendReviewValue = reviewValue === 10 ? '&sale=true' : '';
     let sendUnderPriceValue = underPriceValue === 10 ? '&sale=true' : '';
-    fetch(`http://192.168.200.156:8002/products${sendDelivery}`)
+    fetch(`${configData.HARU_URL}?${sendDelivery}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('하루 배송 받은 후 data : ', this.state.data);
@@ -49,7 +48,7 @@ class CategoryPage extends Component {
     let sendNewsValue = newestValue === 10 ? '?ordering=latest' : '';
     let sendReviewValue = reviewValue === 10 ? '&sale=true' : '';
     let sendUnderPriceValue = underPriceValue === 10 ? '&sale=true' : '';
-    fetch(`http://192.168.200.156:8002/products${sendDelivery}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
+    fetch(`${configData.HARU_URL}${sendDelivery}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('하루 배송 받은 후 data : ', this.state.data);
@@ -63,7 +62,7 @@ class CategoryPage extends Component {
     let sendNewsValue = newestValue === 10 ? '?ordering=latest' : '';
     let sendReviewValue = reviewValue === 10 ? '&sale=true' : '';
     let sendUnderPriceValue = underPriceValue === 10 ? '&sale=true' : '';
-    fetch(`http://192.168.200.156:8002/products${sendSale}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
+    fetch(`${configData.HARU_URL}${sendSale}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('세일 받은 후 data : ', this.state.data);
@@ -76,7 +75,7 @@ class CategoryPage extends Component {
     let sendNewsValue = newestValue === 10 ? '?ordering=latest' : '';
     let sendReviewValue = reviewValue === 10 ? '&sale=true' : '';
     let sendUnderPriceValue = underPriceValue === 10 ? '&sale=true' : '';
-    fetch(`http://192.168.200.156:8002/products${sendDeliverySale}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
+    fetch(`${configData.HARU_URL}${sendDeliverySale}${sendReviewValue}${sendNewsValue}${sendUnderPriceValue}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('하루배송,세일 받은 후 data : ', this.state.data);
@@ -85,10 +84,10 @@ class CategoryPage extends Component {
   //(1-1)백엔드로 최신순 리퀘스트 보내는 행위 //이거 원두님이랑 이야기해서 쿼리 쪽 수정해야해
   getNewestValue = () => {
     const { newestValue, delivery, sale } = this.state;
-    let sendDelivery = delivery ? '?delivery=1' : '';
-    let sendSale = sale ? '?sale=1' : '';
-    let sendValue = newestValue === 10 ? '?ordering=latest' : '';
-    fetch(`http://192.168.200.156:8002/products${sendValue}${sendDelivery}${sendSale}`)
+    let sendDelivery = delivery ? 'delivery=1' : '';
+    let sendSale = sale ? 'sale=1' : '';
+    let sendValue = newestValue === 10 ? 'ordering=latest' : '';
+    fetch(`${configData.HARU_URL}?${sendDelivery}${sendSale}${sendValue}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('최신순 data : ', this.state.data);
@@ -99,7 +98,7 @@ class CategoryPage extends Component {
     let sendDelivery = delivery ? '&delivery=true' : '';
     let sendSale = sale ? '&sale=true' : '';
     let sendValue = reviewValue === 10 ? '?ordering=h-price' : '';
-    fetch(`http://192.168.200.156:8002/products${sendValue}${sendDelivery}${sendSale}`)
+    fetch(`${configData.HARU_URL}${sendValue}${sendDelivery}${sendSale}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('가격 많은순 data : ', this.state.data);
@@ -111,7 +110,7 @@ class CategoryPage extends Component {
     let sendDelivery = delivery ? '&delivery=true' : '';
     let sendSale = sale ? '&sale=true' : '';
     let sendValue = underPriceValue === 10 ? '?ordering=l-price' : '';
-    fetch(`http://192.168.200.156:8002/products${sendValue}${sendDelivery}${sendSale}`)
+    fetch(`${configData.HARU_URL}${sendValue}${sendDelivery}${sendSale}`)
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.product_list }));
     console.log('리뷰 많은순 data : ', this.state.data);
@@ -178,11 +177,11 @@ class CategoryPage extends Component {
   render() {
     const { data, saleValue, newestValue, reviewValue, underPriceValue } = this.state;
     console.log('delivery : ', this.state.delivery);
-    // console.log('saleValue : ', saleValue);
-    // console.log('newestValue : ', newestValue);
-    // console.log('reviewValue : ', reviewValue);
-    // console.log('underPriceValue : ', underPriceValue);
-    // console.log('=======');
+    console.log('saleValue : ', saleValue);
+    console.log('newestValue : ', newestValue);
+    console.log('reviewValue : ', reviewValue);
+    console.log('underPriceValue : ', underPriceValue);
+    console.log('=======');
     return (
       <div className="SideItemList">
         <nav className="nav">

@@ -74,7 +74,7 @@ class Login extends Component {
               <div className="imgBox">
                 <img src="/images/facebook.png" alt="페이스북 로고" />
               </div>
-              <div className="explanation">Facebook으로 시작하기</div>
+              <div className="explanation2">Facebook으로 시작하기</div>
             </div>
             <div className="googleLogoBox">
               <div className="imgBox">
