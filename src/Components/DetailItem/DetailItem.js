@@ -5,6 +5,7 @@ import ItemInfomationBar from '../ItemInfomationBar/ItemInfomationBar';
 import ItemInfo from '../ItemInfomationBar/ItemInfo';
 import configData from '../../config.json';
 import Review from './Review';
+import { withRouter } from 'react-router-dom';
 import './DetailItem.scss';
 
 class DetailItem extends Component {
@@ -15,6 +16,12 @@ class DetailItem extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch(`${configData.DETAILITEM_URL}/1`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.product_detail }));
+  }
+
   goToItemInfo = (e) => {
     let location = document.querySelector('.commentBox').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
@@ -23,14 +30,10 @@ class DetailItem extends Component {
     let location = document.querySelector('.reviewBox2').offsetTop;
     window.scrollTo({ top: location, behavior: 'smooth' });
   };
-  componentDidMount() {
-    fetch(`${configData.GUESTHOUSE_URL}/3`)
-      .then((res) => res.json())
-      .then((res) => this.setState({ data: res.product_detail }));
-  }
 
   render() {
     const { data } = this.state;
+
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">
@@ -52,4 +55,4 @@ class DetailItem extends Component {
   }
 }
 
-export default DetailItem;
+export default withRouter(DetailItem);

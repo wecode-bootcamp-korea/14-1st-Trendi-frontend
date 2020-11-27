@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ItemInfomationBar.scss';
+import { Route, Link } from 'react-router-dom';
 
 class ItemInfomationBar extends Component {
   constructor(props) {
@@ -20,9 +21,8 @@ class ItemInfomationBar extends Component {
   handleScroll = (e) => {
     const { showHiddenSubs } = this.state;
     const scrollTop = e.srcElement.scrollingElement.scrollTop;
-    const isHiddenSubsActive = scrollTop > 3656 && !showHiddenSubs;
-
-    this.setState({ showHiddenSubs: isHiddenSubsActive });
+    if (scrollTop > 0 && scrollTop <= 3656 && showHiddenSubs) this.setState({ showHiddenSubs: false });
+    if (scrollTop > 3656 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
   };
 
   render() {
