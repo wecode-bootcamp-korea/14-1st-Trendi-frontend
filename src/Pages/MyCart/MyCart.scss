@@ -1,0 +1,91 @@
+.MyCart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    h1 {
+      margin: 30px 0;
+      font-size: 20px;
+    }
+    .allSelectLayout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+
+      .allDelete {
+        padding: 8px;
+        border: 1px solid black;
+        font-size: 12px;
+      }
+    }
+
+    .productsList {
+      div {
+        .deliveryKind {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+          }
+
+          .haruDelivery {
+            color: #36b5e7;
+          }
+        }
+      }
+    }
+  }
+  .AmountForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+
+    .formTitle {
+      width: 100%;
+      padding: 10px;
+    }
+    .EstimatedAmount {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 30px 10px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      font-size: 20px;
+      font-weight: bold;
+
+      label {
+        .orderPrice {
+          color: red;
+        }
+      }
+    }
+    input {
+      width: 250px;
+      height: 50px;
+      margin-top: 30px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: black;
+    }
+  }
+}

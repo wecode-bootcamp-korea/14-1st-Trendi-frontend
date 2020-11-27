@@ -1,6 +1,5 @@
 {
   "REVIEW": "http://10.58.2.208:8000/review",
-  "REVIEW-MOCK-DATA": "http://localhost:3000/data/MOCK_DATA.json",
   "SIGNUP": "http://10.58.4.38:8000/user/signup",
   "MAIN_URL": "http://10.58.5.224:8000/products",
   "DETAILITEM_URL": "http://10.58.5.224:8000/products",
