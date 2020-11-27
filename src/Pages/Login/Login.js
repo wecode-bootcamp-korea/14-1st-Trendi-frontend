@@ -16,7 +16,7 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  Sigin = () => {
+  signin = () => {
     const { id, password } = this.state;
     if (id && password) {
       fetch(`${configData.LOGIN}`, {

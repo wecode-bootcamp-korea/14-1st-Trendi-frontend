@@ -33,7 +33,6 @@ class DetailItem extends Component {
 
   render() {
     const { data } = this.state;
-    console.log('data :', data);
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">

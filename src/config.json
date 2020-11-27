@@ -1,10 +1,10 @@
 {
   "REVIEW": "http://10.58.2.208:8000/review",
   "MYCART": "http://10.58.0.94:8000/order/orderlist",
-  "SIGNUP": "http://10.58.4.38:8000/user/signup",
-  "MAIN_URL": "http://10.58.153:8000/products",
-  "DETAILITEM_URL": "http://10.58.0.153:8002/products",
+  "SIGNUP": "http://10.58.0.94:8000/user/signup",
+  "MAIN_URL": "http://10.58.0.94:8000/products",
+  "DETAILITEM_URL": "http://10.58.0.94:8000/products",
   "ITEMLIST_URL": "http://10.58.0.153:8003/products",
   "HARU_URL": "http://10.58.0.153:8001/products",
-  "LOGIN": "http://10.58.1.15:8000/user/login"
+  "LOGIN": "http://10.58.0.94:8000/user/login"
 }

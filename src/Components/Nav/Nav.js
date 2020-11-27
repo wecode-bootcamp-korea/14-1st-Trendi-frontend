@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ShoppingNav from './ShoppingNav';
-import { withRouter } from 'react-router-dom';
 import './Nav.scss';
+import { withRouter } from 'react-router-dom';
+import { LocalHospitalTwoTone } from '@material-ui/icons';
 
 class Nav extends Component {
   constructor(props) {
@@ -16,6 +17,14 @@ class Nav extends Component {
     const user_name = localStorage.getItem('user_name');
     user_name && this.setState({ user_name });
   }
+
+  handleLeave = () => {
+    this.setState({ navLists: false });
+  };
+
+  handleEnter = () => {
+    this.setState({ navLists: true });
+  };
 
   componentDidUpdate(prevProps, prevState) {
     const { user_name } = this.state;
@@ -39,22 +48,6 @@ class Nav extends Component {
     this.props.history.push(e.target.dataset.page);
   };
 
-  handleLeave = () => {
-    this.setState({ navLists: false });
-  };
-
-  handleEnter = () => {
-    this.setState({ navLists: true });
-  };
-
-  goToLogin = (e) => {
-    this.props.history.push('/login');
-  };
-
-  goToMain = () => {
-    this.props.history.push('/');
-  };
-
   render() {
     const { navLists, user_name } = this.state;
     return (
@@ -65,7 +58,7 @@ class Nav extends Component {
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox" onClick={this.goToMain}>
-              <img className="logoImg" src="/images/trandi.jpg" alt="로고 이미지" />
+              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" onClick={() => this.props.history.push('/')} />
             </div>
             <div className="form">
               <div className="searchContainer">
