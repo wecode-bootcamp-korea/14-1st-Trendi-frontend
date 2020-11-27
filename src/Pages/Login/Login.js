@@ -16,7 +16,7 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  Sigin = () => {
+  signin = () => {
     const { id, password } = this.state;
     if (id && password) {
       fetch(`${configData.LOGIN}`, {
@@ -61,7 +61,7 @@ class Login extends Component {
               onChange={this.setLoginData}
             />
             <div className="boundaryLine"></div>
-            <input className="LoginBtn" type="button" value="로그인" onClick={this.Sigin} />
+            <input className="LoginBtn" type="button" value="로그인" onClick={this.signin} />
             <input className="SignUpBtn" type="button" value="회원가입" onClick={this.chagePage} />
             <div className="boundaryLine"></div>
           </form>

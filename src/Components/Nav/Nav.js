@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
-import ShoppingNav from './ShoppingNav';
-import './Nav.scss';
+import React, { Component } from "react";
+import ShoppingNav from "./ShoppingNav";
+import "./Nav.scss";
+import { withRouter } from "react-router-dom";
+import { LocalHospitalTwoTone } from "@material-ui/icons";
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_name: "",
       navLists: false,
     };
+  }
+
+  componentDidMount() {
+    const user_name = localStorage.getItem("user_name");
+    user_name && this.setState({ user_name });
   }
 
   handleLeave = () => {
@@ -18,12 +26,30 @@ class Nav extends Component {
     this.setState({ navLists: true });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    const { user_name } = this.state;
+    const key = localStorage.getItem("key");
+    const localUserName = localStorage.getItem("user_name");
+
+    if (!user_name && localUserName) {
+      this.setState({ user_name: localUserName });
+    } else if (user_name && !localUserName) {
+      this.setState({ user_name: "" });
+    }
+  }
+
   pageChage = (e) => {
-    this.props.history.push('/Login');
+    const { user_name } = this.state;
+    const { dataset, innerHTML } = e.target;
+    if (innerHTML === "로그아웃") {
+      user_name && localStorage.removeItem("user_name");
+      user_name && localStorage.removeItem("token");
+    }
+    this.props.history.push(e.target.dataset.page);
   };
 
   render() {
-    const { navLists } = this.state;
+    const { navLists, user_name } = this.state;
     return (
       <nav className="Nav">
         <div>
@@ -32,7 +58,7 @@ class Nav extends Component {
         <div className="none">
           <div className="NavBottom">
             <div className="logoBox">
-              <img className="logoImg" src="/images/trandi.jpg" alt="로고 이미지" />
+              <img className="logoImg" src="./images/trandi.jpg" alt="로고 이미지" onClick={() => this.props.history.push("/")} />
             </div>
             <div className="form">
               <div className="searchContainer">
@@ -48,9 +74,13 @@ class Nav extends Component {
             </div>
             <div className="navList">
               <ul className="ul">
-                {NAV_LIST.map((el, i) => {
-                  return (
-                    <li className="liElement" key={i} onClick={() => this.pageChage(el)}>
+                {NAV_LIST.map((el, index) => {
+                  return el.title === "로그인" && user_name ? (
+                    <li className="liElement" data-page="/login" onClick={this.pageChage}>
+                      로그아웃
+                    </li>
+                  ) : (
+                    <li className="liElement" data-page={el.id} onClick={this.pageChage}>
                       {el.title}
                     </li>
                   );
@@ -76,20 +106,20 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 const NAV_LIST = [
-  { id: 1, title: '찜' },
-  { id: 2, title: '장바구니' },
-  { id: 3, title: '마이페이지' },
-  { id: 4, title: '로그인' },
+  { id: "/dibs", title: "찜" },
+  { id: "/mycart", title: "장바구니" },
+  { id: "/mypage", title: "마이페이지" },
+  { id: "/login", title: "로그인" },
 ];
 
 const NAV_BOTTOM = [
-  { id: 1, title: '홈' },
-  { id: 2, title: '랭킹' },
-  { id: 3, title: '하루배송' },
-  { id: 4, title: '쇼핑몰·마켓' },
-  { id: 5, title: '특가' },
-  { id: 6, title: '스토어' },
+  { id: 1, title: "홈" },
+  { id: 2, title: "랭킹" },
+  { id: 3, title: "하루배송" },
+  { id: 4, title: "쇼핑몰·마켓" },
+  { id: 5, title: "특가" },
+  { id: 6, title: "스토어" },
 ];

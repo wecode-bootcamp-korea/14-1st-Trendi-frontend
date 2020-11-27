@@ -8,7 +8,7 @@ class SignUpInfo extends Component {
     super();
 
     this.state = {
-      id: {},
+      nick_name: {},
       email: {},
       password: {},
       passwordCheck: {},
@@ -18,7 +18,7 @@ class SignUpInfo extends Component {
 
   validationfilter = (type, value) => {
     const filter = {
-      id: /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false,
+      nick_name: /^[A-Za-z]{1}[A-Za-z0-9]{5,19}$/.test(value) ? true : false,
       email: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value) ? true : false,
       password: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,19}$/.test(value) ? true : false,
       passwordCheck: this.state.password.value === value ? true : false,
@@ -28,47 +28,56 @@ class SignUpInfo extends Component {
   };
 
   validationCheck = (e) => {
-    const { name, value } = e.target;
-    console.log(name);
+    const { name, value, dataset } = e.target;
     let isValidation = this.validationfilter(name, value);
-    if (isValidation) {
-      if (name === "id" || name === "email") {
-        fetch(`${config.signup}${name}`, {
-          method: "post",
-          body: JSON.stringify({
-            [name]: value,
-          }),
-        })
-          .then((res) => res.json())
-          .then((res) => (res.MESSAGE === "SUCCESS" ? (isValidation = true) : (isValidation = false)));
-      }
-    }
-    console.log("isValidation", isValidation);
     let prev = this.state[name];
-    prev.state = isValidation;
-    prev.value = value;
-    this.setState({
-      [name]: prev,
-    });
+
+    if ((name === "nick_name" || name === "email") && isValidation) {
+      fetch(`${config.SIGNUP}-${dataset.key}`, {
+        method: "post",
+        body: JSON.stringify({
+          [name]: value,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          res.MESSAGE === "SUCCESS" ? (isValidation = true) : (isValidation = false);
+          prev.state = isValidation;
+          prev.value = value;
+          this.setState({
+            [name]: prev,
+          });
+        });
+    } else {
+      prev.state = isValidation;
+      prev.value = value;
+      this.setState({
+        [name]: prev,
+      });
+    }
   };
 
   SignUpSendInfo = (e) => {
-    const { id, email, password, userName } = this.state;
-    fetch(`${config.signup}`, {
+    const { nick_name, email, password, userName } = this.state;
+    fetch(`${config.SIGNUP}`, {
       method: "post",
       body: JSON.stringify({
         user_name: userName.value,
-        nick_name: id.value,
+        nick_name: nick_name.value,
         password: password.value,
         email: email.value,
       }),
     })
       .then((res) => res.json())
-      .then((res) => (res.MESSAGE === "SUCCESS" ? alert("") : console.log("실패")));
+      .then((res) =>
+        res.MESSAGE === "SUCCESS"
+          ? (this.props.history.push("/login"), alert("환영합니다. 즐거운 쇼핑되세요"))
+          : alert("다시 입력해 주세요")
+      );
   };
 
   render() {
-    const { id, password, email, passwordCheck, userName } = this.state;
+    const { nick_name, password, email, passwordCheck, userName } = this.state;
     return (
       <div className="SignUpInfo">
         <StatusView status="info" />
@@ -76,10 +85,10 @@ class SignUpInfo extends Component {
           <div>
             <div>
               <label>아이디</label>
-              <input type="text" name="id" placeholder="아이디 입력" onBlur={this.validationCheck} />
-              <img className={id.state ? "imgShow" : ""} src="images/lock.png" alt="id통과이미지" />
+              <input type="text" name="nick_name" data-key="nick-name" placeholder="아이디 입력" onBlur={this.validationCheck} />
+              <img className={nick_name.state ? "imgShow" : ""} src="images/lock.png" alt="id통과이미지" />
               <div className="errorMsg">
-                {id.value ? (id.state ? "" : "길이는 6~20 사이, 한글 및 특수문자는 사용하실수 없습니다.") : ""}
+                {nick_name.value ? (nick_name.state ? "" : "길이는 6~20 사이, 한글 및 특수문자는 사용하실수 없습니다.") : ""}
               </div>
             </div>
             <div>
@@ -104,7 +113,7 @@ class SignUpInfo extends Component {
             </div>
             <div>
               <label>E-mail</label>
-              <input type="text" name="email" placeholder="이메일 입력" onBlur={this.validationCheck} />
+              <input type="text" name="email" data-key="email" placeholder="이메일 입력" onBlur={this.validationCheck} />
               <div className="errorMsg">{email.value ? (email.state ? "" : "이메일 주소를 다시 확인해주세요") : ""}</div>
             </div>
             <div>
