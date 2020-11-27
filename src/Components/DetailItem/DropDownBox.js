@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import OrderBox from './OrderBox';
 import { COLOR, SIZE } from './ITEM';
+import { withRouter } from 'react-router-dom';
 import './DropDownBox.scss';
+import configData from '../../config.json';
 
 class DropDownBox extends Component {
   constructor(props) {
@@ -108,7 +110,7 @@ class DropDownBox extends Component {
   };
 
   goToCart = (e) => {
-    const { selectValue1, selectValue2 } = this.state;
+    const { selectValue1, selectValue2, orderBox } = this.state;
     if (!selectValue1 && !selectValue2) {
       alert('[컬러]를 선택하세요.');
     }
@@ -116,7 +118,29 @@ class DropDownBox extends Component {
       alert('[사이즈]를 선택하세요.');
     }
     if (selectValue1 && selectValue2) {
-      alert('www.trandi.co.kr 내용 : 선택하신 상품들이 정상적으로 장바구니에 담겼습니다. 지금 장바구니함으로 이동하시겠습니까?');
+      console.log(orderBox[0]);
+      console.log(`product_id: 1, quantity: 
+      ${orderBox[0].amount}, color: ${orderBox[0].value}, size_id: ${orderBox[0].size}`);
+
+      fetch(`${configData.MYCART}`, {
+        method: 'post',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          product_id: 1,
+          quantity: orderBox[0].amount,
+          color: orderBox[0].value,
+          size_id: 4,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+      if (window.confirm(' 선택하신 상품들이 정상적으로 장바구니에 담겼습니다. 지금 장바구니함으로 이동하시겠습니까?') === true) {
+        this.props.history.push('/mycart');
+      } else {
+        return;
+      }
     }
   };
 
@@ -174,4 +198,4 @@ class DropDownBox extends Component {
   }
 }
 
-export default DropDownBox;
+export default withRouter(DropDownBox);

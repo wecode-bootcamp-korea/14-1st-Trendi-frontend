@@ -7,9 +7,37 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_name: '',
       navLists: false,
     };
   }
+
+  componentDidMount() {
+    const user_name = localStorage.getItem('user_name');
+    user_name && this.setState({ user_name });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { user_name } = this.state;
+    const key = localStorage.getItem('key');
+    const localUserName = localStorage.getItem('user_name');
+
+    if (!user_name && localUserName) {
+      this.setState({ user_name: localUserName });
+    } else if (user_name && !localUserName) {
+      this.setState({ user_name: '' });
+    }
+  }
+
+  pageChage = (e) => {
+    const { user_name } = this.state;
+    const { dataset, innerHTML } = e.target;
+    if (innerHTML === '로그아웃') {
+      user_name && localStorage.removeItem('user_name');
+      user_name && localStorage.removeItem('token');
+    }
+    this.props.history.push(e.target.dataset.page);
+  };
 
   handleLeave = () => {
     this.setState({ navLists: false });
@@ -28,7 +56,7 @@ class Nav extends Component {
   };
 
   render() {
-    const { navLists } = this.state;
+    const { navLists, user_name } = this.state;
     return (
       <nav className="Nav">
         <div>
@@ -53,20 +81,16 @@ class Nav extends Component {
             </div>
             <div className="navList">
               <ul className="ul">
-                {NAV_LIST.map((el, i) => {
-                  if (el.id === 4) {
-                    return (
-                      <li className="liElement" key={i} onClick={this.goToLogin}>
-                        {el.title}
-                      </li>
-                    );
-                  } else {
-                    return (
-                      <li className="liElement" key={i}>
-                        {el.title}
-                      </li>
-                    );
-                  }
+                {NAV_LIST.map((el, index) => {
+                  return el.title === '로그인' && user_name ? (
+                    <li className="liElement" data-page="/login" onClick={this.pageChage}>
+                      로그아웃
+                    </li>
+                  ) : (
+                    <li className="liElement" data-page={el.id} onClick={this.pageChage}>
+                      {el.title}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -92,10 +116,10 @@ class Nav extends Component {
 export default withRouter(Nav);
 
 const NAV_LIST = [
-  { id: 1, title: '찜' },
-  { id: 2, title: '장바구니' },
-  { id: 3, title: '마이페이지' },
-  { id: 4, title: '로그인' },
+  { id: '/dibs', title: '찜' },
+  { id: '/mycart', title: '장바구니' },
+  { id: '/mypage', title: '마이페이지' },
+  { id: '/login', title: '로그인' },
 ];
 
 const NAV_BOTTOM = [
