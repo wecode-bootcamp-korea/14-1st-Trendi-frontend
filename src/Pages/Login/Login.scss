@@ -6,25 +6,29 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 700px;
   margin: 50px 0;
 
   .layoutCenter {
     width: 100%;
     max-width: 500px;
     margin: 20px 0;
+
     h1 {
       text-align: center;
-      margin: 6px 0;
+      margin: 10px 0;
       color: #ff204b;
-      font-size: 23px;
+      font-size: 32px;
       font-weight: bold;
     }
+
     h2 {
       text-align: center;
-      margin: 8px 0;
-      font-size: 25px;
+      margin: 10px 0;
+      font-size: 32px;
       font-weight: lighter;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -42,7 +46,7 @@
 
       .LoginBtn {
         height: 50px;
-        margin: 4px 0;
+        margin: 6px 0;
         background-color: black;
         color: white;
         border: 1px solid black;
@@ -58,10 +62,21 @@
         border-radius: 3px;
         cursor: pointer;
       }
+
+      .findContainer {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 20px;
+
+        .findBox {
+          padding: 0 5px;
+          color: #666666;
+        }
+      }
     }
     .boundaryLine {
       margin: 20px 0;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #ccc;
     }
 
     .otherLogin {
@@ -74,6 +89,103 @@
         text-align: center;
         font-size: 12px;
         font-weight: bolder;
+      }
+    }
+    .wrap {
+    }
+    .logoContainer {
+      display: flex;
+
+      .googleLogoBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 50px;
+
+        .imgBox {
+          width: 28px;
+          height: 28px;
+          margin-right: 10px;
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
+      }
+      .facebookLogoBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 50px;
+        background-color: #3b659f;
+        border-radius: 5px;
+        border: 1px solid #3b659f;
+        margin: 3px;
+
+        .imgBox {
+          width: 28px;
+          height: 28px;
+          margin-right: 10px;
+          background-color: #3b659f;
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
+
+        .explanation2 {
+          background-color: #3b659f;
+          color: #ffffff;
+        }
+      }
+
+      .googleLogoBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #bdbdbd;
+        margin: 3px;
+
+        .imgBox {
+          width: 28px;
+          height: 28px;
+          margin-right: 10px;
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
+      }
+    }
+  }
+  .appleLogobox {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    right: -120px;
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    margin: 3px;
+
+    .imgBox2 {
+      width: 28px;
+      height: 28px;
+      margin-right: 10px;
+
+      img {
+        width: 28px;
+        height: 28px;
       }
     }
   }

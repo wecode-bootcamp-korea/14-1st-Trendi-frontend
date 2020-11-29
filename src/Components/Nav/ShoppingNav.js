@@ -11,7 +11,7 @@ class ShoppingNav extends Component {
   }
 
   goToDetailPage = () => {
-    this.props.history.push('/CategoriePage');
+    this.props.history.push('/CategoryPage');
   };
 
   render() {
@@ -19,9 +19,9 @@ class ShoppingNav extends Component {
     return (
       <div className="shoppingContainerBox" onMouseLeave={handleLeave} onMouseEnter={handleEnter}>
         <div className="noneBox1">
-          {SHOPPING_LIST.map((el) => {
+          {SHOPPING_LIST.map((el, i) => {
             return (
-              <div className="shoppingContainer" key={el.idx}>
+              <div className="shoppingContainer" key={i}>
                 <div className="mainTitle" onClick={this.goToDetailPage}>
                   {el.main}
                 </div>

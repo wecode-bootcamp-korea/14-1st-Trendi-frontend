@@ -1,6 +1,6 @@
-import react, { Component } from "react";
-import Pagination from "react-js-pagination";
-import "./ReviewListComponet.scss";
+import react, { Component } from 'react';
+import Pagination from 'react-js-pagination';
+import './ReviewListComponet.scss';
 
 class ReviewAllView extends Component {
   constructor() {
@@ -30,6 +30,7 @@ class ReviewAllView extends Component {
     let indexOflast = page * perPage;
     let indexOffirst = indexOflast - perPage;
     const currentPage = reviewList.slice(indexOffirst, indexOflast);
+    console.log(currentPage);
     return (
       <div className="ReviewAllView">
         {currentPage ? (
@@ -38,7 +39,7 @@ class ReviewAllView extends Component {
               <div className="reviewForm" key={index}>
                 <div className="orderInfo">
                   <div>
-                    <span>{Array(el.star + 1).join("✮")}</span>
+                    <span>{Array(el.star + 1).join('✮')}</span>
                     <span>{el.nick_name}</span>
                     <input type="button" value="수정" onClick={() => this.updateView(el)} />
                     <input type="button" value="삭제" onClick={() => this.deleteView(el)} />
@@ -50,7 +51,7 @@ class ReviewAllView extends Component {
                     <div className="orderBodyInfo">{el.content}162cm 상의 55 하의 55 240mm 블랙/free 잘 맞아요</div>
                     <div>{el.content}</div>
                   </div>
-                  <img src={el.image_url} alt="구매 인증 이미지" />
+                  {el.image_url && <img src={el.image_url} alt="구매 인증 이미지" />}
                 </div>
               </div>
             );

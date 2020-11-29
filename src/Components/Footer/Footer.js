@@ -15,9 +15,9 @@ class Footer extends Component {
               </div>
             </div>
             <div className="rightBox">
-              {FOOTER_BOTTOM.map((el) => {
+              {FOOTER_BOTTOM.map((el, i) => {
                 return (
-                  <div className="snsContainer">
+                  <div className="snsContainer" key={i}>
                     <div className="snsBox">
                       <img className="snsImg" src={el.img} alt="사진"></img>
                     </div>
@@ -27,7 +27,6 @@ class Footer extends Component {
               })}
             </div>
           </div>
-          <div className="footerBottom"></div>
         </div>
       </div>
     );

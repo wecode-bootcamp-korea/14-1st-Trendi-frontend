@@ -33,7 +33,6 @@ class DetailItem extends Component {
 
   render() {
     const { data } = this.state;
-
     return (
       <div className="DetailItem">
         <div className="noneDetailItem">
