@@ -1,6 +1,6 @@
-import { TramSharp } from "@material-ui/icons";
-import react, { Component } from "react";
-import "./SellerProduct.scss";
+import { TramSharp } from '@material-ui/icons';
+import react, { Component } from 'react';
+import './SellerProduct.scss';
 class SellerProduct extends Component {
   constructor() {
     super();
@@ -41,7 +41,7 @@ class SellerProduct extends Component {
                       <div className="productDetail">
                         <div>
                           <h1 className="productTitle">{value.title}</h1>
-                          <img className="trashIcon" src="images/trash.png" value="삭제" onClick={() => deleteProduct([value])} />
+                          <img className="trashIcon" src="images/trash.png" value="삭제" onClick={() => deleteProduct(value)} />
                         </div>
                         <div className="productOption">
                           {value.color} {value.size}

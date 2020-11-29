@@ -13,9 +13,11 @@ class Main extends Component {
   }
 
   componentDidMount() {
+    console.log(`${configData.MAIN_URL}?trendi-pick=1`);
     fetch(`${configData.MAIN_URL}?trendi-pick=1`)
       .then((res) => res.json())
       .then((res) => {
+        console.log('Asdfasdfasdf', res);
         this.setState({ data: res.product_list });
       });
   }

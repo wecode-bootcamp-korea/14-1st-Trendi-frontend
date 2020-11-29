@@ -54,7 +54,7 @@ class ItemList extends Component {
                       </div>
                       <div className="itemName">{splitStr}</div>
                       <div className="priceBox">
-                        <div className="discount">{api.sale}%</div>
+                        {api.sale ? <div className="discount">{api.sale}%</div> : ''}
                         <div className="price">{api.price.toLocaleString(2)}</div>
                       </div>
                     </div>

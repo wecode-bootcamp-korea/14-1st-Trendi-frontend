@@ -49,8 +49,8 @@ class Review extends Component {
   listFilter = (value) => {
     const arrList = {
       all: () => this.state.viewList,
-      imgview: () => this.state.viewList.filter((el) => el.photo_review && el),
-      textview: () => this.state.viewList.filter((el) => !el.photo_review && el),
+      imgview: () => this.state.viewList.filter((el) => el.image_url && el),
+      textview: () => this.state.viewList.filter((el) => !el.image_url && el),
     };
     return arrList[value]();
   };
@@ -61,20 +61,24 @@ class Review extends Component {
 
   insertApi = (insertData) => {
     const { content, image_url, user_id, product, star } = insertData;
+    console.log(content, star);
     this.modalView();
-    fetch(`${configData.REVIEW}/11`, {
+    fetch(`${configData.REVIEW}/create`, {
+      headers: { Authorization: localStorage.getItem('token') },
       method: 'post',
       body: JSON.stringify({
         content: content,
-        image_url: image_url,
-        user_id: 11, //로그인을 위한 id 데이터
-        product_id: 11, //상품 id
+        image_url: '',
+        product_id: 1, //상품 id
         star: star,
         user_information: '156cm 51kg',
       }),
     })
       .then((res) => res.json())
-      .then((res) => (res.message === 'SUCCESS' ? this.loadList() : console.log('실패=======================================')));
+
+      .then((res) =>
+        res.message === 'SUCCESS' ? alert('리뷰가 추가 되었습니다') : console.log('실패=======================================')
+      );
   };
 
   updateAPI = (updateData) => {
@@ -95,13 +99,10 @@ class Review extends Component {
   };
 
   deleteView = (deleteView) => {
-    const { content, image_url, user_id, reivew_id, star } = deleteView;
-    fetch(`${configData.REVIEW}11`, {
+    console.log(deleteView);
+    const { review_pk } = deleteView;
+    fetch(`${configData.REVIEW}/${review_pk}`, {
       method: 'delete',
-      body: JSON.stringify({
-        user_id: 1, // 로그인 아이디
-        review_id: 3, //삭제 불가
-      }),
     })
       .then((res) => res.json())
       .then((res) => console.log(res));

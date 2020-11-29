@@ -118,17 +118,13 @@ class DropDownBox extends Component {
       alert('[사이즈]를 선택하세요.');
     }
     if (selectValue1 && selectValue2) {
-      console.log(orderBox[0]);
-      console.log(`product_id: 1, quantity: 
-      ${orderBox[0].amount}, color: ${orderBox[0].value}, size_id: ${orderBox[0].size}`);
-
       fetch(`${configData.MYCART}`, {
         method: 'post',
         headers: {
           Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify({
-          product_id: 1,
+          product_id: Math.round(Math.random() * 100),
           quantity: orderBox[0].amount,
           color: orderBox[0].value,
           size_id: 4,
