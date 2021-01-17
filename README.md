@@ -6,32 +6,50 @@
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68217675/104835114-a68ed400-58e7-11eb-8907-443860adfe8f.jpg"/>
 </p>
+<br>
+<br>
 
 # # 프로젝트 기간
 
 - 2020년 11월 16일 ~ 2020년 11월 27일(12일)
 
 
-# 작업 결과물
+# # 작업 결과물
  [![Youtube Badge](https://img.shields.io/badge/Youtube-ff0000?style=for-the-badge&logo=youtube&link=https://www.youtube.com/watch?v=19DTSxLyBX0)](https://www.youtube.com/watch?v=19DTSxLyBX0)
 
 
-
 # # 작업 인원
-
 - 2명(Front-End)
-#### Technology used
 
-* React
-* HTML , SCSS
-* Java Script
-* Git, Github
-* Material-ui
-* Slick
 
-##  !warning!
+## # 기술 스택/툴
 
-* 작업시 Branch 항상 확인
-* 작업현황 Trello 표시 잘하기
-* 특이사항 공유
->>>>>>> main
+#### # Front-end
+
+- HTML,Sass
+- JavaScript ES6+
+- React(class 컴포넌트)
+- Slick (library)
+- Git, GitHub
+
+## # 구현한 페이지 (혹은 컴포넌트)
+
+- 메인 홈페이지 이미지 슬라이더 기능 구현
+ - 타이머 기능 구현으로 인한 3초마다 이미지 자동으로 슬라이더되는 기능 구현
+ - 메인 홈페이지 상품 기능 구현
+
+- 메인 하단 상품 리스트 API를 통한 상품 진열 기능 구현
+ - 더보기 버튼 클릭시 상품 페이지 네이션 기능 구현
+ - 상품 페이지
+
+- 상품 리스트 페이지 API로 상품 진열 및 필터링 기능 구현
+ - (빠른배송,세일,최신순,가격순,낮은가격순 정렬 기능)
+ - 상품 상세 페이지
+
+- 상세 페이지 사이즈,컬러,구매 선택시 가격 및 수량 적용 기능 구현
+ - API 수신으로 제품 상세정보 정보 기입 및 화면 출력 완료
+ - Scroll 및 Ref 기능으로 스크롤 이동시 div 태그 색상 변환 기능구현
+ - 로그인 및 회원가입 기능
+
+- 이용약관 및 회원가입 기능 구현
+ - 아이디 비밀번호 Validation 기능 구현
