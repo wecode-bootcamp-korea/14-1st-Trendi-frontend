@@ -1,11 +1,18 @@
+# Project - TRANDI
 
-## Project Summary
+### TRANDI는 BRANDI 여성 전문 쇼핑몰 이커머스를 클론해본 프로젝트입니다.
 
-#### Front Member
+<img src="https://user-images.githubusercontent.com/68217675/104835114-a68ed400-58e7-11eb-8907-443860adfe8f.jpg"/>
 
-* 신세원
-* 장재원
+[작업 결과물](https://www.youtube.com/watch?v=19DTSxLyBX0)
 
+# # 프로젝트 기간
+
+- 2020년 11월 16일 ~ 2020년 11월 27일(12일)
+
+# # 작업 인원
+
+- 2명(Front-End)
 #### Technology used
 
 * React
