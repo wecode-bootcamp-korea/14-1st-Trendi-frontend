@@ -9,21 +9,20 @@
 <br>
 <br>
 
-# # 프로젝트 기간
-# #<span style="color:blue">프로젝트 기간📔</span>
+# # 프로젝트 기간🔥
 
 - 2020년 11월 16일 ~ 2020년 11월 27일(12일)
 
 
-# # 작업 결과물
+# # 작업 결과물 🎥
  [![Youtube Badge](https://img.shields.io/badge/Youtube-ff0000?style=for-the-badge&logo=youtube&link=https://www.youtube.com/watch?v=19DTSxLyBX0)](https://www.youtube.com/watch?v=19DTSxLyBX0)
 
 
-# # 작업 인원
+# # 작업 인원🧑🏻‍💻
 - 2명(Front-End)
 
 
-## # 기술 스택/툴
+## # 기술 스택/툴🛠
 
 #### # Front-end
 
@@ -33,7 +32,7 @@
 - Slick (library)
 - Git, GitHub
 
-## # 구현한 페이지 (혹은 컴포넌트)
+## # 구현한 페이지 (혹은 컴포넌트)📔
 
 ### 메인 홈페이지 이미지 슬라이더 기능 구현
  1. 타이머 기능 구현으로 인한 일정 시간마다 이미지 슬라이더 기능 구현
