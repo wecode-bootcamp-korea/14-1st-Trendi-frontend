@@ -10,7 +10,7 @@
 
 
 # 작업 결과물
- [![Youtube Badge](https://img.shields.io/badge/Youtube-ff0000?style=flat-square&logo=youtube&link=https://www.youtube.com/watch?v=19DTSxLyBX0)](https://www.youtube.com/watch?v=19DTSxLyBX0)
+ [![Youtube Badge](https://img.shields.io/badge/Youtube-ff0000?style=for-the-badge&logo=youtube&link=https://www.youtube.com/watch?v=19DTSxLyBX0)](https://www.youtube.com/watch?v=19DTSxLyBX0)
 
 
 
