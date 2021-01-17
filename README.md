@@ -1,6 +1,8 @@
 
 ### TRANDI는 BRANDI 여성 전문 쇼핑몰 이커머스를 클론해본 프로젝트입니다.
 
+<br>
+<br>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68217675/104835114-a68ed400-58e7-11eb-8907-443860adfe8f.jpg"/>
 </p>
