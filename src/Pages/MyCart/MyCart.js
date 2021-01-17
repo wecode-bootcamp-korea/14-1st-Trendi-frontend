@@ -87,7 +87,9 @@ class MyCart extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        const products = res.message === 'SUCCESS' && myCartData.filter((el) => el.orderlist_id !== product.orderlist_id);
+        const products =
+          res.message === 'SUCCESS' &&
+          myCartData.filter((el) => el.orderlist_id !== product.orderlist_id);
         this.setState({ myCartData: products });
       })
       .catch((err) => console.log(err));
@@ -99,7 +101,6 @@ class MyCart extends Component {
   };
 
   render() {
-    console.log();
     const { myCartData, allChekced } = this.state;
     let filterDelivery = {};
 
@@ -126,7 +127,12 @@ class MyCart extends Component {
           <h1>장바구니</h1>
           <div className="allSelectLayout">
             <label>
-              <input className="allChekbox" type="checkbox" checked={allChekced} onChange={this.allCheckBtn} />
+              <input
+                className="allChekbox"
+                type="checkbox"
+                checked={allChekced}
+                onChange={this.allCheckBtn}
+              />
               전체선택
             </label>
             <div className="allDelete" onClick={this.deleteAllProduct}>
@@ -140,7 +146,9 @@ class MyCart extends Component {
                   <div className="deliveryKind">
                     {!index && <img src="images/delivery.png" alt="하루빠른배송이미지" />}
 
-                    <span className={`${!index && 'haruDelivery'}`}>{el === '0' ? '하루배송' : '일반배송'}</span>
+                    <span className={`${!index && 'haruDelivery'}`}>
+                      {el === '0' ? '하루배송' : '일반배송'}
+                    </span>
                   </div>
                   <SelleProduct
                     products={filterDelivery[el]}

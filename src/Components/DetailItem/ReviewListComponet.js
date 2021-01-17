@@ -30,7 +30,6 @@ class ReviewAllView extends Component {
     let indexOflast = page * perPage;
     let indexOffirst = indexOflast - perPage;
     const currentPage = reviewList.slice(indexOffirst, indexOflast);
-    console.log(currentPage);
     return (
       <div className="ReviewAllView">
         {currentPage ? (
@@ -48,7 +47,9 @@ class ReviewAllView extends Component {
                 </div>
                 <div className="ReviewDetailInfo">
                   <div>
-                    <div className="orderBodyInfo">{el.content}162cm 상의 55 하의 55 240mm 블랙/free 잘 맞아요</div>
+                    <div className="orderBodyInfo">
+                      {el.content}162cm 상의 55 하의 55 240mm 블랙/free 잘 맞아요
+                    </div>
                     <div>{el.content}</div>
                   </div>
                   {el.image_url && <img src={el.image_url} alt="구매 인증 이미지" />}

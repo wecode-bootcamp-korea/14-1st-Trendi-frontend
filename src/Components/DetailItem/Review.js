@@ -61,7 +61,6 @@ class Review extends Component {
 
   insertApi = (insertData) => {
     const { content, image_url, user_id, product, star } = insertData;
-    console.log(content, star);
     this.modalView();
     fetch(`${configData.REVIEW}/create`, {
       headers: { Authorization: localStorage.getItem('token') },
@@ -77,7 +76,9 @@ class Review extends Component {
       .then((res) => res.json())
 
       .then((res) =>
-        res.message === 'SUCCESS' ? alert('리뷰가 추가 되었습니다') : console.log('실패=======================================')
+        res.message === 'SUCCESS'
+          ? alert('리뷰가 추가 되었습니다')
+          : console.log('실패=======================================')
       );
   };
 
@@ -93,19 +94,14 @@ class Review extends Component {
         star: star,
         user_information: '156cm 51kg',
       }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    }).then((res) => res.json());
   };
 
   deleteView = (deleteView) => {
-    console.log(deleteView);
     const { review_pk } = deleteView;
     fetch(`${configData.REVIEW}/${review_pk}`, {
       method: 'delete',
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    }).then((res) => res.json());
   };
 
   render() {
@@ -116,7 +112,12 @@ class Review extends Component {
           <header>
             <div className="writeForm" onClick={this.modalView}>
               <h1>리뷰({viewList ? viewList.length : 0})</h1>
-              <input className="writeBtnReview" type="button" value="글쓰기" onClick={this.modalView} />
+              <input
+                className="writeBtnReview"
+                type="button"
+                value="글쓰기"
+                onClick={this.modalView}
+              />
               <WriteReview
                 closeModal={this.modalView}
                 view={modal}
@@ -126,13 +127,22 @@ class Review extends Component {
               />
             </div>
             <div>
-              <span className={`${viewSate === 'all' && 'selectTab'}`} onClick={() => this.changView('all')}>
+              <span
+                className={`${viewSate === 'all' && 'selectTab'}`}
+                onClick={() => this.changView('all')}
+              >
                 전체
               </span>
-              <span className={`${viewSate === 'imgview' && 'selectTab'}`} onClick={() => this.changView('imgview')}>
+              <span
+                className={`${viewSate === 'imgview' && 'selectTab'}`}
+                onClick={() => this.changView('imgview')}
+              >
                 포토리뷰
               </span>
-              <span className={`${viewSate === 'textview' && 'selectTab'}`} onClick={() => this.changView('textview')}>
+              <span
+                className={`${viewSate === 'textview' && 'selectTab'}`}
+                onClick={() => this.changView('textview')}
+              >
                 텍스트리뷰
               </span>
             </div>
