@@ -2,6 +2,7 @@
 
 <br>
 <br>
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68217675/104835114-a68ed400-58e7-11eb-8907-443860adfe8f.jpg"/>
 </p>
@@ -54,4 +55,4 @@
 
 - 아이디 비밀번호 Validation 기능 구현
 - 로그인 및 회원가입 기능
-- 안녕 현지킨 테스트 중입니다.2
+- 주기적인 리팩토링 작업중입니다.
