@@ -52,7 +52,8 @@ class DropDownBox extends Component {
     //중복된 배열이 있을때 걸러주는 기능 추가
     let orderBox2 = [...orderBox];
     let orderBox3 = orderBox2.filter((el) => el.value === value && el.size === e.label);
-    if (orderBox3 == '') orderBox2.push({ idx: Date.now(), value, size: e.value, priceBox: 16200, amount: 1 });
+    if (orderBox3 == '')
+      orderBox2.push({ idx: Date.now(), value, size: e.value, priceBox: 16200, amount: 1 });
 
     this.setState({
       value,
@@ -129,10 +130,12 @@ class DropDownBox extends Component {
           color: orderBox[0].value,
           size_id: 4,
         }),
-      })
-        .then((res) => res.json())
-        .then((res) => console.log(res));
-      if (window.confirm(' 선택하신 상품들이 정상적으로 장바구니에 담겼습니다. 지금 장바구니함으로 이동하시겠습니까?') === true) {
+      }).then((res) => res.json());
+      if (
+        window.confirm(
+          ' 선택하신 상품들이 정상적으로 장바구니에 담겼습니다. 지금 장바구니함으로 이동하시겠습니까?'
+        ) === true
+      ) {
         this.props.history.push('/mycart');
       } else {
         return;
@@ -146,8 +149,20 @@ class DropDownBox extends Component {
     return (
       <div className="DropDownBox">
         <form className="dropDownContainer">
-          <Select className="select1" onChange={this.handleChange} options={COLOR} defaultValue={COLOR[0]} />
-          {number > 0 && <Select className="select2" onChange={this.handleSizeCheck} options={SIZE} defaultValue={SIZE[0]} />}
+          <Select
+            className="select1"
+            onChange={this.handleChange}
+            options={COLOR}
+            defaultValue={COLOR[0]}
+          />
+          {number > 0 && (
+            <Select
+              className="select2"
+              onChange={this.handleSizeCheck}
+              options={SIZE}
+              defaultValue={SIZE[0]}
+            />
+          )}
         </form>
         <footer className="footer">
           {orderBox.map((el) => {
