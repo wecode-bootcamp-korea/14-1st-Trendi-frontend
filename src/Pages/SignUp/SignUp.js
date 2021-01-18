@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import StatusView from "./StatusView";
-import Agreement from "./Agreement";
-import "./SignUp.scss";
+import React, { Component } from 'react';
+import StatusView from './StatusView';
+import Agreement from './Agreement';
+import './SignUp.scss';
 
 class SignUp extends Component {
   constructor() {
@@ -9,11 +9,11 @@ class SignUp extends Component {
     this.state = {
       allCheckd: false,
       agreement: [
-        { isCheck: false, content: "우리는 국가와 국민에 충성을 다하는 대한민국 국민이다" },
-        { isCheck: false, content: "하나,우리는 자유민주주의를 수호하며 조국통일의 역군이다." },
-        { isCheck: false, content: "둘, 우리는 실전과 같은 훈련으로 지상전의 승리자가 된다" },
-        { isCheck: false, content: "셋, 우리는 법규를 준수하고 상관의 명령에 복종한다" },
-        { isCheck: false, content: "넷,우리는 명예와 신의를 지키며 전우애로 굳게 단결한다." },
+        { isCheck: false, content: '우리는 국가와 국민에 충성을 다하는 대한민국 국민이다' },
+        { isCheck: false, content: '하나,우리는 자유민주주의를 수호하며 조국통일의 역군이다.' },
+        { isCheck: false, content: '둘, 우리는 실전과 같은 훈련으로 지상전의 승리자가 된다' },
+        { isCheck: false, content: '셋, 우리는 법규를 준수하고 상관의 명령에 복종한다' },
+        { isCheck: false, content: '넷,우리는 명예와 신의를 지키며 전우애로 굳게 단결한다.' },
       ],
     };
   }
@@ -23,7 +23,7 @@ class SignUp extends Component {
     let agreement = this.state.agreement;
     let allCheckd = true;
 
-    target.name === "all"
+    target.name === 'all'
       ? agreement.map((el) => {
           allCheckd = !this.state.allCheckd;
           return (el.isCheck = target.checked);
@@ -41,16 +41,15 @@ class SignUp extends Component {
     let comparison = agreement.filter((el) => {
       return !el.isCheck && el;
     });
-    console.log(comparison);
     if (comparison.length) {
       alert(`${comparison[0].content} 을 확인해 주세요`);
     } else {
-      this.props.history.push("/SignUpInfo");
+      this.props.history.push('/SignUpInfo');
     }
   };
 
   cancelBtn = (e) => {
-    this.props.history.push("/login");
+    this.props.history.push('/login');
   };
 
   render() {
